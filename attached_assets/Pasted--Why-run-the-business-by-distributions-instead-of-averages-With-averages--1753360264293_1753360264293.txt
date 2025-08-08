@@ -1,0 +1,126 @@
+### Why “run‑the‑business by distributions” instead of averages
+
+| With averages…                                                                                                           | With distributions…                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| A single *mean* hides spread and tail risk (e.g., 88 % first‑time‑fix looks fine even if 15 % of techs languish < 70 %). | You see **shape, skew, tails, clusters** — the places where small, targeted fixes create outsized ROI.                      |
+| Improvement levers are blunt (“raise average NPS from 4.5 → 4.6”).                                                       | Interventions become *surgical* (“lift the P25‑tile techs’ NPS from 4.0 → 4.3; P75 already great”).                         |
+| Safest action is checklist management and blanket policy.                                                                | You run **portfolio thinking** — accept normal variance in the middle, focus capital on tail outliers and breakout leaders. |
+
+---
+
+## 1.  Core data pipeline changes (owned by **Data / ML Platform Agent**)
+
+| Requirement                                        | Implementation                                                                                                                                                 |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Store raw events, not roll‑ups.**                | Daily micro‑batches land as Δ tables (job events, part scans, chat logs).                                                                                      |
+| **Auto‑compute quantiles & histograms.**           | Use Apache DataSketches or DuckDB’s `approx_quantile()` to materialise P01…P99 per fact table → published to Superset / Looker.                                |
+| **Track distribution drift, not just mean drift.** | Kolmogorov‑Smirnov or Wasserstein distance calculated nightly; flag if change > σ threshold.                                                                   |
+| **Expose percentile APIs** for agents.             | e.g. `GET /metrics/ftf?pa_id=147&quantile=0.25` returns tech‑level P25 first‑time‑fix for that planning area so Dispatch Agent can hard‑gate job type routing. |
+
+---
+
+## 2.  How each domain uses the distribution lens
+
+### 2.1 Technicians
+
+| Metric                  | Distribution View             | Action Logic (Agents)                                                                                                   |
+| ----------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Earnings / week**     | Box‑plot per planning area    | Corey nudges techs below P25 with “surge shift suggestions”; Training Agent promotes new badge path to those below P10. |
+| **First‑time‑fix %**    | Histogram by skill type       | Dispatch Agent auto‑routes high‑risk jobs away from P10 techs; Master‑Tech escalation triggered if they accept anyway.  |
+| **Recall % volatility** | Time‑series variance per tech | Tech‑Assist prioritises real‑time coaching to high‑variance techs (not just high average recalls).                      |
+
+### 2.2 Customers
+
+| Metric                            | Distribution                   | Actions                                                                                                      |
+| --------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| **NPS**                           | Kernel density across channels | CX Agent targets detractor cluster (≤ 6) with same‑day call‑backs; promoters (≥ 9) get warranty upsell ping. |
+| **Booking‑to‑ETA lateness (min)** | CDF (cumulative)               | Guarantee promise set to P90; Dispatch Agent holds new slot inventory until lateness CDF shifts < 1 %.       |
+
+### 2.3 Parts & Inventory
+
+| Metric                     | Distribution      | Actions                                                                                            |
+| -------------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+| **Lead time (hrs) by SKU** | P05/P50/P95 bands | Parts Agent flags SKUs whose P95 > 2 × P50 for supplier renegotiation or local buffer stock.       |
+| **Cost / SKU**             | Pareto chart      | Finance Agent focuses cost‑reduction on top‑decile “spend × variance” parts; ignores stable tails. |
+
+### 2.4 Demand/Scheduling
+
+| Metric                                   | Distribution       | Actions                                                                                                                  |
+| ---------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| **Incoming call volume / 30 min window** | Poisson fit per PA | Strategy Agent sets LSA bid ceilings based on P85 hour‑ahead forecast, not daily mean.                                   |
+| **Jobs per tech per day**                | ECDF per PA        | Surge pay kicks in once tech‑load surpasses P75; below P25, Recruit Agent throttles ad spend to avoid under‑utilisation. |
+
+---
+
+## 3.  Operational dashboards (visual examples)
+
+| Domain         | Tile                            | Chart                                      | Decision Trigger                                                       |
+| -------------- | ------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------- |
+| Technician Ops | “Recall % distribution, PA 147” | Violin plot — quickly shows fat lower tail | If P10 > 15 % recalls → auto‑assign Master‑Tech coaching.              |
+| CX             | “NPS density by channel”        | Ridge plot voice vs chat vs warranty       | If chat mode shows new bi‑modal spread → Prompt Designer reviews copy. |
+| Parts          | “Compressor‑SKU Lead‑time CDF”  | S‑curve                                    | If P95 jumps > 24 h → pre‑stage buffer.                                |
+
+---
+
+## 4.  Playbook for **agents acting on distribution slices**
+
+1. **Detect**
+   *Performance‑Analytics Agent* calculates z‑score outliers in both tails (good and bad).
+2. **Explain**
+   SHAP driver breakdown for each outlier cohort (e.g. low‑earnings techs caused 60 % by recall penalties).
+3. **Match / Mentor**
+   *Playbook Synthesiser Agent* pairs bottom P10 entities to top P10 peers with matching context (same product mix, same PA).
+4. **Intervene**
+   Agents push *differentiated nudges* (extra surge shifts, training quests, price promotions) only to the cohort slice—not the median.
+5. **Measure ROI**
+   After 2‑week lift, compare slice vs control; if uplift > threshold, expand intervention bandwidth.
+
+---
+
+## 5.  Example: Weekly First‑Time‑Fix Distribution Report (auto‑generated)
+
+```
+Planning Area 147 – Week 17
+----------------------------------------------------------
+Tech Count: 38      Median FTF: 86.0%
+Spread (P90 – P10): 18.1 pp (Wide)
+
+Tails:
+• Bottom P10 (FTF < 72%) – 4 techs
+     Primary drivers: parts mismatch +7%, longer diagnostic time
+     Recommended actions:
+        - Auto-lock "high complexity" jobs
+        - Assign VR diagnostic refresher module
+
+• Top P10 (FTF > 93%) – 4 techs
+     Exploit drivers: pre‑visit parts ordering, uses AR assist 1.8× more
+     Recommended actions:
+        - Capture AR session transcripts into training set
+        - Invite to peer‑mentoring bounty ($50 per mentee week)
+
+Impact Simulation:
+If bottom tail moves to P50, PA gross profit +$5.3k/week
+----------------------------------------------------------
+Report generated by Performance‑Analytics Agent 04‑20‑2025 02:11 UTC
+```
+
+No averages were harmed—just actionable tail work and peer‑learning.
+
+---
+
+## 6.  Governance & guardrails
+
+* **Guardrails Engine** blocks blanket policies that widen disparity (e.g. exorbitant surge pricing that penalises 95 % of customers because of an outlier 5 %).
+* **Policy Steward** gets override alerts if any action’s predicted Gini coefficient (inequity) rises beyond set limits.
+
+---
+
+### Bottom line
+
+By **thinking in distributions**, the AI‑first company can:
+
+* **Spot hidden gold** (hyper‑performers to emulate) and **latent risk** (tail defects) early.
+* Deploy **micro‑targeted, low‑cost** interventions instead of blunt all‑hands directives.
+* Keep technicians and customers happier because each touchpoint feels personalised, not one‑size‑fits‑all.
+
+Distributions make every agent smarter, every dollar better aimed, and every human interaction feel uniquely attuned.

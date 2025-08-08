@@ -1,0 +1,117 @@
+### The **Parts Supply‑Chain Owner** → **Parts Procurement Agent (PPA)**
+
+*(a single central brain with 400 light “Parts‑Pod” replicas—one per planning area)*
+
+---
+
+## 1 Mandate & North‑Star Metrics
+
+| Objective                 | KPI the PPA owns                                                     | Target Guard‑Band                      |
+| ------------------------- | -------------------------------------------------------------------- | -------------------------------------- |
+| First‑time‑fix enablement | **P95 parts‑match rate** (all required parts pre‑staged or same‑day) | ≥ 94 %                                 |
+| Cost efficiency           | **Parts cost / job** (blended)                                       | ≤ national P50 + 5 %                   |
+| Waste reduction           | **Return & excess inventory rate**                                   | ≤ 3 % of parts spend                   |
+| Speed                     | **Median door‑to‑door lead‑time**                                    | ≤ 18 hrs (metro), ≤ 36 hrs (non‑metro) |
+
+---
+
+## 2 How the Parts Procurement Agent Works
+
+### 2.1 Four cooperating sub‑agents
+
+| Sub‑Agent                  | Core Skill                                                                                           | Key Data sources                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Predictor**              | Probabilistic parts list based on product type, make/model, error code, historical fix logs          | Data/ML feature store, OEM parts catalogs     |
+| **Vendor Optimizer**       | Multi‑objective solver—minimize *total landed cost* (price + shipping + return risk) at required SLA | Live API feeds from distributors, OEMs, 3‑PLs |
+| **Inventory Orchestrator** | Decides what to pre‑stage in lockers, micro‑warehouses, or van stock                                 | Real‑time stock ledger, tech routes           |
+| **Dialogue Mediator**      | Interactive Q‑and‑A with the technician when proposed part has < 60 % confidence                     | TechHub chat, images, multimeter readings     |
+
+### 2.2 Life‑cycle flow
+
+```
+           Dispatch shares job ETA & meta ✉
+                       │
+              ┌────────▼─────────┐
+              │  Predictor       │  Historical priors
+              └────────┬─────────┘
+                       │ candidate part set + confidence
+                       ▼
+              ┌────────▼─────────┐
+              │Inventory Orchestrator│ (T‑24hr)
+              └────────┬─────────┘
+                       │ if stock gap
+                       ▼
+              ┌────────▼─────────┐
+              │Vendor Optimizer  │  Real‑time catalog & SLA
+              └────────┬─────────┘
+                       │ order PO + ship label
+                       ▼
+             Locker/Hub replenished before visit
+                       │
+        On‑site app: tech proposes extra part
+                       │
+              ┌────────▼─────────┐
+              │Dialogue Mediator │ (asks clarifying Qs)
+              └──────────────────┘
+```
+
+---
+
+## 3 On‑site “Recommendation vs Order” Interaction
+
+| Scenario                                     | What the Tech Sees in the App                                                                                                         | PPA Behaviour                                                                                                       |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **High‑confidence overlap** (≥ 80 %)         | “👍 Part already in your locker bin #3.”                                                                                              | Approves consumption; updates inventory.                                                                            |
+| **Tech request w/ low probability** (≤ 40 %) | Modal: “This part fixes < 15 % of similar *Samsung RF28* no‑cool calls. <br>1️⃣ Measure compressor amp draw? 2️⃣ Take thermal image?” | Waits for structured answer or image. If still low likelihood, suggests alternate part or escalates to Master Tech. |
+| **Ambiguous SKU**                            | Dropdown: “Three water valves fit this model. App shows photos & prices.”                                                             | Guides pick; logs decision for model retraining.                                                                    |
+
+The *Dialogue Mediator* is **context‑aware**—questions are no more than needed, preserving tech speed.
+
+---
+
+## 4 Vendor Optimization Formula (simplified)
+
+> **Total Cost = Unit Price + Shipping + (Return Prob × Return Fee) + (Delay Penalty × Expected Hours Late)**
+
+*Delay Penalty* is derived from the local **Customer Lateness Value of Time** (from CXO tables).
+The solver runs a knapsack‑style MIP each hour but caches results to avoid thrash.
+
+---
+
+## 5 Learning Loops
+
+1. **Outcome logging** – After QA Agent confirms the fix, the PPA gets a label:
+   *“Part A used, Part B unused”* → negative reward to Predictor if B had high confidence.
+2. **Bayesian update** – Predictor adjusts priors per model‑generation; rare edge‑cases decay out automatically.
+3. **Return reconciliation** – Inventory Orchestrator fines a tech’s *van‑stock budget* if unused parts sit > 14 days, nudging them to return promptly.
+
+---
+
+## 6 Collaboration with Other Agents
+
+| Counter‑party               | Data Exchanged                                | Benefit                                               |
+| --------------------------- | --------------------------------------------- | ----------------------------------------------------- |
+| **Dispatch Agent**          | Tomorrow’s booked jobs → parts pre‑stage list | Improves first‑time‑fix • reduces truck rolls         |
+| **Tech‑Assist Agent**       | Live AR diagnostic data                       | Raises parts‑prediction confidence mid‑job            |
+| **Finance & Billing**       | PO feed, landed cost ledger                   | Real‑time margin visibility per job                   |
+| **Planning‑Area CEO Agent** | Weekly cost & lead‑time distribution          | Enables local OKRs (e.g., bring P95 lead‑time < 24 h) |
+
+---
+
+## 7 KPIs Visible to Technicians (Gamified)
+
+| Tile on Tech Dashboard   | How It’s Calculated                                       | Gamified Reward                                 |
+| ------------------------ | --------------------------------------------------------- | ----------------------------------------------- |
+| **Parts‑Match Streak**   | Consecutive jobs where all required parts were pre‑staged | 5‑job streak → \$25 bonus                       |
+| **Smart Order Accuracy** | % of tech‑requested parts that the PPA approves           | ≥ 90 % accuracy unlocks higher van‑stock budget |
+| **Return Discipline**    | Avg days unused part sits in truck                        | ≤ 7 days → leaderboard XP                       |
+
+---
+
+## 8 Impact on Business Goals
+
+* **Customer success** – Faster repairs, fewer re‑visits, higher NPS because parts are “already there.”
+* **Technician success** – Less guesswork, higher first‑time‑fix → higher earnings and bonus eligibility.
+* **Company success** – Lower parts cost per job, minimized dead stock, tighter GP%.
+
+The **Parts Procurement Agent** thus becomes the silent COO of the supply chain—turning every tech’s part guess into a data‑driven, cost‑optimized, just‑in‑time action without slowing the field workflow.

@@ -1,0 +1,78 @@
+client:536 Uncaught (in promise) SyntaxError: Failed to construct 'WebSocket': The URL 'wss://localhost:undefined/?token=DG-xVKx_UpdF' is invalid.
+    at setupWebSocket (client:536:19)
+    at fallback (client:509:16)
+    at WebSocket.<anonymous> (client:555:7)Understand this error
+chunk-RPCDYKBN.js?v=29a0048f:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+webcomponents-ce.js:33 Uncaught Error: A custom element with name 'mce-autosize-textarea' has already been defined.
+    at Aa (webcomponents-ce.js:33:363)
+    at m.define (webcomponents-ce.js:33:133)
+    at overlay_bundle.js:147:5559
+    at D (overlay_bundle.js:44:680)
+    at overlay_bundle.js:158:392Understand this error
+vendors.bundle.js:2 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+AgentRoster.tsx:24 AgentRoster - User: jennifer.walsh canViewAgents: true
+AgentTutorialsFixed.tsx:617 Uncaught ReferenceError: Eye is not defined
+    at AgentTutorials (AgentTutorialsFixed.tsx:617:22)
+    at renderWithHooks (chunk-RPCDYKBN.js?v=29a0048f:11548:26)
+    at mountIndeterminateComponent (chunk-RPCDYKBN.js?v=29a0048f:14926:21)
+    at beginWork (chunk-RPCDYKBN.js?v=29a0048f:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=29a0048f:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=29a0048f:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=29a0048f:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=29a0048f:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=29a0048f:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=29a0048f:19137:13)Understand this error
+AgentRoster.tsx:24 AgentRoster - User: jennifer.walsh canViewAgents: true
+AgentTutorialsFixed.tsx:617 Uncaught ReferenceError: Eye is not defined
+    at AgentTutorials (AgentTutorialsFixed.tsx:617:22)
+    at renderWithHooks (chunk-RPCDYKBN.js?v=29a0048f:11548:26)
+    at mountIndeterminateComponent (chunk-RPCDYKBN.js?v=29a0048f:14926:21)
+    at beginWork (chunk-RPCDYKBN.js?v=29a0048f:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=29a0048f:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=29a0048f:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=29a0048f:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=29a0048f:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=29a0048f:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=29a0048f:19137:13)Understand this error
+chunk-RPCDYKBN.js?v=29a0048f:14032 The above error occurred in the <AgentTutorials> component:
+
+    at AgentTutorials (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/src/components/AgentTutorialsFixed.tsx:1799:37)
+    at div
+    at https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-IWFJIMEQ.js?v=29a0048f:42:13
+    at Presence (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-WKSNYNSY.js?v=29a0048f:24:11)
+    at https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=29a0048f:390:13
+    at _c5 (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/src/components/ui/tabs.tsx:72:12)
+    at div
+    at https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-IWFJIMEQ.js?v=29a0048f:42:13
+    at Provider (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=29a0048f:38:15)
+    at https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tabs.js?v=29a0048f:268:7
+    at div
+    at div
+    at div
+    at main
+    at div
+    at AgentRoster (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/src/pages/AgentRoster.tsx:36:35)
+    at Route (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=29a0048f:323:16)
+    at Switch (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=29a0048f:379:17)
+    at ProtectedRouter (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/src/App.tsx?v=KQh7_7YIad6V5a528xupb:155:42)
+    at div
+    at Provider (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=29a0048f:38:15)
+    at TooltipProvider (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=29a0048f:955:5)
+    at AuthProvider (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/src/contexts/AuthContext.tsx:22:32)
+    at QueryClientProvider (https://b5aa2edd-c33b-4739-bc79-1d468a574f70-00-13jrqsya2g1n5.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=29a0048f:2805:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+logCapturedError @ chunk-RPCDYKBN.js?v=29a0048f:14032Understand this error
+chunk-RPCDYKBN.js?v=29a0048f:9129 Uncaught ReferenceError: Eye is not defined
+    at AgentTutorials (AgentTutorialsFixed.tsx:617:22)
+    at renderWithHooks (chunk-RPCDYKBN.js?v=29a0048f:11548:26)
+    at mountIndeterminateComponent (chunk-RPCDYKBN.js?v=29a0048f:14926:21)
+    at beginWork (chunk-RPCDYKBN.js?v=29a0048f:15914:22)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=29a0048f:19753:22)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=29a0048f:19198:20)
+    at workLoopSync (chunk-RPCDYKBN.js?v=29a0048f:19137:13)
+    at renderRootSync (chunk-RPCDYKBN.js?v=29a0048f:19116:15)
+    at recoverFromConcurrentError (chunk-RPCDYKBN.js?v=29a0048f:18736:28)
+    at performSyncWorkOnRoot (chunk-RPCDYKBN.js?v=29a0048f:18879:28)Understand this error

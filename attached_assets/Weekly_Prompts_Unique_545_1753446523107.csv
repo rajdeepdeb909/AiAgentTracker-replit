@@ -1,0 +1,546 @@
+ID,Category,Prompt,GreenRange,YellowRange,RedRange,SimulatedValue,Status,Action
+W-001,Volume & Revenue,Weekly high-value job mix (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.0,Red,Escalate to owner agent; launch corrective playbook.
+W-002,Volume & Revenue,Weekly weekly D2C revenue (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.9,Red,Escalate to owner agent; launch corrective playbook.
+W-003,Volume & Revenue,Weekly subscription revenue share (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.1,Yellow,Investigate moderate deviation.
+W-004,Volume & Revenue,Weekly average labour revenue (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.2,Green,Maintain course.
+W-005,Volume & Revenue,Weekly total jobs completed (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.5,Red,Escalate to owner agent; launch corrective playbook.
+W-006,Volume & Revenue,Weekly repeat bookings share (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.9,Green,Maintain course.
+W-007,Volume & Revenue,Weekly subscription revenue share (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.6,Red,Escalate to owner agent; launch corrective playbook.
+W-008,Volume & Revenue,Weekly average parts revenue (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.8,Red,Escalate to owner agent; launch corrective playbook.
+W-009,Volume & Revenue,Weekly total jobs completed (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.9,Yellow,Investigate moderate deviation.
+W-010,Volume & Revenue,Weekly B2B revenue contribution (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.4,Red,Escalate to owner agent; launch corrective playbook.
+W-011,Volume & Revenue,Weekly B2B revenue contribution (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.4,Red,Escalate to owner agent; launch corrective playbook.
+W-012,Volume & Revenue,Weekly average ticket revenue (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,127.8,Red,Escalate to owner agent; launch corrective playbook.
+W-013,Volume & Revenue,Weekly total jobs completed (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.9,Green,Maintain course.
+W-014,Volume & Revenue,Weekly YoY revenue delta (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.2,Green,Maintain course.
+W-015,Volume & Revenue,Weekly high-value job mix (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.2,Green,Maintain course.
+W-016,Volume & Revenue,Weekly total jobs completed (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.8,Red,Escalate to owner agent; launch corrective playbook.
+W-017,Volume & Revenue,Weekly average ticket revenue (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.3,Red,Escalate to owner agent; launch corrective playbook.
+W-018,Volume & Revenue,Weekly YoY revenue delta (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.3,Green,Maintain course.
+W-019,Volume & Revenue,Weekly B2B revenue contribution (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,89.6,Yellow,Investigate moderate deviation.
+W-020,Volume & Revenue,Weekly repeat bookings share (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.1,Yellow,Investigate moderate deviation.
+W-021,Volume & Revenue,Weekly average parts revenue (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.7,Green,Maintain course.
+W-022,Volume & Revenue,Weekly repeat bookings share (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,97.0,Green,Maintain course.
+W-023,Volume & Revenue,Weekly total jobs completed (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.1,Green,Maintain course.
+W-024,Volume & Revenue,Weekly average parts revenue (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.0,Red,Escalate to owner agent; launch corrective playbook.
+W-025,Volume & Revenue,Weekly profit contribution by channel (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,130.8,Red,Escalate to owner agent; launch corrective playbook.
+W-026,Volume & Revenue,Weekly high-value job mix (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.4,Red,Escalate to owner agent; launch corrective playbook.
+W-027,Volume & Revenue,Weekly gross revenue growth % (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.6,Yellow,Investigate moderate deviation.
+W-028,Volume & Revenue,Weekly average labour revenue (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.8,Yellow,Investigate moderate deviation.
+W-029,Volume & Revenue,Weekly YoY revenue delta (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,89.0,Yellow,Investigate moderate deviation.
+W-030,Volume & Revenue,Weekly gross revenue growth % (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.3,Red,Escalate to owner agent; launch corrective playbook.
+W-031,Volume & Revenue,Weekly total jobs completed (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.2,Red,Escalate to owner agent; launch corrective playbook.
+W-032,Volume & Revenue,Weekly gross revenue growth % (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.7,Green,Maintain course.
+W-033,Volume & Revenue,Weekly average parts revenue (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.3,Green,Maintain course.
+W-034,Volume & Revenue,Weekly average labour revenue (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.4,Yellow,Investigate moderate deviation.
+W-035,Volume & Revenue,Weekly average ticket revenue (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.5,Red,Escalate to owner agent; launch corrective playbook.
+W-036,Volume & Revenue,Weekly weekly D2C revenue (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.7,Red,Escalate to owner agent; launch corrective playbook.
+W-037,Volume & Revenue,Weekly total jobs completed (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.8,Red,Escalate to owner agent; launch corrective playbook.
+W-038,Volume & Revenue,Weekly gross revenue growth % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.6,Red,Escalate to owner agent; launch corrective playbook.
+W-039,Volume & Revenue,Weekly gross revenue growth % (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.0,Red,Escalate to owner agent; launch corrective playbook.
+W-040,Volume & Revenue,Weekly profit contribution by channel (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,68.9,Red,Escalate to owner agent; launch corrective playbook.
+W-041,Volume & Revenue,Weekly repeat bookings share (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.9,Red,Escalate to owner agent; launch corrective playbook.
+W-042,Profit & Cost,Weekly GP leakage % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.2,Red,Escalate to owner agent; launch corrective playbook.
+W-043,Profit & Cost,Weekly parts cost share (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.8,Yellow,Investigate moderate deviation.
+W-044,Profit & Cost,Weekly parts cost share (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.2,Green,Maintain course.
+W-045,Profit & Cost,Weekly labor rate variance (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.3,Red,Escalate to owner agent; launch corrective playbook.
+W-046,Profit & Cost,Weekly overtime $$ (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,91.9,Green,Maintain course.
+W-047,Profit & Cost,Weekly weekly transport cost (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.0,Red,Escalate to owner agent; launch corrective playbook.
+W-048,Profit & Cost,Weekly overtime $$ (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.1,Red,Escalate to owner agent; launch corrective playbook.
+W-049,Profit & Cost,Weekly payroll-to-revenue ratio (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.1,Green,Maintain course.
+W-050,Profit & Cost,Weekly payroll-to-revenue ratio (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.6,Yellow,Investigate moderate deviation.
+W-051,Profit & Cost,Weekly gross profit per job (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.8,Red,Escalate to owner agent; launch corrective playbook.
+W-052,Profit & Cost,Weekly gross profit per job (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.3,Yellow,Investigate moderate deviation.
+W-053,Profit & Cost,Weekly GP leakage % (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.1,Green,Maintain course.
+W-054,Profit & Cost,Weekly GP leakage % (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.2,Red,Escalate to owner agent; launch corrective playbook.
+W-055,Profit & Cost,Weekly gross profit per job (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.3,Yellow,Investigate moderate deviation.
+W-056,Profit & Cost,Weekly labor rate variance (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.1,Red,Escalate to owner agent; launch corrective playbook.
+W-057,Profit & Cost,Weekly payroll-to-revenue ratio (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,118.3,Yellow,Investigate moderate deviation.
+W-058,Profit & Cost,Weekly GP leakage % (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,93.8,Green,Maintain course.
+W-059,Profit & Cost,Weekly EBITDA margin (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.0,Yellow,Investigate moderate deviation.
+W-060,Profit & Cost,Weekly gross profit per job (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.6,Red,Escalate to owner agent; launch corrective playbook.
+W-061,Profit & Cost,Weekly overtime $$ (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.5,Green,Maintain course.
+W-062,Profit & Cost,Weekly labor rate variance (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,73.2,Red,Escalate to owner agent; launch corrective playbook.
+W-063,Profit & Cost,Weekly EBITDA margin (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.7,Yellow,Investigate moderate deviation.
+W-064,Profit & Cost,Weekly overtime $$ (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.3,Green,Maintain course.
+W-065,Profit & Cost,Weekly payroll-to-revenue ratio (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.6,Red,Escalate to owner agent; launch corrective playbook.
+W-066,Profit & Cost,Weekly parts cost share (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.6,Green,Maintain course.
+W-067,Profit & Cost,Weekly overtime $$ (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.6,Red,Escalate to owner agent; launch corrective playbook.
+W-068,Profit & Cost,Weekly weekly transport cost (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,76.3,Red,Escalate to owner agent; launch corrective playbook.
+W-069,Profit & Cost,Weekly weekly transport cost (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,81.2,Yellow,Investigate moderate deviation.
+W-070,Capacity & Routing,Weekly average drive minutes (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.6,Green,Maintain course.
+W-071,Capacity & Routing,Weekly jobs per tech per day (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.7,Green,Maintain course.
+W-072,Capacity & Routing,Weekly jobs per tech per day (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.0,Green,Maintain course.
+W-073,Capacity & Routing,Weekly route efficiency score (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.7,Red,Escalate to owner agent; launch corrective playbook.
+W-074,Capacity & Routing,Weekly jobs per tech per day (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,89.6,Yellow,Investigate moderate deviation.
+W-075,Capacity & Routing,Weekly average drive minutes (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.7,Red,Escalate to owner agent; launch corrective playbook.
+W-076,Capacity & Routing,Weekly route efficiency score (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.4,Yellow,Investigate moderate deviation.
+W-077,Capacity & Routing,Weekly route efficiency score (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.1,Red,Escalate to owner agent; launch corrective playbook.
+W-078,Capacity & Routing,Weekly route efficiency score (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,117.4,Yellow,Investigate moderate deviation.
+W-079,Capacity & Routing,Weekly Sunday slot utilisation (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.4,Green,Maintain course.
+W-080,Capacity & Routing,Weekly jobs per tech per day (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.3,Red,Escalate to owner agent; launch corrective playbook.
+W-081,Capacity & Routing,Weekly slot-density index (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,86.7,Yellow,Investigate moderate deviation.
+W-082,Capacity & Routing,Weekly tech idle ratio (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,68.9,Red,Escalate to owner agent; launch corrective playbook.
+W-083,Capacity & Routing,Weekly average drive minutes (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.8,Red,Escalate to owner agent; launch corrective playbook.
+W-084,Capacity & Routing,Weekly average drive minutes (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,70.2,Red,Escalate to owner agent; launch corrective playbook.
+W-085,Capacity & Routing,Weekly route efficiency score (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,131.9,Red,Escalate to owner agent; launch corrective playbook.
+W-086,Capacity & Routing,Weekly slot-density index (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,76.8,Red,Escalate to owner agent; launch corrective playbook.
+W-087,Capacity & Routing,Weekly Sunday slot utilisation (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.3,Yellow,Investigate moderate deviation.
+W-088,Capacity & Routing,Weekly tech idle ratio (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.1,Red,Escalate to owner agent; launch corrective playbook.
+W-089,Capacity & Routing,Weekly Sunday slot utilisation (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.1,Red,Escalate to owner agent; launch corrective playbook.
+W-090,Capacity & Routing,Weekly slot-density index (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,118.9,Yellow,Investigate moderate deviation.
+W-091,Capacity & Routing,Weekly open capacity next 7d (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.2,Red,Escalate to owner agent; launch corrective playbook.
+W-092,Capacity & Routing,Weekly average drive minutes (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,90.6,Green,Maintain course.
+W-093,Capacity & Routing,Weekly slot-density index (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.8,Red,Escalate to owner agent; launch corrective playbook.
+W-094,Capacity & Routing,Weekly overbooking factor (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.4,Yellow,Investigate moderate deviation.
+W-095,Capacity & Routing,Weekly Sunday slot utilisation (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.9,Red,Escalate to owner agent; launch corrective playbook.
+W-096,Capacity & Routing,Weekly Sunday slot utilisation (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,86.3,Yellow,Investigate moderate deviation.
+W-097,Capacity & Routing,Weekly jobs per tech per day (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.1,Yellow,Investigate moderate deviation.
+W-098,Customer Experience,Weekly net promoter score (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.1,Red,Escalate to owner agent; launch corrective playbook.
+W-099,Customer Experience,Weekly D2C cancel rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.3,Red,Escalate to owner agent; launch corrective playbook.
+W-100,Customer Experience,Weekly first-contact resolution (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,68.7,Red,Escalate to owner agent; launch corrective playbook.
+W-101,Customer Experience,Weekly survey response rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.5,Green,Maintain course.
+W-102,Customer Experience,Weekly D2C cancel rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.0,Red,Escalate to owner agent; launch corrective playbook.
+W-103,Customer Experience,Weekly average IVR wait (sec) (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.6,Red,Escalate to owner agent; launch corrective playbook.
+W-104,Customer Experience,Weekly net promoter score (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.6,Green,Maintain course.
+W-105,Customer Experience,Weekly average IVR wait (sec) (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.5,Green,Maintain course.
+W-106,Customer Experience,Weekly survey response rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.1,Yellow,Investigate moderate deviation.
+W-107,Customer Experience,Weekly first-contact resolution (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,86.1,Yellow,Investigate moderate deviation.
+W-108,Customer Experience,Weekly first-contact resolution (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.3,Red,Escalate to owner agent; launch corrective playbook.
+W-109,Customer Experience,Weekly net promoter score (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,109.2,Green,Maintain course.
+W-110,Customer Experience,Weekly CSAT score (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,83.0,Yellow,Investigate moderate deviation.
+W-111,Customer Experience,Weekly same-day cancel GP loss (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.4,Green,Maintain course.
+W-112,Customer Experience,Weekly average IVR wait (sec) (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.5,Red,Escalate to owner agent; launch corrective playbook.
+W-113,Customer Experience,Weekly B2B cancel rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.7,Yellow,Investigate moderate deviation.
+W-114,Customer Experience,Weekly survey response rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.5,Red,Escalate to owner agent; launch corrective playbook.
+W-115,Customer Experience,Weekly average IVR wait (sec) (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.8,Red,Escalate to owner agent; launch corrective playbook.
+W-116,Customer Experience,Weekly CSAT score (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.7,Red,Escalate to owner agent; launch corrective playbook.
+W-117,Customer Experience,Weekly D2C cancel rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,93.2,Green,Maintain course.
+W-118,Customer Experience,Weekly average IVR wait (sec) (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.6,Green,Maintain course.
+W-119,Customer Experience,Weekly average IVR wait (sec) (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.5,Yellow,Investigate moderate deviation.
+W-120,Customer Experience,Weekly CSAT score (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.3,Red,Escalate to owner agent; launch corrective playbook.
+W-121,Customer Experience,Weekly same-day cancel GP loss (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.6,Green,Maintain course.
+W-122,Customer Experience,Weekly B2B cancel rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.4,Yellow,Investigate moderate deviation.
+W-123,Customer Experience,Weekly survey response rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,109.0,Green,Maintain course.
+W-124,Customer Experience,Weekly net promoter score (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,131.8,Red,Escalate to owner agent; launch corrective playbook.
+W-125,Customer Experience,Weekly first-contact resolution (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,127.2,Red,Escalate to owner agent; launch corrective playbook.
+W-126,Parts Funnel,Weekly back‑order count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.1,Yellow,Investigate moderate deviation.
+W-127,Parts Funnel,Weekly unused parts cost (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,78.8,Red,Escalate to owner agent; launch corrective playbook.
+W-128,Parts Funnel,Weekly FSSL hit-rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,131.4,Red,Escalate to owner agent; launch corrective playbook.
+W-129,Parts Funnel,Weekly unused parts cost (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.1,Red,Escalate to owner agent; launch corrective playbook.
+W-130,Parts Funnel,Weekly missing-parts second-trip rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.5,Yellow,Investigate moderate deviation.
+W-131,Parts Funnel,Weekly unused parts cost (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.6,Green,Maintain course.
+W-132,Parts Funnel,Weekly average parts landed cost (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.0,Red,Escalate to owner agent; launch corrective playbook.
+W-133,Parts Funnel,Weekly missing-parts second-trip rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.4,Red,Escalate to owner agent; launch corrective playbook.
+W-134,Parts Funnel,Weekly installed-to-shipped ratio (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.2,Green,Maintain course.
+W-135,Parts Funnel,Weekly FSSL hit-rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.3,Red,Escalate to owner agent; launch corrective playbook.
+W-136,Parts Funnel,Weekly missing-parts second-trip rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.1,Green,Maintain course.
+W-137,Parts Funnel,Weekly back‑order count (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.9,Green,Maintain course.
+W-138,Parts Funnel,Weekly missing-parts second-trip rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.5,Yellow,Investigate moderate deviation.
+W-139,Parts Funnel,Weekly average parts landed cost (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.5,Red,Escalate to owner agent; launch corrective playbook.
+W-140,Parts Funnel,Weekly installed-to-shipped ratio (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.4,Yellow,Investigate moderate deviation.
+W-141,Parts Funnel,Weekly parts margin % (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.5,Red,Escalate to owner agent; launch corrective playbook.
+W-142,Parts Funnel,Weekly FSSL hit-rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.4,Green,Maintain course.
+W-143,Parts Funnel,Weekly FSSL hit-rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.3,Yellow,Investigate moderate deviation.
+W-144,Parts Funnel,Weekly missing-parts second-trip rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.8,Red,Escalate to owner agent; launch corrective playbook.
+W-145,Parts Funnel,Weekly average parts landed cost (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.9,Yellow,Investigate moderate deviation.
+W-146,Parts Funnel,Weekly installed-to-shipped ratio (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.9,Red,Escalate to owner agent; launch corrective playbook.
+W-147,Parts Funnel,Weekly unused parts cost (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.3,Red,Escalate to owner agent; launch corrective playbook.
+W-148,Parts Funnel,Weekly parts return cycle time (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,127.1,Red,Escalate to owner agent; launch corrective playbook.
+W-149,Parts Funnel,Weekly parts margin % (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,70.1,Red,Escalate to owner agent; launch corrective playbook.
+W-150,Parts Funnel,Weekly unused parts cost (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,97.2,Green,Maintain course.
+W-151,Parts Funnel,Weekly back‑order count (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,73.4,Red,Escalate to owner agent; launch corrective playbook.
+W-152,Parts Funnel,Weekly back‑order count (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.3,Green,Maintain course.
+W-153,Parts Funnel,Weekly FSSL hit-rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.5,Green,Maintain course.
+W-154,Marketing Efficiency,Weekly influencer ROI (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.0,Red,Escalate to owner agent; launch corrective playbook.
+W-155,Marketing Efficiency,Weekly geo-target spend efficiency (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.7,Green,Maintain course.
+W-156,Marketing Efficiency,Weekly influencer ROI (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.6,Yellow,Investigate moderate deviation.
+W-157,Marketing Efficiency,Weekly paid reach growth (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,118.7,Yellow,Investigate moderate deviation.
+W-158,Marketing Efficiency,Weekly organic search share (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,97.2,Green,Maintain course.
+W-159,Marketing Efficiency,Weekly organic search share (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.1,Red,Escalate to owner agent; launch corrective playbook.
+W-160,Marketing Efficiency,Weekly Meta CPL (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,130.5,Red,Escalate to owner agent; launch corrective playbook.
+W-161,Marketing Efficiency,Weekly email open rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.6,Green,Maintain course.
+W-162,Marketing Efficiency,Weekly paid reach growth (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.3,Red,Escalate to owner agent; launch corrective playbook.
+W-163,Marketing Efficiency,Weekly influencer ROI (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.0,Green,Maintain course.
+W-164,Marketing Efficiency,Weekly influencer ROI (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,87.2,Yellow,Investigate moderate deviation.
+W-165,Marketing Efficiency,Weekly organic search share (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.3,Green,Maintain course.
+W-166,Marketing Efficiency,Weekly email open rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.3,Red,Escalate to owner agent; launch corrective playbook.
+W-167,Marketing Efficiency,Weekly paid reach growth (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.4,Green,Maintain course.
+W-168,Marketing Efficiency,Weekly geo-target spend efficiency (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.4,Red,Escalate to owner agent; launch corrective playbook.
+W-169,Marketing Efficiency,Weekly email open rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.3,Yellow,Investigate moderate deviation.
+W-170,Marketing Efficiency,Weekly geo-target spend efficiency (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.0,Green,Maintain course.
+W-171,Marketing Efficiency,Weekly influencer ROI (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.2,Yellow,Investigate moderate deviation.
+W-172,Marketing Efficiency,Weekly organic search share (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.1,Yellow,Investigate moderate deviation.
+W-173,Marketing Efficiency,Weekly Meta CPL (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,85.2,Yellow,Investigate moderate deviation.
+W-174,Marketing Efficiency,Weekly blended CAC (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.3,Red,Escalate to owner agent; launch corrective playbook.
+W-175,Marketing Efficiency,Weekly geo-target spend efficiency (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,118.0,Yellow,Investigate moderate deviation.
+W-176,Marketing Efficiency,Weekly organic search share (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.6,Red,Escalate to owner agent; launch corrective playbook.
+W-177,Marketing Efficiency,Weekly organic search share (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.9,Yellow,Investigate moderate deviation.
+W-178,Marketing Efficiency,Weekly blended CAC (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.6,Red,Escalate to owner agent; launch corrective playbook.
+W-179,Marketing Efficiency,Weekly Google LSA ROAS (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.8,Yellow,Investigate moderate deviation.
+W-180,Marketing Efficiency,Weekly blended CAC (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,68.2,Red,Escalate to owner agent; launch corrective playbook.
+W-181,Marketing Efficiency,Weekly blended CAC (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.2,Yellow,Investigate moderate deviation.
+W-182,Tech Workforce,Weekly license renewal backlog (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.8,Red,Escalate to owner agent; launch corrective playbook.
+W-183,Tech Workforce,Weekly productivity delta (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.9,Red,Escalate to owner agent; launch corrective playbook.
+W-184,Tech Workforce,Weekly tech churn rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.9,Red,Escalate to owner agent; launch corrective playbook.
+W-185,Tech Workforce,Weekly training compliance % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.5,Red,Escalate to owner agent; launch corrective playbook.
+W-186,Tech Workforce,Weekly low earner count (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.5,Green,Maintain course.
+W-187,Tech Workforce,Weekly average earnings (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.0,Green,Maintain course.
+W-188,Tech Workforce,Weekly license renewal backlog (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.8,Red,Escalate to owner agent; launch corrective playbook.
+W-189,Tech Workforce,Weekly productivity delta (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.5,Green,Maintain course.
+W-190,Tech Workforce,Weekly tech churn rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.8,Red,Escalate to owner agent; launch corrective playbook.
+W-191,Tech Workforce,Weekly average earnings (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,81.2,Yellow,Investigate moderate deviation.
+W-192,Tech Workforce,Weekly low earner count (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.2,Red,Escalate to owner agent; launch corrective playbook.
+W-193,Tech Workforce,Weekly tech churn rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.0,Green,Maintain course.
+W-194,Tech Workforce,Weekly tech churn rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,83.0,Yellow,Investigate moderate deviation.
+W-195,Tech Workforce,Weekly training compliance % (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.7,Red,Escalate to owner agent; launch corrective playbook.
+W-196,Tech Workforce,Weekly average earnings (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.0,Red,Escalate to owner agent; launch corrective playbook.
+W-197,Tech Workforce,Weekly low earner count (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.8,Yellow,Investigate moderate deviation.
+W-198,Tech Workforce,Weekly training compliance % (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.7,Red,Escalate to owner agent; launch corrective playbook.
+W-199,Tech Workforce,Weekly mentor sessions (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.6,Green,Maintain course.
+W-200,Tech Workforce,Weekly low earner count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.1,Yellow,Investigate moderate deviation.
+W-201,Tech Workforce,Weekly license renewal backlog (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.4,Red,Escalate to owner agent; launch corrective playbook.
+W-202,Tech Workforce,Weekly OT uptake (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.1,Red,Escalate to owner agent; launch corrective playbook.
+W-203,Tech Workforce,Weekly average earnings (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,140.0,Red,Escalate to owner agent; launch corrective playbook.
+W-204,Tech Workforce,Weekly training compliance % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.0,Red,Escalate to owner agent; launch corrective playbook.
+W-205,Tech Workforce,Weekly mentor sessions (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.5,Green,Maintain course.
+W-206,Tech Workforce,Weekly mentor sessions (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.8,Yellow,Investigate moderate deviation.
+W-207,Tech Workforce,Weekly license renewal backlog (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.7,Green,Maintain course.
+W-208,Tech Workforce,Weekly OT uptake (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.6,Red,Escalate to owner agent; launch corrective playbook.
+W-209,Tech Workforce,Weekly OT uptake (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.5,Yellow,Investigate moderate deviation.
+W-210,Governance & Risk,Weekly SOC2 control breach (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.1,Red,Escalate to owner agent; launch corrective playbook.
+W-211,Governance & Risk,Weekly policy override count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.0,Red,Escalate to owner agent; launch corrective playbook.
+W-212,Governance & Risk,Weekly SOC2 control breach (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.3,Red,Escalate to owner agent; launch corrective playbook.
+W-213,Governance & Risk,Weekly legal incident tickets (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.6,Yellow,Investigate moderate deviation.
+W-214,Governance & Risk,Weekly vendor SLA violations (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.3,Red,Escalate to owner agent; launch corrective playbook.
+W-215,Governance & Risk,Weekly guardrail trigger count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.0,Green,Maintain course.
+W-216,Governance & Risk,Weekly policy override count (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,81.4,Yellow,Investigate moderate deviation.
+W-217,Governance & Risk,Weekly data privacy alerts (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.0,Green,Maintain course.
+W-218,Governance & Risk,Weekly vendor SLA violations (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.3,Red,Escalate to owner agent; launch corrective playbook.
+W-219,Governance & Risk,Weekly license expiries (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.9,Yellow,Investigate moderate deviation.
+W-220,Governance & Risk,Weekly policy override count (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.5,Red,Escalate to owner agent; launch corrective playbook.
+W-221,Governance & Risk,Weekly audit exceptions (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.8,Red,Escalate to owner agent; launch corrective playbook.
+W-222,Governance & Risk,Weekly data privacy alerts (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.6,Red,Escalate to owner agent; launch corrective playbook.
+W-223,Governance & Risk,Weekly SOC2 control breach (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,93.2,Green,Maintain course.
+W-224,Governance & Risk,Weekly vendor SLA violations (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.5,Red,Escalate to owner agent; launch corrective playbook.
+W-225,Governance & Risk,Weekly data privacy alerts (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.2,Red,Escalate to owner agent; launch corrective playbook.
+W-226,Governance & Risk,Weekly data privacy alerts (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.1,Yellow,Investigate moderate deviation.
+W-227,Governance & Risk,Weekly legal incident tickets (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.7,Red,Escalate to owner agent; launch corrective playbook.
+W-228,Governance & Risk,Weekly SOC2 control breach (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.6,Yellow,Investigate moderate deviation.
+W-229,Governance & Risk,Weekly SOC2 control breach (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.2,Red,Escalate to owner agent; launch corrective playbook.
+W-230,Governance & Risk,Weekly guardrail trigger count (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.2,Green,Maintain course.
+W-231,Governance & Risk,Weekly legal incident tickets (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,134.6,Red,Escalate to owner agent; launch corrective playbook.
+W-232,Governance & Risk,Weekly license expiries (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.7,Green,Maintain course.
+W-233,Governance & Risk,Weekly license expiries (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.5,Red,Escalate to owner agent; launch corrective playbook.
+W-234,Governance & Risk,Weekly legal incident tickets (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.6,Green,Maintain course.
+W-235,Governance & Risk,Weekly policy override count (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.2,Green,Maintain course.
+W-236,Governance & Risk,Weekly guardrail trigger count (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.9,Red,Escalate to owner agent; launch corrective playbook.
+W-237,Governance & Risk,Weekly vendor SLA violations (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,117.8,Yellow,Investigate moderate deviation.
+W-238,Strategy & Growth,Weekly growth CAGR forecast (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.0,Red,Escalate to owner agent; launch corrective playbook.
+W-239,Strategy & Growth,Weekly vertical TAM progress (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,109.9,Green,Maintain course.
+W-240,Strategy & Growth,Weekly growth CAGR forecast (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.1,Red,Escalate to owner agent; launch corrective playbook.
+W-241,Strategy & Growth,Weekly growth CAGR forecast (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.1,Yellow,Investigate moderate deviation.
+W-242,Strategy & Growth,Weekly cash runway months (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,109.4,Green,Maintain course.
+W-243,Strategy & Growth,Weekly channel portfolio mix (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.8,Red,Escalate to owner agent; launch corrective playbook.
+W-244,Strategy & Growth,Weekly expansion payback months (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.3,Red,Escalate to owner agent; launch corrective playbook.
+W-245,Strategy & Growth,Weekly expansion payback months (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,73.3,Red,Escalate to owner agent; launch corrective playbook.
+W-246,Strategy & Growth,Weekly vertical TAM progress (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.7,Red,Escalate to owner agent; launch corrective playbook.
+W-247,Strategy & Growth,Weekly market rank score (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.7,Yellow,Investigate moderate deviation.
+W-248,Strategy & Growth,Weekly channel portfolio mix (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.3,Green,Maintain course.
+W-249,Strategy & Growth,Weekly LTV/CAC ratio (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.0,Red,Escalate to owner agent; launch corrective playbook.
+W-250,Strategy & Growth,Weekly growth CAGR forecast (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.8,Green,Maintain course.
+W-251,Strategy & Growth,Weekly LTV/CAC ratio (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.9,Green,Maintain course.
+W-252,Strategy & Growth,Weekly vertical TAM progress (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.4,Yellow,Investigate moderate deviation.
+W-253,Strategy & Growth,Weekly market rank score (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.1,Red,Escalate to owner agent; launch corrective playbook.
+W-254,Strategy & Growth,Weekly LTV/CAC ratio (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.3,Green,Maintain course.
+W-255,Strategy & Growth,Weekly ROI on pilot metros (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.1,Yellow,Investigate moderate deviation.
+W-256,Strategy & Growth,Weekly growth CAGR forecast (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.5,Green,Maintain course.
+W-257,Strategy & Growth,Weekly vertical TAM progress (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.9,Red,Escalate to owner agent; launch corrective playbook.
+W-258,Strategy & Growth,Weekly cash runway months (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.0,Red,Escalate to owner agent; launch corrective playbook.
+W-259,Strategy & Growth,Weekly market rank score (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.8,Red,Escalate to owner agent; launch corrective playbook.
+W-260,Strategy & Growth,Weekly cash runway months (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.1,Red,Escalate to owner agent; launch corrective playbook.
+W-261,Strategy & Growth,Weekly channel portfolio mix (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.5,Red,Escalate to owner agent; launch corrective playbook.
+W-262,Strategy & Growth,Weekly ROI on pilot metros (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.2,Red,Escalate to owner agent; launch corrective playbook.
+W-263,Strategy & Growth,Weekly channel portfolio mix (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.9,Red,Escalate to owner agent; launch corrective playbook.
+W-264,Strategy & Growth,Weekly LTV/CAC ratio (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.1,Red,Escalate to owner agent; launch corrective playbook.
+W-265,Strategy & Growth,Weekly ROI on pilot metros (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,97.5,Green,Maintain course.
+W-266,Experiments & R&D,Weekly significant experiment count (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.3,Red,Escalate to owner agent; launch corrective playbook.
+W-267,Experiments & R&D,Weekly innovation velocity (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.4,Red,Escalate to owner agent; launch corrective playbook.
+W-268,Experiments & R&D,Weekly time-to-market reduction (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.3,Red,Escalate to owner agent; launch corrective playbook.
+W-269,Experiments & R&D,Weekly A/B test lift (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.9,Green,Maintain course.
+W-270,Experiments & R&D,Weekly idea backlog burn (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.8,Yellow,Investigate moderate deviation.
+W-271,Experiments & R&D,Weekly prototype success rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.8,Red,Escalate to owner agent; launch corrective playbook.
+W-272,Experiments & R&D,Weekly innovation velocity (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.0,Red,Escalate to owner agent; launch corrective playbook.
+W-273,Experiments & R&D,Weekly time-to-market reduction (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.8,Yellow,Investigate moderate deviation.
+W-274,Experiments & R&D,Weekly idea backlog burn (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.9,Yellow,Investigate moderate deviation.
+W-275,Experiments & R&D,Weekly A/B test lift (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.3,Yellow,Investigate moderate deviation.
+W-276,Experiments & R&D,Weekly idea backlog burn (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,67.8,Red,Escalate to owner agent; launch corrective playbook.
+W-277,Experiments & R&D,Weekly model drift score (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.3,Green,Maintain course.
+W-278,Experiments & R&D,Weekly ML model retrain delta (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,130.8,Red,Escalate to owner agent; launch corrective playbook.
+W-279,Experiments & R&D,Weekly significant experiment count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,109.3,Green,Maintain course.
+W-280,Experiments & R&D,Weekly prototype success rate (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.2,Yellow,Investigate moderate deviation.
+W-281,Experiments & R&D,Weekly idea backlog burn (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.4,Red,Escalate to owner agent; launch corrective playbook.
+W-282,Experiments & R&D,Weekly significant experiment count (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.6,Green,Maintain course.
+W-283,Experiments & R&D,Weekly time-to-market reduction (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,91.9,Green,Maintain course.
+W-284,Experiments & R&D,Weekly innovation velocity (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.9,Red,Escalate to owner agent; launch corrective playbook.
+W-285,Experiments & R&D,Weekly innovation velocity (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.0,Red,Escalate to owner agent; launch corrective playbook.
+W-286,Experiments & R&D,Weekly model drift score (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.5,Red,Escalate to owner agent; launch corrective playbook.
+W-287,Experiments & R&D,Weekly innovation velocity (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.0,Red,Escalate to owner agent; launch corrective playbook.
+W-288,Experiments & R&D,Weekly innovation velocity (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.9,Red,Escalate to owner agent; launch corrective playbook.
+W-289,Experiments & R&D,Weekly model drift score (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.2,Green,Maintain course.
+W-290,Experiments & R&D,Weekly model drift score (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.9,Yellow,Investigate moderate deviation.
+W-291,Experiments & R&D,Weekly A/B test lift (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.2,Red,Escalate to owner agent; launch corrective playbook.
+W-292,Experiments & R&D,Weekly significant experiment count (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.1,Green,Maintain course.
+W-293,Experiments & R&D,Weekly idea backlog burn (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.9,Red,Escalate to owner agent; launch corrective playbook.
+W-294,Marketing,Weekly referral traffic growth (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.1,Green,Maintain course.
+W-295,Marketing,Weekly SEO click share (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,117.0,Yellow,Investigate moderate deviation.
+W-296,Marketing,Weekly referral traffic growth (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,131.9,Red,Escalate to owner agent; launch corrective playbook.
+W-297,Marketing,Weekly brand share of voice (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.3,Red,Escalate to owner agent; launch corrective playbook.
+W-298,Marketing,Weekly paid search impression share (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,90.5,Green,Maintain course.
+W-299,Marketing,Weekly paid search impression share (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.4,Green,Maintain course.
+W-300,Marketing,Weekly G-Maps review volume (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.4,Red,Escalate to owner agent; launch corrective playbook.
+W-301,Marketing,Weekly SEO click share (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.4,Green,Maintain course.
+W-302,Marketing,Weekly display ad reach (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,87.1,Yellow,Investigate moderate deviation.
+W-303,Marketing,Weekly brand share of voice (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,85.0,Yellow,Investigate moderate deviation.
+W-304,Marketing,Weekly upsell email conv. (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.4,Red,Escalate to owner agent; launch corrective playbook.
+W-305,Marketing,Weekly SEO click share (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.6,Green,Maintain course.
+W-306,Marketing,Weekly influencer bookings (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.6,Yellow,Investigate moderate deviation.
+W-307,Marketing,Weekly G-Maps review volume (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.9,Red,Escalate to owner agent; launch corrective playbook.
+W-308,Marketing,Weekly G-Maps review volume (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.5,Red,Escalate to owner agent; launch corrective playbook.
+W-309,Marketing,Weekly display ad reach (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.0,Yellow,Investigate moderate deviation.
+W-310,Marketing,Weekly brand share of voice (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.0,Red,Escalate to owner agent; launch corrective playbook.
+W-311,Marketing,Weekly influencer bookings (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.3,Red,Escalate to owner agent; launch corrective playbook.
+W-312,Marketing,Weekly paid search impression share (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.7,Red,Escalate to owner agent; launch corrective playbook.
+W-313,Marketing,Weekly brand share of voice (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.5,Red,Escalate to owner agent; launch corrective playbook.
+W-314,Marketing,Weekly upsell email conv. (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,65.6,Red,Escalate to owner agent; launch corrective playbook.
+W-315,Marketing,Weekly influencer bookings (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.7,Yellow,Investigate moderate deviation.
+W-316,Marketing,Weekly G-Maps review volume (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,87.3,Yellow,Investigate moderate deviation.
+W-317,Marketing,Weekly brand share of voice (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,117.7,Yellow,Investigate moderate deviation.
+W-318,Marketing,Weekly SEO click share (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.4,Red,Escalate to owner agent; launch corrective playbook.
+W-319,Marketing,Weekly paid search impression share (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.4,Red,Escalate to owner agent; launch corrective playbook.
+W-320,Marketing,Weekly SEO click share (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.4,Green,Maintain course.
+W-321,Marketing,Weekly paid search impression share (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,77.6,Red,Escalate to owner agent; launch corrective playbook.
+W-322,Communications,Weekly SMS delivery success (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,76.4,Red,Escalate to owner agent; launch corrective playbook.
+W-323,Communications,Weekly survey send rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.1,Red,Escalate to owner agent; launch corrective playbook.
+W-324,Communications,Weekly IVR abandon rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.6,Red,Escalate to owner agent; launch corrective playbook.
+W-325,Communications,Weekly communication SLA adherence (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.1,Red,Escalate to owner agent; launch corrective playbook.
+W-326,Communications,Weekly callback queue length (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.0,Green,Maintain course.
+W-327,Communications,Weekly ETA email open rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,91.8,Green,Maintain course.
+W-328,Communications,Weekly SMS delivery success (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.5,Red,Escalate to owner agent; launch corrective playbook.
+W-329,Communications,Weekly chatbot response time (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.1,Green,Maintain course.
+W-330,Communications,Weekly callback queue length (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,83.2,Yellow,Investigate moderate deviation.
+W-331,Communications,Weekly callback queue length (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.3,Red,Escalate to owner agent; launch corrective playbook.
+W-332,Communications,Weekly negative sentiment msgs (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.6,Red,Escalate to owner agent; launch corrective playbook.
+W-333,Communications,Weekly callback queue length (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.5,Red,Escalate to owner agent; launch corrective playbook.
+W-334,Communications,Weekly callback queue length (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.7,Yellow,Investigate moderate deviation.
+W-335,Communications,Weekly survey send rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.3,Red,Escalate to owner agent; launch corrective playbook.
+W-336,Communications,Weekly chatbot response time (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.4,Green,Maintain course.
+W-337,Communications,Weekly ETA email open rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,78.9,Red,Escalate to owner agent; launch corrective playbook.
+W-338,Communications,Weekly negative sentiment msgs (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.8,Red,Escalate to owner agent; launch corrective playbook.
+W-339,Communications,Weekly negative sentiment msgs (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.2,Red,Escalate to owner agent; launch corrective playbook.
+W-340,Communications,Weekly communication SLA adherence (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.4,Red,Escalate to owner agent; launch corrective playbook.
+W-341,Communications,Weekly communication SLA adherence (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.1,Red,Escalate to owner agent; launch corrective playbook.
+W-342,Communications,Weekly communication SLA adherence (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,97.5,Green,Maintain course.
+W-343,Communications,Weekly IVR abandon rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.3,Green,Maintain course.
+W-344,Communications,Weekly IVR abandon rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.2,Green,Maintain course.
+W-345,Communications,Weekly SMS delivery success (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.5,Red,Escalate to owner agent; launch corrective playbook.
+W-346,Communications,Weekly callback queue length (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.4,Green,Maintain course.
+W-347,Communications,Weekly SMS delivery success (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,132.7,Red,Escalate to owner agent; launch corrective playbook.
+W-348,Communications,Weekly communication SLA adherence (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,136.6,Red,Escalate to owner agent; launch corrective playbook.
+W-349,Communications,Weekly negative sentiment msgs (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.8,Red,Escalate to owner agent; launch corrective playbook.
+W-350,Claims Management,Weekly vendor claim breach (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.9,Green,Maintain course.
+W-351,Claims Management,Weekly open claim backlog (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,89.8,Yellow,Investigate moderate deviation.
+W-352,Claims Management,Weekly reversal rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.7,Green,Maintain course.
+W-353,Claims Management,Weekly fraud flag count (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.1,Red,Escalate to owner agent; launch corrective playbook.
+W-354,Claims Management,Weekly fraud flag count (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,86.4,Yellow,Investigate moderate deviation.
+W-355,Claims Management,Weekly subrogation recovery % (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.2,Yellow,Investigate moderate deviation.
+W-356,Claims Management,Weekly denial rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.3,Red,Escalate to owner agent; launch corrective playbook.
+W-357,Claims Management,Weekly open claim backlog (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.8,Yellow,Investigate moderate deviation.
+W-358,Claims Management,Weekly subrogation recovery % (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.1,Red,Escalate to owner agent; launch corrective playbook.
+W-359,Claims Management,Weekly denial rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.7,Green,Maintain course.
+W-360,Claims Management,Weekly claim approval time (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.7,Yellow,Investigate moderate deviation.
+W-361,Claims Management,Weekly average payout (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,135.8,Red,Escalate to owner agent; launch corrective playbook.
+W-362,Claims Management,Weekly vendor claim breach (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,78.1,Red,Escalate to owner agent; launch corrective playbook.
+W-363,Claims Management,Weekly open claim backlog (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.2,Red,Escalate to owner agent; launch corrective playbook.
+W-364,Claims Management,Weekly denial rate (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.0,Yellow,Investigate moderate deviation.
+W-365,Claims Management,Weekly open claim backlog (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.3,Red,Escalate to owner agent; launch corrective playbook.
+W-366,Claims Management,Weekly vendor claim breach (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,92.9,Green,Maintain course.
+W-367,Claims Management,Weekly average payout (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.8,Green,Maintain course.
+W-368,Claims Management,Weekly average payout (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.2,Red,Escalate to owner agent; launch corrective playbook.
+W-369,Claims Management,Weekly fraud flag count (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.9,Green,Maintain course.
+W-370,Claims Management,Weekly subrogation recovery % (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.4,Red,Escalate to owner agent; launch corrective playbook.
+W-371,Claims Management,Weekly open claim backlog (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.2,Red,Escalate to owner agent; launch corrective playbook.
+W-372,Claims Management,Weekly vendor claim breach (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.4,Green,Maintain course.
+W-373,Claims Management,Weekly denial rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.8,Yellow,Investigate moderate deviation.
+W-374,Claims Management,Weekly vendor claim breach (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.5,Red,Escalate to owner agent; launch corrective playbook.
+W-375,Claims Management,Weekly denial rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.3,Red,Escalate to owner agent; launch corrective playbook.
+W-376,Claims Management,Weekly subrogation recovery % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,91.7,Green,Maintain course.
+W-377,Claims Management,Weekly fraud flag count (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,90.9,Green,Maintain course.
+W-378,Training,Weekly diagnostic quiz score (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,78.0,Red,Escalate to owner agent; launch corrective playbook.
+W-379,Training,Weekly skill badge attainment (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,127.1,Red,Escalate to owner agent; launch corrective playbook.
+W-380,Training,Weekly skill badge attainment (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.0,Red,Escalate to owner agent; launch corrective playbook.
+W-381,Training,Weekly QA pass rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.7,Yellow,Investigate moderate deviation.
+W-382,Training,Weekly mentor ride-alongs (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.9,Green,Maintain course.
+W-383,Training,Weekly VR completion rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.5,Red,Escalate to owner agent; launch corrective playbook.
+W-384,Training,Weekly new hire productivity (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.9,Green,Maintain course.
+W-385,Training,Weekly training hour per tech (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.1,Red,Escalate to owner agent; launch corrective playbook.
+W-386,Training,Weekly new hire productivity (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.7,Red,Escalate to owner agent; launch corrective playbook.
+W-387,Training,Weekly new hire productivity (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.1,Yellow,Investigate moderate deviation.
+W-388,Training,Weekly course drop-off % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,68.9,Red,Escalate to owner agent; launch corrective playbook.
+W-389,Training,Weekly course drop-off % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.6,Yellow,Investigate moderate deviation.
+W-390,Training,Weekly QA pass rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,60.1,Red,Escalate to owner agent; launch corrective playbook.
+W-391,Training,Weekly skill badge attainment (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.7,Green,Maintain course.
+W-392,Training,Weekly mentor ride-alongs (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.9,Green,Maintain course.
+W-393,Training,Weekly VR completion rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.9,Red,Escalate to owner agent; launch corrective playbook.
+W-394,Training,Weekly skill badge attainment (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.8,Yellow,Investigate moderate deviation.
+W-395,Training,Weekly mentor ride-alongs (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,88.2,Yellow,Investigate moderate deviation.
+W-396,Training,Weekly course drop-off % (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.5,Yellow,Investigate moderate deviation.
+W-397,Training,Weekly QA pass rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.5,Red,Escalate to owner agent; launch corrective playbook.
+W-398,Training,Weekly new hire productivity (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,85.2,Yellow,Investigate moderate deviation.
+W-399,Training,Weekly course drop-off % (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.9,Red,Escalate to owner agent; launch corrective playbook.
+W-400,Training,Weekly skill badge attainment (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,129.3,Red,Escalate to owner agent; launch corrective playbook.
+W-401,Training,Weekly training hour per tech (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,119.5,Yellow,Investigate moderate deviation.
+W-402,Training,Weekly training hour per tech (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.9,Red,Escalate to owner agent; launch corrective playbook.
+W-403,Training,Weekly diagnostic quiz score (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.3,Red,Escalate to owner agent; launch corrective playbook.
+W-404,Training,Weekly mentor ride-alongs (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,85.7,Yellow,Investigate moderate deviation.
+W-405,Training,Weekly QA pass rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.7,Green,Maintain course.
+W-406,Recruiting,Weekly cost per hire (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.2,Yellow,Investigate moderate deviation.
+W-407,Recruiting,Weekly licensed candidate pool (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.4,Red,Escalate to owner agent; launch corrective playbook.
+W-408,Recruiting,Weekly licensed candidate pool (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.0,Yellow,Investigate moderate deviation.
+W-409,Recruiting,Weekly applicant inflow (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.7,Yellow,Investigate moderate deviation.
+W-410,Recruiting,Weekly cost per hire (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.0,Green,Maintain course.
+W-411,Recruiting,Weekly offer acceptance rate (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.4,Red,Escalate to owner agent; launch corrective playbook.
+W-412,Recruiting,Weekly sourcing channel mix (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,70.1,Red,Escalate to owner agent; launch corrective playbook.
+W-413,Recruiting,Weekly referral share (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,89.0,Yellow,Investigate moderate deviation.
+W-414,Recruiting,Weekly applicant inflow (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.3,Yellow,Investigate moderate deviation.
+W-415,Recruiting,Weekly licensed candidate pool (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.5,Green,Maintain course.
+W-416,Recruiting,Weekly time-to-hire (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.4,Green,Maintain course.
+W-417,Recruiting,Weekly BG-check backlog (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,136.8,Red,Escalate to owner agent; launch corrective playbook.
+W-418,Recruiting,Weekly sourcing channel mix (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.1,Red,Escalate to owner agent; launch corrective playbook.
+W-419,Recruiting,Weekly time-to-hire (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.0,Red,Escalate to owner agent; launch corrective playbook.
+W-420,Recruiting,Weekly sourcing channel mix (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.7,Red,Escalate to owner agent; launch corrective playbook.
+W-421,Recruiting,Weekly BG-check backlog (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,76.0,Red,Escalate to owner agent; launch corrective playbook.
+W-422,Recruiting,Weekly offer acceptance rate (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.2,Green,Maintain course.
+W-423,Recruiting,Weekly sourcing channel mix (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.8,Red,Escalate to owner agent; launch corrective playbook.
+W-424,Recruiting,Weekly BG-check backlog (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.9,Yellow,Investigate moderate deviation.
+W-425,Recruiting,Weekly offer acceptance rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.7,Green,Maintain course.
+W-426,Recruiting,Weekly time-to-hire (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.4,Red,Escalate to owner agent; launch corrective playbook.
+W-427,Recruiting,Weekly referral share (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,62.1,Red,Escalate to owner agent; launch corrective playbook.
+W-428,Recruiting,Weekly cost per hire (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.1,Green,Maintain course.
+W-429,Recruiting,Weekly cost per hire (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,70.0,Red,Escalate to owner agent; launch corrective playbook.
+W-430,Recruiting,Weekly licensed candidate pool (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.0,Green,Maintain course.
+W-431,Recruiting,Weekly licensed candidate pool (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,130.2,Red,Escalate to owner agent; launch corrective playbook.
+W-432,Recruiting,Weekly offer acceptance rate (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,94.6,Green,Maintain course.
+W-433,Recruiting,Weekly offer acceptance rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,73.2,Red,Escalate to owner agent; launch corrective playbook.
+W-434,Retention,Weekly retention survey score (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,87.7,Yellow,Investigate moderate deviation.
+W-435,Retention,Weekly CSAT of churned techs (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,80.0,Yellow,Investigate moderate deviation.
+W-436,Retention,Weekly CSAT of churned techs (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,110.0,Green,Maintain course.
+W-437,Retention,Weekly low earnings trajectory (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.3,Green,Maintain course.
+W-438,Retention,Weekly subscriber churn (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.7,Yellow,Investigate moderate deviation.
+W-439,Retention,Weekly retention survey score (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.0,Red,Escalate to owner agent; launch corrective playbook.
+W-440,Retention,Weekly voluntary churn % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.6,Red,Escalate to owner agent; launch corrective playbook.
+W-441,Retention,Weekly CSAT of churned techs (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.4,Red,Escalate to owner agent; launch corrective playbook.
+W-442,Retention,Weekly average tenure (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,99.8,Green,Maintain course.
+W-443,Retention,Weekly CSAT of churned techs (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.6,Green,Maintain course.
+W-444,Retention,Weekly average tenure (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.3,Green,Maintain course.
+W-445,Retention,Weekly voluntary churn % (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,95.2,Green,Maintain course.
+W-446,Retention,Weekly early churn alerts (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,76.3,Red,Escalate to owner agent; launch corrective playbook.
+W-447,Retention,Weekly subscriber churn (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.9,Red,Escalate to owner agent; launch corrective playbook.
+W-448,Retention,Weekly retention survey score (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.0,Red,Escalate to owner agent; launch corrective playbook.
+W-449,Retention,Weekly low earnings trajectory (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.3,Red,Escalate to owner agent; launch corrective playbook.
+W-450,Retention,Weekly low earnings trajectory (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.0,Green,Maintain course.
+W-451,Retention,Weekly subscriber churn (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.0,Red,Escalate to owner agent; launch corrective playbook.
+W-452,Retention,Weekly average tenure (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.9,Red,Escalate to owner agent; launch corrective playbook.
+W-453,Retention,Weekly subscriber churn (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.7,Red,Escalate to owner agent; launch corrective playbook.
+W-454,Retention,Weekly CSAT of churned techs (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.9,Red,Escalate to owner agent; launch corrective playbook.
+W-455,Retention,Weekly average tenure (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.3,Red,Escalate to owner agent; launch corrective playbook.
+W-456,Retention,Weekly QR activation rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.9,Red,Escalate to owner agent; launch corrective playbook.
+W-457,Retention,Weekly early churn alerts (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,102.9,Green,Maintain course.
+W-458,Retention,Weekly low earnings trajectory (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,70.7,Red,Escalate to owner agent; launch corrective playbook.
+W-459,Retention,Weekly CSAT of churned techs (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,121.1,Red,Escalate to owner agent; launch corrective playbook.
+W-460,Retention,Weekly average tenure (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,123.6,Red,Escalate to owner agent; launch corrective playbook.
+W-461,Retention,Weekly subscriber churn (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.2,Green,Maintain course.
+W-462,Declined Estimates,Weekly decline reason price (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.6,Red,Escalate to owner agent; launch corrective playbook.
+W-463,Declined Estimates,Weekly follow-up conversion (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.3,Red,Escalate to owner agent; launch corrective playbook.
+W-464,Declined Estimates,Weekly average decline quote (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.5,Green,Maintain course.
+W-465,Declined Estimates,Weekly financing uptake on declines (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,91.4,Green,Maintain course.
+W-466,Declined Estimates,Weekly saved-decline margin (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.6,Green,Maintain course.
+W-467,Declined Estimates,Weekly average decline quote (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.0,Green,Maintain course.
+W-468,Declined Estimates,Weekly declined repair value (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,86.5,Yellow,Investigate moderate deviation.
+W-469,Declined Estimates,Weekly high-ticket decline rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.7,Green,Maintain course.
+W-470,Declined Estimates,Weekly declined repair value (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,81.2,Yellow,Investigate moderate deviation.
+W-471,Declined Estimates,Weekly top declined job-code (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,106.7,Green,Maintain course.
+W-472,Declined Estimates,Weekly follow-up conversion (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.8,Red,Escalate to owner agent; launch corrective playbook.
+W-473,Declined Estimates,Weekly high-ticket decline rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,61.5,Red,Escalate to owner agent; launch corrective playbook.
+W-474,Declined Estimates,Weekly financing uptake on declines (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,72.1,Red,Escalate to owner agent; launch corrective playbook.
+W-475,Declined Estimates,Weekly top declined job-code (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.1,Green,Maintain course.
+W-476,Declined Estimates,Weekly average decline quote (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.5,Yellow,Investigate moderate deviation.
+W-477,Declined Estimates,Weekly top declined job-code (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,139.8,Red,Escalate to owner agent; launch corrective playbook.
+W-478,Declined Estimates,Weekly average decline quote (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,85.1,Yellow,Investigate moderate deviation.
+W-479,Declined Estimates,Weekly follow-up conversion (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.0,Red,Escalate to owner agent; launch corrective playbook.
+W-480,Declined Estimates,Weekly financing uptake on declines (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.1,Yellow,Investigate moderate deviation.
+W-481,Declined Estimates,Weekly saved-decline margin (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.4,Red,Escalate to owner agent; launch corrective playbook.
+W-482,Declined Estimates,Weekly top declined job-code (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.6,Green,Maintain course.
+W-483,Declined Estimates,Weekly saved-decline margin (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.2,Yellow,Investigate moderate deviation.
+W-484,Declined Estimates,Weekly average decline quote (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.4,Green,Maintain course.
+W-485,Declined Estimates,Weekly saved-decline margin (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.7,Red,Escalate to owner agent; launch corrective playbook.
+W-486,Declined Estimates,Weekly decline reason price (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.5,Red,Escalate to owner agent; launch corrective playbook.
+W-487,Declined Estimates,Weekly follow-up conversion (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.4,Red,Escalate to owner agent; launch corrective playbook.
+W-488,Declined Estimates,Weekly high-ticket decline rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.9,Red,Escalate to owner agent; launch corrective playbook.
+W-489,Declined Estimates,Weekly top declined job-code (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.2,Red,Escalate to owner agent; launch corrective playbook.
+W-490,Cancels,Weekly repeat cancels (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,71.0,Red,Escalate to owner agent; launch corrective playbook.
+W-491,Cancels,Weekly parts-delay cancels (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,64.1,Red,Escalate to owner agent; launch corrective playbook.
+W-492,Cancels,Weekly D2C cancel % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,93.1,Green,Maintain course.
+W-493,Cancels,Weekly cancel-to-rebook ratio (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.5,Yellow,Investigate moderate deviation.
+W-494,Cancels,Weekly cancel GP loss (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,137.2,Red,Escalate to owner agent; launch corrective playbook.
+W-495,Cancels,Weekly cancel GP loss (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.2,Yellow,Investigate moderate deviation.
+W-496,Cancels,Weekly cancel-to-rebook ratio (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,112.0,Yellow,Investigate moderate deviation.
+W-497,Cancels,Weekly repeat cancels (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.8,Yellow,Investigate moderate deviation.
+W-498,Cancels,Weekly parts-delay cancels (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.1,Red,Escalate to owner agent; launch corrective playbook.
+W-499,Cancels,Weekly late-cancel fee collected (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.9,Red,Escalate to owner agent; launch corrective playbook.
+W-500,Cancels,Weekly repeat cancels (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,60.7,Red,Escalate to owner agent; launch corrective playbook.
+W-501,Cancels,Weekly B2B cancel % (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,82.8,Yellow,Investigate moderate deviation.
+W-502,Cancels,Weekly cancel-to-rebook ratio (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.1,Red,Escalate to owner agent; launch corrective playbook.
+W-503,Cancels,Weekly cancel-to-rebook ratio (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.4,Red,Escalate to owner agent; launch corrective playbook.
+W-504,Cancels,Weekly cancel GP loss (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,111.9,Yellow,Investigate moderate deviation.
+W-505,Cancels,Weekly cancel due reschedule (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.4,Green,Maintain course.
+W-506,Cancels,Weekly parts-delay cancels (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,108.9,Green,Maintain course.
+W-507,Cancels,Weekly late-cancel fee collected (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,101.2,Green,Maintain course.
+W-508,Cancels,Weekly B2B cancel % (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.5,Yellow,Investigate moderate deviation.
+W-509,Cancels,Weekly cancel GP loss (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,98.2,Green,Maintain course.
+W-510,Cancels,Weekly repeat cancels (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,78.8,Red,Escalate to owner agent; launch corrective playbook.
+W-511,Cancels,Weekly B2B cancel % (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,84.5,Yellow,Investigate moderate deviation.
+W-512,Cancels,Weekly late-cancel fee collected (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,115.2,Yellow,Investigate moderate deviation.
+W-513,Cancels,Weekly cancel due reschedule (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,116.2,Yellow,Investigate moderate deviation.
+W-514,Cancels,Weekly cancel-to-rebook ratio (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.9,Red,Escalate to owner agent; launch corrective playbook.
+W-515,Cancels,Weekly cancel due reschedule (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,133.4,Red,Escalate to owner agent; launch corrective playbook.
+W-516,Cancels,Weekly B2B cancel % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,126.3,Red,Escalate to owner agent; launch corrective playbook.
+W-517,Cancels,Weekly cancel GP loss (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.4,Red,Escalate to owner agent; launch corrective playbook.
+W-518,Parts Usage,Weekly return compliance % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,114.4,Yellow,Investigate moderate deviation.
+W-519,Parts Usage,Weekly return compliance % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.3,Green,Maintain course.
+W-520,Parts Usage,Weekly vendor cost variance (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,105.1,Green,Maintain course.
+W-521,Parts Usage,Weekly return compliance % (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,117.9,Yellow,Investigate moderate deviation.
+W-522,Parts Usage,Weekly vendor cost variance (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.3,Red,Escalate to owner agent; launch corrective playbook.
+W-523,Parts Usage,Weekly high-waste SKU count (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,63.6,Red,Escalate to owner agent; launch corrective playbook.
+W-524,Parts Usage,Weekly parts GP delta YoY (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,103.3,Green,Maintain course.
+W-525,Parts Usage,Weekly truck inventory aging $ (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,138.9,Red,Escalate to owner agent; launch corrective playbook.
+W-526,Parts Usage,Weekly avg parts per job (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,74.4,Red,Escalate to owner agent; launch corrective playbook.
+W-527,Parts Usage,Weekly scrap rate (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,90.0,Green,Maintain course.
+W-528,Parts Usage,Weekly vendor cost variance (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,66.4,Red,Escalate to owner agent; launch corrective playbook.
+W-529,Parts Usage,Weekly scrap rate (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,69.5,Red,Escalate to owner agent; launch corrective playbook.
+W-530,Parts Usage,Weekly vendor cost variance (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,118.2,Yellow,Investigate moderate deviation.
+W-531,Parts Usage,Weekly high-waste SKU count (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,120.5,Red,Escalate to owner agent; launch corrective playbook.
+W-532,Parts Usage,Weekly avg parts per job (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,113.9,Yellow,Investigate moderate deviation.
+W-533,Parts Usage,Weekly high-waste SKU count (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,96.9,Green,Maintain course.
+W-534,Parts Usage,Weekly scrap rate (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,75.1,Red,Escalate to owner agent; launch corrective playbook.
+W-535,Parts Usage,Weekly FSSL stock hit % (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,124.8,Red,Escalate to owner agent; launch corrective playbook.
+W-536,Parts Usage,Weekly vendor cost variance (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.3,Red,Escalate to owner agent; launch corrective playbook.
+W-537,Parts Usage,Weekly FSSL stock hit % (YoY) for the planning area,90-110,80-90 or 110-120,<80 or >120,107.5,Green,Maintain course.
+W-538,Parts Usage,Weekly truck inventory aging $ (p90) for the planning area,90-110,80-90 or 110-120,<80 or >120,100.3,Green,Maintain course.
+W-539,Parts Usage,Weekly avg parts per job (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,125.3,Red,Escalate to owner agent; launch corrective playbook.
+W-540,Parts Usage,Weekly parts GP delta YoY (delta) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.0,Red,Escalate to owner agent; launch corrective playbook.
+W-541,Parts Usage,Weekly scrap rate (target variance) for the planning area,90-110,80-90 or 110-120,<80 or >120,93.1,Green,Maintain course.
+W-542,Parts Usage,Weekly avg parts per job (WoW) for the planning area,90-110,80-90 or 110-120,<80 or >120,104.5,Green,Maintain course.
+W-543,Parts Usage,Weekly parts GP delta YoY (index) for the planning area,90-110,80-90 or 110-120,<80 or >120,122.9,Red,Escalate to owner agent; launch corrective playbook.
+W-544,Parts Usage,Weekly scrap rate (score) for the planning area,90-110,80-90 or 110-120,<80 or >120,79.3,Red,Escalate to owner agent; launch corrective playbook.
+W-545,Parts Usage,Weekly high-waste SKU count (ratio) for the planning area,90-110,80-90 or 110-120,<80 or >120,128.6,Red,Escalate to owner agent; launch corrective playbook.

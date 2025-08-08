@@ -1,0 +1,117 @@
+## Building the **CX Agent (Customer-Experience Agent)**
+
+*A 24 × 7 multimodal “front door” that books, reassures, upsells, and loops insights back into every other micro-agent.*
+
+---
+
+### 1. Core Capabilities (API surface)
+
+| Category                    | Key End-points (OpenAPI-style)                                     | Inner logic                                               |
+| --------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------- |
+| **Omni-channel dialog**     | `POST /msg` `{channel, text}` → `reply`                            | Uses GPT-4o + RAG (product KB, policy) + Persona memory.  |
+| **Booking & Re-scheduling** | `POST /book` `{asset_id, SLA_pref}`<br>`PATCH /resched/{order_id}` | Calls Dispatch Agent → returns confirmed slot.            |
+| **Price & trip-fee quotes** | `GET /quote` `{zip, model, symptom}`                               | Reads dynamic pricing table from Finance Agent.           |
+| **Cancel-risk predictor**   | `GET /cancel_risk` `{channel, create_ts, SLA}`                     | Gradient-boost model trained nightly by Data/ML Platform. |
+| **Offer engine**            | `POST /offer` `{customer_id, offer_type}` → returns coupon code    | Consults Finance guardrails.                              |
+| **Sentiment & escalation**  | Emits `event.escalate` when intent = anger & sentiment ≤ –0.6      | PagerDuty route to Escalation Lead.                       |
+| **Memory write**            | `POST /memory` `{cust_id, key, val}`                               | Redis + vector store; Planning-Area CEO Agent re-uses.    |
+
+---
+
+### 2. Daily-cycle routine
+
+| Time (local) | Routine                                                                                        | Why                                            |
+| ------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| **00:00**    | Roll new language-model weights (canary 5 %).                                                  | A/B test for CSAT uplift.                      |
+| 06:00        | Pull **backlog cancel-risk heat-map** per PA, prioritise callbacks.                            | Cuts early-AM cancels.                         |
+| 09:00        | Sync dynamic pricing table from Finance Agent.                                                 | Reflect new parts cost + surge multipliers.    |
+| 12:00        | “Mid-day bot health” — sample 500 convos; high-entropy replies go to human QA for RLHF labels. | Quality guardrail.                             |
+| 18:00        | Push daily “warranty upsell” drip to yesterday’s satisfied D2C customers (CSAT ≥ 4.7).         | Conversion window optimal 24–36 h post-repair. |
+| 23:00        | Export anonymised dialogue + outcome logs to lakehouse for nightly model training.             | Improves cancel-risk & sentiment models.       |
+
+---
+
+### 3. Interaction matrix (other agents)
+
+| Counter-part              | Data exchanged                                         | Trigger                                              | Example message                                    |
+| ------------------------- | ------------------------------------------------------ | ---------------------------------------------------- | -------------------------------------------------- |
+| **Dynamic Dispatch**      | `book`, `resched`, `slot_status`                       | Booking intent                                       | “Need slot ≤ 24 h, fridge no-cool, PA-117.”        |
+| **Finance / Billing**     | `price_request`, `trip_fee_override`, `offer_validate` | Quote or coupon                                      | “Validate \$0 trip fee for Home Advantage QR tag.” |
+| **Parts Procurement**     | `part_eta_query`                                       | Customer asks “When is my part in?”                  | Returns live locker ETA.                           |
+| **Planning-Area CEO**     | `backlog_risk_feed`                                    | Hourly                                               | Cancels > \$3 k GP flagged Red.                    |
+| **Tech-Assist**           | `join_customer_call`                                   | Customer needs live status while tech on site        | Three-way WebRTC.                                  |
+| **Guardrails Engine**     | every outbound text                                    | Real-time content filter (privacy, bias, compliance) | Blocks address requests unless sanctioned.         |
+| **Human Escalation Lead** | webhook                                                | sentiment ≤ –0.6 OR legal threat                     | Routes to live agent in ≤ 2 min.                   |
+
+---
+
+### 4. Interaction with *people*
+
+* **Outside (Customers):**
+  *Channels* — IVR → speech-to-text, Web chat, SMS, WhatsApp, QR scan deep-link, Google Business Messages.
+  *Fallback* — “Type 0 to talk to a human” always available; CX Agent hands off transcript + context.
+
+* **Inside (Employees):**
+  *Escalation Leads* (conflict / refund)
+  *Master Technicians* (when live video needed to reassure homeowner)
+  *Policy Steward* (trip-fee or warranty compliance overrides)
+
+---
+
+### 5. Onboarding new capabilities
+
+| Capability                      | Change path                               | Rollback                       |
+| ------------------------------- | ----------------------------------------- | ------------------------------ |
+| New channel (e.g., Alexa skill) | Add adapter micro-service → map to `/msg` | Feature flag per PA.           |
+| Language expansion (Spanish)    | Add locale=es, update RAG index           | Canary 1 % of es calls.        |
+| IoT auto-dispatch               | New event `iot_fault` → `/book` fast lane | Device-type allow-list toggle. |
+
+---
+
+### 6. Example day-flow (customer & internal)
+
+```
+08:12  Customer scans QR tag → /msg
+08:12  CXAgent: “Hi Jane! Want earliest slot today 2-4 PM?”
+08:12  Dispatch slot available? YES
+08:13  CXAgent books, gets slot_id #A123
+08:14  Memory write: {asset_id, slot_id, offer_sent:false}
+...
+15:30  Tech closes job. CSAT form ⭐⭐⭐⭐⭐
+15:31  CXAgent schedules 6-month guarantee reminder
+15:32  Offer engine: qualifies for warranty upgrade → SMS coupon
+```
+
+---
+
+### 7. Key success KPIs
+
+| KPI                                   | Green  | Yellow  | Red    |
+| ------------------------------------- | ------ | ------- | ------ |
+| CSAT (post-interaction)               | ≥ 4.7  | 4.5–4.7 | < 4.5  |
+| Booking conversion                    | ≥ 80 % | 70–80 % | < 70 % |
+| Auto-resolution rate (no human)       | ≥ 92 % | 85–92 % | < 85 % |
+| Sentiment escalations per 1 000 calls | < 4    | 4–7     | > 7    |
+| Warranty upsell rate (eligible D2C)   | ≥ 6 %  | 3–6 %   | < 3 %  |
+
+---
+
+### 8. Tech stack (high-level)
+
+```plaintext
+Ingress                Orchestration          Business logic         Persistence
+Twilio Voice  ─┐                                                          ┌─► S3 / Lake
+Twilio SMS    ─┤                                                     ┌───► Redis (short)
+WhatsApp API  ─┤  →  NATS  →  LangChain Router →  Handler pods  →  | └───► PG / Delta (state)
+Web Chat      ─┘                                                     └───► Vector DB (RAG)
+```
+
+* LLM = GPT-4o via Azure OpenAI (fallback to Llama-3-70 B).
+* Guardrails = Rebuff + OpenAI Moderation API.
+* Observability = Datadog trace on each `/msg` call.
+
+---
+
+#### Bottom line
+
+The CX Agent **books, soothes, and sells**—then pipes structured signals to Dispatch, Finance, Recruiting, and Planning-Area CEOs so the entire agent ecosystem keeps cycle-time low, cancels low, and revenue high.

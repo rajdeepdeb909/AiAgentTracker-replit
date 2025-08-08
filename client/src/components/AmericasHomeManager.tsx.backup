@@ -1,0 +1,2848 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { 
+  Home, 
+  Building2, 
+  Building,
+  TrendingUp, 
+  Shield, 
+  DollarSign, 
+  Users, 
+  BarChart3, 
+  Zap,
+  Globe,
+  Command,
+  Target,
+  AlertTriangle,
+  CheckCircle,
+  Activity,
+  Star,
+  MapPin,
+  Clock,
+  Wrench,
+  Brain,
+  ArrowLeft,
+  MessageSquare,
+  Calendar,
+  Monitor
+} from "lucide-react";
+import { useState } from "react";
+import { Link } from "wouter";
+
+export default function AmericasHomeManager() {
+  const [selectedMetric, setSelectedMetric] = useState<string | null>(null);
+
+  // National Infrastructure Metrics
+  const nationalMetrics = {
+    totalMarketCoverage: 85.7, // % of US households covered
+    activeMarketPods: 387,
+    totalTechnicians: 1847,
+    dailyJobsCompleted: 12456,
+    annualRevenue: 320.0, // millions (Q3 2025 $80M * 4)
+    grossMargin: 42.8,
+    netMargin: 18.4,
+    customerNPS: 78,
+    technicianRetention: 91.3
+  };
+
+  // Market Expansion Status
+  const marketExpansion = [
+    {
+      region: "Tier 1 Metro",
+      markets: 45,
+      coverage: 94.2,
+      status: "saturated",
+      growth: "optimization"
+    },
+    {
+      region: "Tier 2 Metro", 
+      markets: 127,
+      coverage: 87.5,
+      status: "scaling",
+      growth: "aggressive"
+    },
+    {
+      region: "Suburban/Rural",
+      markets: 215,
+      coverage: 76.3,
+      status: "expanding",
+      growth: "measured"
+    },
+    {
+      region: "Premium Markets",
+      markets: 28,
+      coverage: 98.1,
+      status: "premium",
+      growth: "margin-focused"
+    }
+  ];
+
+  // Revenue Growth Trajectory
+  const revenueGrowth = [
+    { period: "Q3 2025 (Current)", revenue: 80.0, margin: 18.4 },
+    { period: "Q4 2025 (Forecast)", revenue: 92.0, margin: 22.1 },
+    { period: "Q1 2026 (Forecast)", revenue: 95.0, margin: 25.8 },
+    { period: "Q2 2026 (Forecast)", revenue: 91.0, margin: 28.4 }
+  ];
+
+  // Strategic Advantages
+  const competitiveAdvantages = [
+    {
+      advantage: "AI-First Architecture",
+      description: "95% autonomous execution vs 30% industry standard",
+      impact: "60% lower operational costs",
+      moat: "Proprietary ML models with 5+ years training data"
+    },
+    {
+      advantage: "Network Effects",
+      description: "Each new market pod improves routing for all pods",
+      impact: "23% faster response times at scale",
+      moat: "Winner-take-all market dynamics"
+    },
+    {
+      advantage: "Full-Stack Solution",
+      description: "End-to-end platform from customer booking to payment",
+      impact: "45% higher customer lifetime value",
+      moat: "Integrated ecosystem switching costs"
+    },
+    {
+      advantage: "Distribution Innovation",
+      description: "Run business by percentiles, not averages",
+      impact: "40% improvement in outlier performance",
+      moat: "Advanced statistical operation model"
+    }
+  ];
+
+  // Investment Thesis
+  const investmentHighlights = [
+    {
+      metric: "Total Addressable Market",
+      value: "$600B",
+      description: "US home services market growing 8% annually"
+    },
+    {
+      metric: "Funding Target",
+      value: "$200M",  
+      description: "Growth, technology, acquisitions, category expansion at $1B valuation"
+    },
+    {
+      metric: "Technology Superiority",
+      value: "3-5 years",
+      description: "Lead over traditional competitors"
+    },
+    {
+      metric: "Market Share Opportunity",
+      value: "15-20%",
+      description: "In targeted metro markets by 2027"
+    }
+  ];
+
+  // Operational Excellence Metrics
+  const operationalMetrics = [
+    {
+      category: "Efficiency",
+      metrics: [
+        { name: "Travel Time Reduction", value: "35%", benchmark: "vs traditional dispatch" },
+        { name: "Parts Delivery Success", value: "85%", benchmark: "direct-ship model" },
+        { name: "First-Time Fix Rate", value: "89.2%", benchmark: "industry avg: 76%" },
+        { name: "Customer Satisfaction", value: "92%", benchmark: "vs 73% industry" }
+      ]
+    },
+    {
+      category: "Technology",
+      metrics: [
+        { name: "Autonomous Execution", value: "95%", benchmark: "human oversight minimal" },
+        { name: "AI Response Accuracy", value: "94.1%", benchmark: "conversational AI" },
+        { name: "Predictive Maintenance", value: "78%", benchmark: "failure prevention" },
+        { name: "App Engagement", value: "96.5%", benchmark: "technician adoption" }
+      ]
+    },
+    {
+      category: "Financial",
+      metrics: [
+        { name: "Gross Margin", value: "42.8%", benchmark: "vs 28% traditional" },
+        { name: "Customer Acquisition Cost", value: "$47", benchmark: "vs $180 industry" },
+        { name: "Lifetime Value", value: "$2,340", benchmark: "LTV:CAC = 49.8:1" },
+        { name: "Monthly Recurring Revenue", value: "$38.2M", benchmark: "97% retention" }
+      ]
+    }
+  ];
+
+  return (
+    <div className="p-6 space-y-6 bg-gray-900 min-h-screen">
+      {/* Navigation Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+        <Link href="/dashboard">
+          <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white p-1">
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Back to Dashboard
+          </Button>
+        </Link>
+      </div>
+
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+            <Home className="w-8 h-8 text-blue-400" />
+            America's Home Manager
+          </h1>
+          <p className="text-gray-400 mt-1">
+            National AI Infrastructure • $600B Market Opportunity • Funding: $200M at $1B Valuation
+          </p>
+        </div>
+        <div className="flex items-center gap-4">
+          <Badge variant="outline" className="text-green-400 border-green-400">
+            387 Market Pods Active  
+          </Badge>
+          <Badge variant="outline" className="text-blue-400 border-blue-400">
+            $80M Q3 2025
+          </Badge>
+          <Badge variant="outline" className="text-purple-400 border-purple-400">
+            $200M Funding Ready
+          </Badge>
+        </div>
+      </div>
+
+      <Tabs defaultValue="national" className="w-full">
+        <TabsList className="grid w-full grid-cols-6 bg-gray-800">
+          <TabsTrigger value="national" className="text-white">National Infrastructure</TabsTrigger>
+          <TabsTrigger value="executive" className="text-white">Executive Agent Activities</TabsTrigger>
+          <TabsTrigger value="growth" className="text-white">Revenue Growth</TabsTrigger>
+          <TabsTrigger value="competitive" className="text-white">Competitive Moats</TabsTrigger>
+          <TabsTrigger value="investment" className="text-white">Investment Thesis</TabsTrigger>
+          <TabsTrigger value="operations" className="text-white">Operational Excellence</TabsTrigger>
+        </TabsList>
+
+        {/* National Infrastructure Tab */}
+        <TabsContent value="national" className="space-y-6">
+          {/* Key Metrics Overview */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card className="bg-gray-800 border-gray-700">
+              <CardContent className="p-4">
+                <div className="text-2xl font-bold text-blue-400">{nationalMetrics.totalMarketCoverage}%</div>
+                <div className="text-sm text-gray-400">US Household Coverage</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-gray-800 border-gray-700">
+              <CardContent className="p-4">
+                <div className="text-2xl font-bold text-green-400">{nationalMetrics.activeMarketPods}</div>
+                <div className="text-sm text-gray-400">Active Market Pods</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-gray-800 border-gray-700">
+              <CardContent className="p-4">
+                <div className="text-2xl font-bold text-purple-400">{nationalMetrics.totalTechnicians.toLocaleString()}</div>
+                <div className="text-sm text-gray-400">Field Technicians</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-gray-800 border-gray-700">
+              <CardContent className="p-4">
+                <div className="text-2xl font-bold text-orange-400">{nationalMetrics.dailyJobsCompleted.toLocaleString()}</div>
+                <div className="text-sm text-gray-400">Daily Jobs Completed</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Market Expansion Status */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-blue-400" />
+                Market Expansion Status
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Strategic market penetration across 415 total markets
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {marketExpansion.map((region, idx) => (
+                  <div key={idx} className="p-4 bg-gray-700 rounded-lg">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <h4 className="text-white font-medium">{region.region}</h4>
+                        <p className="text-gray-400 text-sm">{region.markets} markets • {region.coverage}% coverage</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Badge 
+                          variant="outline"
+                          className={
+                            region.status === 'saturated' ? 'text-blue-400 border-blue-400' :
+                            region.status === 'scaling' ? 'text-green-400 border-green-400' :
+                            region.status === 'expanding' ? 'text-orange-400 border-orange-400' :
+                            'text-purple-400 border-purple-400'
+                          }
+                        >
+                          {region.status}
+                        </Badge>
+                        <Badge variant="secondary" className="text-xs">
+                          {region.growth}
+                        </Badge>
+                      </div>
+                    </div>
+                    <Progress value={region.coverage} className="h-2" />
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Financial Performance */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white text-lg">Annual Revenue</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold text-green-400 mb-2">
+                  ${nationalMetrics.annualRevenue}M
+                </div>
+                <div className="text-sm text-gray-400">
+                  Growing 127% YoY
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white text-lg">Gross Margin</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold text-blue-400 mb-2">
+                  {nationalMetrics.grossMargin}%
+                </div>
+                <div className="text-sm text-gray-400">
+                  vs 28% industry avg
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white text-lg">Net Margin</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold text-purple-400 mb-2">
+                  {nationalMetrics.netMargin}%
+                </div>
+                <div className="text-sm text-gray-400">
+                  vs 8% industry avg
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        {/* Agent Streaming Activities Tab */}
+        <TabsContent value="executive" className="space-y-6">
+          <div className="text-center py-12">
+            <div className="text-gray-400 text-xl mb-4">Executive Agent Activities have been moved to Executive Orchestration</div>
+            <div className="text-gray-500 text-base mb-8">For detailed executive decision streams and live activities from CEO/COO Agent, CX Agent, and Parts Supply Chain Agent, navigate to the Executive Orchestration section</div>
+            <Link href="/executive-orchestration">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+                View Executive Orchestration →
+              </Button>
+            </Link>
+          </div>
+        </TabsContent>
+
+        {/* Revenue Growth Tab */}
+        <TabsContent value="growth" className="space-y-6">
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-green-400" />
+                Revenue Growth Trajectory
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Path to $50M ARR with Series A funding
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Strategic Decision</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Approved $2.8M investment in Dallas market pod expansion - ROI projection 187%</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Resource Allocation</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reallocated 47 technicians from Phoenix to high-demand Seattle area</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Performance Review</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified 12 underperforming areas requiring immediate intervention</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Market Analysis</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Detected 23% demand spike in HVAC services - adjusting capacity allocation</div>
+                  </div>
+
+                  <div className="p-3 bg-red-900/20 border border-red-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Risk Mitigation</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Flagged supply chain disruption risk in Southeast region - activating backup suppliers</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Financial Decision</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Authorized $850k working capital increase for Q4 growth acceleration</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Acquisition Review</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved due diligence for 3 regional competitors valued at $14M combined</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* CX Agent Activities */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Users className="w-5 h-5 text-green-400" />
+                  CX Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  24/7 multimodal customer experience management
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Customer Resolution</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Resolved billing dispute for Premium customer - $2.4k value retained</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Escalation Management</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Escalated complex HVAC system failure to senior technician - 4-hour SLA maintained</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Satisfaction Tracking</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Achieved 4.8/5.0 average satisfaction across 847 interactions today</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Upsell Opportunity</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified maintenance plan upsell - $4.2k annual value potential</div>
+                  </div>
+
+                  <div className="p-3 bg-yellow-900/20 border border-yellow-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Proactive Outreach</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Contacted 156 customers about preventive maintenance - 78% acceptance rate</div>
+                  </div>
+
+                  <div className="p-3 bg-red-900/20 border border-red-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Emergency Response</span>
+                      <span className="text-gray-500 text-xs">17 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated emergency plumbing response - 6.4 minute response time achieved</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Quality Assurance</span>
+                      <span className="text-gray-500 text-xs">20 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reviewed 234 service completions - 96.8% quality score maintained</div>
+                  </div>
+
+                  <div className="p-3 bg-emerald-900/20 border border-emerald-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-emerald-400 font-medium">Voice Analytics</span>
+                      <span className="text-gray-500 text-xs">23 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 347 voice calls - sentiment improved 23% with proactive responses</div>
+                  </div>
+
+                  <div className="p-3 bg-rose-900/20 border border-rose-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Escalation Prevention</span>
+                      <span className="text-gray-500 text-xs">25 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Prevented 12 escalations through preemptive service adjustments</div>
+                  </div>
+
+                  <div className="p-3 bg-indigo-900/20 border border-indigo-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Multi-modal Coordination</span>
+                      <span className="text-gray-500 text-xs">27 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated across email, SMS, chat, voice - seamless experience for 567 customers</div>
+                  </div>
+
+                  <div className="p-3 bg-teal-900/20 border border-teal-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Personalization Engine</span>
+                      <span className="text-gray-500 text-xs">30 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Personalized experiences for 1,234 customers - satisfaction increased 34%</div>
+                  </div>
+
+                  <div className="p-3 bg-amber-900/20 border border-amber-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-amber-400 font-medium">Predictive Support</span>
+                      <span className="text-gray-500 text-xs">32 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Predicted 89 customer needs before requests - proactive engagement 95%</div>
+                  </div>
+
+                  <div className="p-3 bg-lime-900/20 border border-lime-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-lime-400 font-medium">Journey Optimization</span>
+                      <span className="text-gray-500 text-xs">35 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized customer journeys for 456 touchpoints - friction reduced 67%</div>
+                  </div>
+
+                  <div className="p-3 bg-violet-900/20 border border-violet-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-violet-400 font-medium">Loyalty Program</span>
+                      <span className="text-gray-500 text-xs">37 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Activated loyalty rewards for 234 premium customers - retention up 45%</div>
+                  </div>
+
+                  <div className="p-3 bg-slate-800/20 border border-slate-600 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-slate-400 font-medium">Feedback Analysis</span>
+                      <span className="text-gray-500 text-xs">40 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 789 feedback responses - identified 5 improvement opportunities</div>
+                  </div>
+
+                  <div className="p-3 bg-pink-900/20 border border-pink-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Emergency Communication</span>
+                      <span className="text-gray-500 text-xs">42 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Managed emergency communications for 67 customers - anxiety reduced, trust maintained</div>
+                  </div>
+
+                  <div className="p-3 bg-sky-900/20 border border-sky-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-sky-400 font-medium">Service Recovery</span>
+                      <span className="text-gray-500 text-xs">45 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Executed service recovery for 8 dissatisfied customers - NPS improved to 4.9</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Cross-sell Analysis</span>
+                      <span className="text-gray-500 text-xs">47 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified cross-sell opportunities worth $67k - conversion rate 34%</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Sentiment Monitoring</span>
+                      <span className="text-gray-500 text-xs">50 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Real-time sentiment monitoring across 2,847 interactions - 94.2% positive</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Parts Supply Chain Agent Activities */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-orange-400" />
+                  Parts Supply Chain Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Central procurement brain with 85% delivery efficiency
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Procurement Decision</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Negotiated 18% discount on HVAC parts - $47k monthly savings secured</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Direct Ship Optimization</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated 342 direct-ship orders - 24.7 hour average delivery time</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Inventory Analytics</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized truck inventory levels - reduced carrying costs by $23k monthly</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Supplier Relationship</span>
+                      <span className="text-gray-500 text-xs">11 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Secured preferred vendor status with 3 major suppliers - 12% cost reduction</div>
+                  </div>
+
+                  <div className="p-3 bg-red-900/20 border border-red-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Risk Management</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified supply shortage risk - activated 2 backup suppliers proactively</div>
+                  </div>
+
+                  <div className="p-3 bg-yellow-900/20 border border-yellow-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Cost Optimization</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Eliminated $8.4k waste through precision forecasting - 94.2% accuracy rate</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Delivery Performance</span>
+                      <span className="text-gray-500 text-xs">22 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Achieved 98.7% on-time delivery rate across all regions - industry leading</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Emergency Stock</span>
+                      <span className="text-gray-500 text-xs">25 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Activated emergency stock protocols for winter storm - 100% parts availability maintained</div>
+                  </div>
+
+                  <div className="p-3 bg-indigo-900/20 border border-indigo-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Quality Control</span>
+                      <span className="text-gray-500 text-xs">28 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Quality-checked 456 parts shipments - 99.8% passed inspection standards</div>
+                  </div>
+
+                  <div className="p-3 bg-teal-900/20 border border-teal-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Vendor Performance</span>
+                      <span className="text-gray-500 text-xs">30 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Evaluated 47 vendor performances - terminated 2 underperforming suppliers</div>
+                  </div>
+
+                  <div className="p-3 bg-amber-900/20 border border-amber-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-amber-400 font-medium">Cost Analytics</span>
+                      <span className="text-gray-500 text-xs">32 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed parts costs across 430 markets - identified $156k savings opportunity</div>
+                  </div>
+
+                  <div className="p-3 bg-lime-900/20 border border-lime-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-lime-400 font-medium">Seasonal Planning</span>
+                      <span className="text-gray-500 text-xs">35 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Completed winter inventory planning - 15% increase in heating parts stock</div>
+                  </div>
+
+                  <div className="p-3 bg-violet-900/20 border border-violet-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-violet-400 font-medium">Logistics Optimization</span>
+                      <span className="text-gray-500 text-xs">37 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized delivery routes - reduced transportation costs by $34k monthly</div>
+                  </div>
+
+                  <div className="p-3 bg-slate-800/20 border border-slate-600 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-slate-400 font-medium">Contract Negotiation</span>
+                      <span className="text-gray-500 text-xs">40 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Negotiated new contract terms - secured 22% volume discount on electrical parts</div>
+                  </div>
+
+                  <div className="p-3 bg-pink-900/20 border border-pink-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Demand Forecasting</span>
+                      <span className="text-gray-500 text-xs">42 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated demand forecasts based on weather patterns - accuracy improved to 96.4%</div>
+                  </div>
+
+                  <div className="p-3 bg-sky-900/20 border border-sky-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-sky-400 font-medium">Cross-dock Operations</span>
+                      <span className="text-gray-500 text-xs">45 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated cross-dock operations for 1,234 parts - zero delays recorded</div>
+                  </div>
+
+                  <div className="p-3 bg-emerald-900/20 border border-emerald-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-emerald-400 font-medium">Return Processing</span>
+                      <span className="text-gray-500 text-xs">47 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Processed 89 parts returns - 94% restocked, $12k value recovered</div>
+                  </div>
+
+                  <div className="p-3 bg-rose-900/20 border border-rose-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Compliance Monitoring</span>
+                      <span className="text-gray-500 text-xs">50 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Monitored regulatory compliance for 2,847 parts - 100% certification maintained</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Advanced Scheduling Agent Activities */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-purple-400" />
+                  Advanced Scheduling Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Real-time optimization across 2000+ technicians
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Schedule Optimization</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Optimized 847 technician schedules - 94.2% utilization achieved</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Emergency Insertion</span>
+                      <span className="text-gray-500 text-xs">1 min ago</span>
+                    </div>
+                    <div className="text-gray-300">Emergency HVAC call inserted - 23-minute response window maintained</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Resource Balancing</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Redistributed 34 jobs to balance workload - conflict reduction 45%</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Capacity Planning</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified capacity shortage in Dallas - requesting 12 additional techs</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Route Optimization Engine Activities */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-green-400" />
+                  Route Optimization Engine
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  35% travel time reduction through AI routing
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Route Calculation</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Generated optimal routes for 1,247 technicians - 28% fuel cost savings</div>
+                  </div>
+
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Traffic Adaptation</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Rerouted 89 technicians around traffic incident - delays prevented</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Emergency Response</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Emergency insertion completed in 28 seconds - response time optimized</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Performance Analysis</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Daily efficiency: 6.8 jobs per technician - exceeding 6.5 target</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Performance Analytics AI Activities */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5 text-blue-400" />
+                  Performance Analytics AI
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Real-time analysis across 430 planning areas
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-3 bg-blue-900/20 border border-blue-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">KPI Analysis</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Identified 18% profit margin improvement opportunity in Austin market</div>
+                  </div>
+
+                  <div className="p-3 bg-green-900/20 border border-green-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Performance Alert</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Denver area exceeding targets - 127% of revenue goal achieved</div>
+                  </div>
+
+                  <div className="p-3 bg-red-900/20 border border-red-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Underperformance Detection</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tampa market 23% below target - recommending intervention plan</div>
+                  </div>
+
+                  <div className="p-3 bg-purple-900/20 border border-purple-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Trend Analysis</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Q4 revenue trending 12% above forecast - raising guidance</div>
+                  </div>
+
+                  <div className="p-3 bg-emerald-900/20 border border-emerald-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-emerald-400 font-medium">Strategic Initiative</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved $15M expansion into Phoenix and Charlotte markets</div>
+                  </div>
+
+                  <div className="p-3 bg-rose-900/20 border border-rose-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Executive Hiring</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved VP of Technology hire - AI capabilities expansion</div>
+                  </div>
+
+                  <div className="p-3 bg-indigo-900/20 border border-indigo-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Partnership Decision</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved strategic partnership with HomeDepot - $50M revenue potential</div>
+                  </div>
+
+                  <div className="p-3 bg-teal-900/20 border border-teal-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Technology Investment</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved $8M AI infrastructure upgrade - 40% efficiency gain expected</div>
+                  </div>
+
+                  <div className="p-3 bg-cyan-900/20 border border-cyan-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Quality Initiative</span>
+                      <span className="text-gray-500 text-xs">20 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Launched company-wide quality program - targeting 99.5% satisfaction</div>
+                  </div>
+
+                  <div className="p-3 bg-amber-900/20 border border-amber-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-amber-400 font-medium">Acquisition Analysis</span>
+                      <span className="text-gray-500 text-xs">22 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Evaluated 3 acquisition targets - prioritizing Southeast expansion</div>
+                  </div>
+
+                  <div className="p-3 bg-lime-900/20 border border-lime-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-lime-400 font-medium">Financial Strategy</span>
+                      <span className="text-gray-500 text-xs">25 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized capital allocation - increased R&D budget by $12M</div>
+                  </div>
+
+                  <div className="p-3 bg-violet-900/20 border border-violet-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-violet-400 font-medium">Risk Management</span>
+                      <span className="text-gray-500 text-xs">28 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Implemented new insurance strategy - reduced liability exposure 35%</div>
+                  </div>
+
+                  <div className="p-3 bg-slate-800/20 border border-slate-600 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-slate-400 font-medium">Board Communication</span>
+                      <span className="text-gray-500 text-xs">30 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Prepared board presentation - showcasing 45% YoY growth metrics</div>
+                  </div>
+
+                  <div className="p-3 bg-pink-900/20 border border-pink-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Sustainability Initiative</span>
+                      <span className="text-gray-500 text-xs">32 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Approved green technology initiative - carbon neutral by 2026</div>
+                  </div>
+
+                  <div className="p-3 bg-orange-900/20 border border-orange-700 rounded text-sm">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Competitive Response</span>
+                      <span className="text-gray-500 text-xs">35 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed competitor moves - adjusted pricing strategy in 12 markets</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+            {/* D2C Marketing Intelligence Agent */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Target className="w-5 h-5 text-pink-400" />
+                  D2C Marketing Intelligence Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Direct consumer marketing and SEO optimization
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">SEO Optimization</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Updated 247 landing pages - organic traffic increased 34%</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Campaign Analysis</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Google Ads CTR improved to 4.8% - $12k budget reallocation</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Lead Generation</span>  
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Generated 89 qualified leads - conversion rate 23.4%</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Content Strategy</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Published 15 blog posts - search ranking improved in 12 cities</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Social Media</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Facebook engagement up 67% - 234 new followers today</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Competitor Analysis</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified 3 competitor weaknesses - ad copy updated</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">LLM Optimization</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">ChatGPT visibility improved - featured in 47 AI responses</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Email Marketing</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Email open rate 28.3% - scheduled 12 automated sequences</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Local Listings</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated 2,847 local listings - GMB optimization complete</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Review Management</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">4.7 star average across platforms - 89 new reviews today</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* B2B Relationship Manager Agent */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Building className="w-5 h-5 text-cyan-400" />
+                  B2B Relationship Manager Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Business partnerships and client relationship management
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Partnership Development</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Signed 3 new property management partnerships worth $2.4M ARR</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Client Expansion</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Expanded Houston B2B client by 67 additional properties</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Contract Renewal</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Renewed enterprise client - 3-year $8.7M contract secured</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Proposal Creation</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Generated 12 custom proposals - total value $14.2M potential</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Relationship Analysis</span>
+                      <span className="text-gray-500 text-xs">9 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Client health scores updated - 94% satisfaction rate</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Risk Management</span>
+                      <span className="text-gray-500 text-xs">11 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified at-risk client - intervention plan activated</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Performance Tracking</span>
+                      <span className="text-gray-500 text-xs">13 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Q4 B2B revenue 23% above target - pipeline strong</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Lead Qualification</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Qualified 34 B2B leads - average deal size $456k</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Market Expansion</span>
+                      <span className="text-gray-500 text-xs">17 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Entered Phoenix B2B market - 8 enterprise prospects identified</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Strategic Planning</span>
+                      <span className="text-gray-500 text-xs">19 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">2025 B2B strategy approved - targeting $150M revenue</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Geographic Performance Marketing Agent */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Globe className="w-5 h-5 text-emerald-400" />
+                  Geographic Performance Marketing Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Performance optimization by planning area
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-emerald-900/20 border border-emerald-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-emerald-400 font-medium">Regional Analysis</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Austin market CAC decreased 28% - reallocating $47k budget</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Budget Optimization</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Shifted $23k from Chicago to Denver - ROI improved 45%</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">High-Performance ID</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Nashville region exceeding targets - scaling investment 200%</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Risk Prevention</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tampa performance declining - implementing intervention plan</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Seasonal Adjustment</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Winter HVAC demand spike - Boston budget increased 67%</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Competitive Response</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Competitor entered Miami - launching counter-campaign</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Market Entry</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Phoenix launch plan approved - $850k marketing budget allocated</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Performance Forecasting</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Q1 2025 projections updated - 18% revenue growth expected</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Attribution Analysis</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Google Ads driving 67% of Seattle conversions - budget increased</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Cross-Regional Insights</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Applied Dallas success model to Atlanta - early results positive</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+            {/* Customer Communication Hub */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <MessageSquare className="w-5 h-5 text-blue-400" />
+                  Customer Communication Hub
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Multi-channel customer communication management
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Email Response</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Responded to 47 customer emails - avg response time 1.2 mins</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">SMS Coordination</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Sent 234 appointment confirmations - 98.7% delivery rate</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Chat Support</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Live chat satisfaction 4.9/5.0 - 89 conversations handled</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Voice Call Summary</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Processed 156 inbound calls - first call resolution 87%</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Complaint Resolution</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Resolved 12 complaints proactively - customer retention 100%</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Follow-up Automation</span>
+                      <span className="text-gray-500 text-xs">9 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Scheduled 78 follow-up touchpoints - satisfaction tracking active</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Sentiment Analysis</span>
+                      <span className="text-gray-500 text-xs">11 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Customer sentiment improved 23% - proactive intervention working</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Multi-channel Sync</span>
+                      <span className="text-gray-500 text-xs">13 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Synchronized 3,247 customer interactions across all channels</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Escalation Management</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Escalated 4 complex issues to human agents - context preserved</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Proactive Outreach</span>
+                      <span className="text-gray-500 text-xs">17 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Contacted 234 customers for preventive maintenance - 67% acceptance</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Maintenance Scheduler Pro */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-green-400" />
+                  Maintenance Scheduler Pro
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Predictive maintenance scheduling and optimization
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Preventive Scheduling</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Scheduled 342 maintenance visits - 94% customer availability match</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Predictive Analysis</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified 67 systems requiring maintenance within 30 days</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Priority Optimization</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reordered 89 maintenance jobs by urgency - efficiency improved 28%</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Resource Allocation</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Assigned specialized HVAC team to 23 high-priority maintenance calls</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Emergency Prevention</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Prevented 12 potential emergencies through proactive maintenance</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Customer Communication</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Sent 456 maintenance reminders - 89% customer confirmation rate</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Seasonal Planning</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Winter prep completed for 2,847 HVAC systems - 100% coverage</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Contract Management</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Renewed 78 maintenance contracts - $2.4M annual value secured</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Performance Tracking</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Maintenance completion rate 97.8% - exceeding SLA targets</div>
+                  </div>
+
+                  <div className="p-2 bg-rose-900/20 border border-rose-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Cost Optimization</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reduced maintenance costs by $47k through optimal scheduling</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Regional Performance Monitor */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Monitor className="w-5 h-5 text-orange-400" />
+                  Regional Performance Monitor
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Real-time monitoring across 430 planning areas
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Area Performance</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Austin North leading performance - 134% of monthly target achieved</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Resource Monitoring</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Denver area at 89% technician utilization - optimal efficiency</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Quality Metrics</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Seattle region maintaining 4.8/5.0 customer satisfaction</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Trend Analysis</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Phoenix showing 23% MoM growth - scaling resources accordingly</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Alert Management</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tampa area flagged for declining metrics - intervention initiated</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Capacity Planning</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Dallas market approaching capacity - recommending expansion</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Competition Tracking</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Maintaining market leadership in 387/430 planning areas</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Revenue Tracking</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Q4 regional revenue on track - $23.4M vs $22.8M target</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Benchmark Analysis</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Chicago outperforming national average by 45% across all KPIs</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Cross-Regional Insights</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Best practices from Miami deployed to 23 similar markets</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+            {/* Technician Interaction Hub */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Users className="w-5 h-5 text-yellow-400" />
+                  Technician Interaction Hub
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Real-time technician coordination and support
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Job Dispatch</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Dispatched 89 technicians to emergency calls - avg response 18 mins</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Status Updates</span>
+                      <span className="text-gray-500 text-xs">1 min ago</span>
+                    </div>
+                    <div className="text-gray-300">Received 234 job status updates - 97% completion rate tracked</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Performance Coaching</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Provided real-time coaching to 12 technicians - efficiency improved</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Resource Support</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Connected 34 technicians with parts specialists - delays prevented</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Safety Alerts</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Issued 7 safety reminders for high-risk electrical work</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Emergency Coordination</span>
+                      <span className="text-gray-500 text-xs">9 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated multi-tech response for complex HVAC system failure</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Training Delivery</span>
+                      <span className="text-gray-500 text-xs">11 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Delivered micro-training to 67 technicians on new protocols</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Quality Guidance</span>
+                      <span className="text-gray-500 text-xs">13 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Guided 23 technicians through quality checklists - compliance 100%</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Shift Management</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized shift transitions for 156 technicians - no gaps</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Recognition System</span>
+                      <span className="text-gray-500 text-xs">17 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Recognized 45 technicians for exceptional performance today</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Outstanding Orders Manager */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-red-400" />
+                  Outstanding Orders Manager
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Priority management of pending service orders
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Critical Escalation</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Escalated 12 overdue orders to priority queue - SLA recovery mode</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Resource Reallocation</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reallocated 34 technicians to clear outstanding backlog</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Customer Communication</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Proactive updates sent to 89 customers with pending orders</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Parts Coordination</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Expedited parts delivery for 23 stalled orders - completion tomorrow</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Resolution Tracking</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Completed 67 outstanding orders - backlog reduced by 34%</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Priority Scoring</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Rescored 156 orders by urgency - optimal sequence maintained</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Workflow Optimization</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Streamlined 45 multi-step orders - completion time reduced 28%</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Quality Assurance</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Quality checked 234 completed orders - 98.7% first-time accuracy</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Performance Analytics</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed completion patterns - identified 3 process improvements</div>
+                  </div>
+
+                  <div className="p-2 bg-rose-900/20 border border-rose-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Capacity Management</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized capacity allocation - no orders pending beyond SLA</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Parts Prediction Engine */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-electric-400" />
+                  Parts Prediction Engine
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  AI-powered parts demand forecasting and optimization
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Demand Forecasting</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Predicted 23% increase in HVAC parts demand for winter season</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Inventory Optimization</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized truck inventory levels - reduced carrying costs $34k</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Pattern Recognition</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified seasonal patterns in 847 part categories - accuracy 94.2%</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Predictive Ordering</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Auto-ordered 156 critical parts before shortage - $67k saved</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Emergency Prediction</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Predicted emergency parts needs for storm season - buffer increased</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Usage Analytics</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 2,847 job completions - refined prediction models</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Supplier Intelligence</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed supplier performance - optimized procurement strategy</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Cost Optimization</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Reduced parts waste by 45% through precision forecasting</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Regional Analysis</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Denver market parts usage 23% above forecast - adjusting supply</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Machine Learning</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Model accuracy improved to 96.8% - learning from 5M+ data points</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+            {/* Emergency Response Coordinator */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-red-400" />
+                  Emergency Response Coordinator
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  24/7 emergency response coordination and dispatch
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Critical Response</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Dispatched emergency team to gas leak - 4.2 minute response time</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Resource Mobilization</span>
+                      <span className="text-gray-500 text-xs">1 min ago</span>
+                    </div>
+                    <div className="text-gray-300">Mobilized 12 technicians for apartment complex HVAC failure</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Priority Assessment</span>
+                      <span className="text-gray-500 text-xs">3 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Triaged 23 emergency calls - all high-priority dispatched</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Customer Communication</span>
+                      <span className="text-gray-500 text-xs">5 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated 67 customers on emergency response status - anxiety reduced</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Multi-Agency Coordination</span>
+                      <span className="text-gray-500 text-xs">7 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated with fire department on electrical emergency - safe resolution</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Expert Dispatch</span>
+                      <span className="text-gray-500 text-xs">9 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Deployed master electrician to industrial facility - power restored</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Weather Monitoring</span>
+                      <span className="text-gray-500 text-xs">11 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Storm approaching - pre-positioned 45 technicians in high-risk areas</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Equipment Tracking</span>
+                      <span className="text-gray-500 text-xs">13 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tracked emergency equipment deployment - 100% availability maintained</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Response Analysis</span>
+                      <span className="text-gray-500 text-xs">15 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 234 emergency responses - avg time 6.7 minutes</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Safety Protocol</span>
+                      <span className="text-gray-500 text-xs">17 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Ensured safety protocols followed - zero incidents in 847 responses</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Plumbing Dispatch Coordinator */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-blue-400" />
+                  Plumbing Dispatch Coordinator
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Specialized plumbing service coordination and dispatch
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Service Dispatch</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Dispatched 34 plumbers to routine maintenance calls - schedule optimized</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Emergency Plumbing</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated burst pipe response - water damage minimized</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Specialist Matching</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Matched drain specialist to commercial blockage - expertise utilized</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Parts Coordination</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Coordinated parts delivery for 12 plumbing jobs - delays prevented</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Quality Control</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Quality-checked 89 plumbing completions - 98.9% first-time success</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Customer Updates</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Sent SMS updates to 156 customers - arrival times confirmed</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Route Optimization</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized routes for 67 plumbers - travel time reduced 32%</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Permit Tracking</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tracked permits for 23 major plumbing projects - compliance 100%</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Performance Analytics</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed plumber efficiency - top performers identified for recognition</div>
+                  </div>
+
+                  <div className="p-2 bg-rose-900/20 border border-rose-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Training Coordination</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Scheduled skills training for 45 plumbers - certification updated</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* HVAC System Diagnostics AI */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Activity className="w-5 h-5 text-green-400" />
+                  HVAC System Diagnostics AI
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Advanced HVAC system analysis and predictive maintenance
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">System Analysis</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 156 HVAC systems - identified 23 efficiency improvements</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Predictive Maintenance</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Predicted compressor failure in 47 units - maintenance scheduled</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Energy Optimization</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Optimized 89 systems for winter efficiency - 34% energy savings</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Fault Detection</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Detected refrigerant leak in commercial unit - repair prioritized</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Emergency Diagnosis</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Emergency diagnosis for hospital HVAC - critical parts identified</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Performance Monitoring</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Monitored 2,847 systems - 98.7% operating within optimal range</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Smart Controls</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated smart thermostats in 234 homes - comfort improved</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Filter Analysis</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed filter status in 567 units - replacement schedule optimized</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Seasonal Prep</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Completed winter readiness check for 1,234 residential systems</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Machine Learning</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated ML models with new failure patterns - accuracy improved to 97.3%</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+            {/* Quality Assurance Inspector */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  Quality Assurance Inspector
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Automated quality control and compliance monitoring
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Quality Inspection</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Inspected 89 completed jobs - 97.8% passed quality standards</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Compliance Check</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Verified compliance for 234 electrical installations - 100% certified</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Photo Verification</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed 567 job completion photos - auto-approved 94.2%</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Standards Monitoring</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Monitored service standards across 430 areas - consistency maintained</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Quality Alert</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Flagged 3 jobs for re-inspection - quality coaching initiated</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Training Needs</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified training needs for 12 technicians - modules scheduled</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Best Practices</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified best practice from Denver team - sharing across network</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Customer Feedback</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Processed 156 customer satisfaction surveys - 4.8/5.0 average</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Process Improvement</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified 5 process improvements - efficiency gains 23%</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Recognition Program</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Recognized 34 technicians for quality excellence this week</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Electrical Safety Compliance Agent */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-blue-400" />
+                  Electrical Safety Compliance Agent
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Safety protocol enforcement and compliance monitoring
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Safety Protocol</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Verified safety protocols for 67 electrical jobs - 100% compliance</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Certification Tracking</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Tracked 234 technician certifications - all current and valid</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Equipment Inspection</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Inspected 89 electrical tools and equipment - safety verified</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Code Compliance</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Verified NEC code compliance for 45 installations - standards met</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Safety Alert</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Issued safety alert for high-voltage work - PPE requirements updated</div>
+                  </div>
+
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Training Update</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Updated safety training for 156 electricians - compliance maintained</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Incident Prevention</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Prevented 7 potential safety incidents through proactive monitoring</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Permit Verification</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Verified electrical permits for 23 major installations - all valid</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Risk Assessment</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Conducted risk assessments for 78 electrical projects - all cleared</div>
+                  </div>
+
+                  <div className="p-2 bg-rose-900/20 border border-rose-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-rose-400 font-medium">Safety Record</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Maintained zero electrical incidents for 847 consecutive days</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Parts Ordering Specialist */}
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <DollarSign className="w-5 h-5 text-yellow-400" />
+                  Parts Ordering Specialist
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Intelligent parts procurement and cost optimization
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64 overflow-y-auto space-y-2 pr-2">
+                  <div className="text-xs text-gray-500 mb-2">Live Activity Feed</div>
+                  
+                  <div className="p-2 bg-yellow-900/20 border border-yellow-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-yellow-400 font-medium">Cost Optimization</span>
+                      <span className="text-gray-500 text-xs">Just now</span>
+                    </div>
+                    <div className="text-gray-300">Negotiated bulk pricing - saved $23k on HVAC parts this month</div>
+                  </div>
+
+                  <div className="p-2 bg-blue-900/20 border border-blue-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-blue-400 font-medium">Order Processing</span>
+                      <span className="text-gray-500 text-xs">2 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Processed 156 parts orders - avg delivery time 24.7 hours</div>
+                  </div>
+
+                  <div className="p-2 bg-green-900/20 border border-green-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-green-400 font-medium">Supplier Management</span>
+                      <span className="text-gray-500 text-xs">4 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Managed relationships with 47 suppliers - 98.7% on-time delivery</div>
+                  </div>
+
+                  <div className="p-2 bg-purple-900/20 border border-purple-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-purple-400 font-medium">Emergency Orders</span>
+                      <span className="text-gray-500 text-xs">6 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Expedited 12 emergency parts orders - same-day delivery secured</div>
+                  </div>
+
+                  <div className="p-2 bg-orange-900/20 border border-orange-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-orange-400 font-medium">Quality Control</span>
+                      <span className="text-gray-500 text-xs">8 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Quality-checked 89 parts deliveries - 99.2% met specifications</div>
+                  </div>
+
+                  <div className="p-2 bg-red-900/20 border border-red-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-red-400 font-medium">Supply Chain Risk</span>
+                      <span className="text-gray-500 text-xs">10 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Identified supply chain risks - backup suppliers activated</div>
+                  </div>
+
+                  <div className="p-2 bg-indigo-900/20 border border-indigo-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-indigo-400 font-medium">Inventory Balance</span>
+                      <span className="text-gray-500 text-xs">12 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Balanced inventory levels - carrying costs reduced by 34%</div>
+                  </div>
+
+                  <div className="p-2 bg-teal-900/20 border border-teal-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-teal-400 font-medium">Price Monitoring</span>
+                      <span className="text-gray-500 text-xs">14 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Monitored 2,847 part prices - identified 23 cost reduction opportunities</div>
+                  </div>
+
+                  <div className="p-2 bg-cyan-900/20 border border-cyan-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-cyan-400 font-medium">Contract Management</span>
+                      <span className="text-gray-500 text-xs">16 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Renewed 12 supplier contracts - improved terms secured</div>
+                  </div>
+
+                  <div className="p-2 bg-pink-900/20 border border-pink-700 rounded text-xs">
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="text-pink-400 font-medium">Performance Analytics</span>
+                      <span className="text-gray-500 text-xs">18 mins ago</span>
+                    </div>
+                    <div className="text-gray-300">Analyzed procurement performance - 15% cost savings achieved</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Executive Summary */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-purple-400" />
+                Executive Agent Performance Summary
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Real-time autonomous decision-making across all business operations
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <div className="p-4 bg-blue-900/20 border border-blue-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-blue-400 mb-2">2,847</div>
+                  <div className="text-sm text-gray-300">Decisions Made Today</div>
+                  <div className="text-xs text-gray-400 mt-1">94.8% autonomous execution</div>
+                </div>
+                <div className="p-4 bg-green-900/20 border border-green-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-green-400 mb-2">$180k</div>
+                  <div className="text-sm text-gray-300">Value Created Today</div>
+                  <div className="text-xs text-gray-400 mt-1">Cost savings + revenue</div>
+                </div>
+                <div className="p-4 bg-orange-900/20 border border-orange-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-orange-400 mb-2">1.2s</div>
+                  <div className="text-sm text-gray-300">Avg Decision Time</div>
+                  <div className="text-xs text-gray-400 mt-1">vs 4.7 hours human</div>
+                </div>
+                <div className="p-4 bg-purple-900/20 border border-purple-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-purple-400 mb-2">99.3%</div>
+                  <div className="text-sm text-gray-300">Success Rate</div>
+                  <div className="text-xs text-gray-400 mt-1">Learning from feedback</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Revenue Growth Tab */}
+        <TabsContent value="growth" className="space-y-6">
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-green-400" />
+                Revenue Growth Trajectory
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Path to $50M ARR with Series A funding
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {revenueGrowth.map((period, idx) => (
+                  <div key={idx} className="p-4 bg-gray-700 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="text-white font-medium">{period.period}</h4>
+                        <div className="text-2xl font-bold text-green-400 mt-1">
+                          ${period.revenue}M Revenue
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-blue-400">
+                          {period.margin}% Margin
+                        </div>
+                        {idx > 0 && (
+                          <div className="text-sm text-gray-400">
+                            +{((period.revenue / revenueGrowth[idx-1].revenue - 1) * 100).toFixed(0)}% QoQ
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Key Growth Drivers */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white">Market Expansion</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">New Pod Launches</span>
+                  <span className="text-white">13 pods/month</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Pod Revenue Ramp</span>
+                  <span className="text-white">$150k ARR @ maturity</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Technician Growth</span>
+                  <span className="text-white">+47 techs/month</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Market Share</span>
+                  <span className="text-white">12% → 18% target</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white">Revenue Optimization</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Price Increases</span>
+                  <span className="text-white">8% annual</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Upsell Rate</span>
+                  <span className="text-white">34% → 42% target</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Retention Rate</span>
+                  <span className="text-white">97% maintained</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Premium Services</span>
+                  <span className="text-white">28% attach rate</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        {/* Competitive Moats Tab */}
+        <TabsContent value="competitive" className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {competitiveAdvantages.map((advantage, idx) => (
+              <Card key={idx} className="bg-gray-800 border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-blue-400" />
+                    {advantage.advantage}
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    {advantage.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Business Impact</div>
+                    <div className="text-white font-medium">{advantage.impact}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Competitive Moat</div>
+                    <div className="text-green-400">{advantage.moat}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Technology Leadership */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Brain className="w-5 h-5 text-purple-400" />
+                Technology Leadership
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                3-5 year competitive advantage through AI-first architecture
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div className="p-4 bg-purple-900/20 border border-purple-700 rounded-lg">
+                  <div className="text-lg font-bold text-purple-400">21 AI Agents</div>
+                  <div className="text-sm text-gray-300">Specialized agents across all operations</div>
+                </div>
+                <div className="p-4 bg-blue-900/20 border border-blue-700 rounded-lg">
+                  <div className="text-lg font-bold text-blue-400">5+ Years</div>
+                  <div className="text-sm text-gray-300">Training data advantage</div>
+                </div>
+                <div className="p-4 bg-green-900/20 border border-green-700 rounded-lg">
+                  <div className="text-lg font-bold text-green-400">95% Autonomous</div>
+                  <div className="text-sm text-gray-300">vs 30% industry standard</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Investment Thesis Tab */}
+        <TabsContent value="investment" className="space-y-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {investmentHighlights.map((highlight, idx) => (
+              <Card key={idx} className="bg-gray-800 border-gray-700">
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-blue-400 mb-2">{highlight.value}</div>
+                  <div className="text-sm font-medium text-white mb-1">{highlight.metric}</div>
+                  <div className="text-xs text-gray-400">{highlight.description}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* $200M Funding Details */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <DollarSign className="w-5 h-5 text-green-400" />
+                $200M Funding at $1B Valuation
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Growth, technology, acquisitions, and category expansion funding
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h4 className="text-white font-medium">Use of Funds</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Growth & Market Expansion</span>
+                      <span className="text-white">$80M (40%)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Technology & AI Development</span>
+                      <span className="text-white">$60M (30%)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Strategic Acquisitions</span>
+                      <span className="text-white">$40M (20%)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Category Expansion</span>
+                      <span className="text-white">$20M (10%)</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h4 className="text-white font-medium">24-Month Milestones</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Scale to 800+ market pods nationwide</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Achieve $400M+ annual revenue</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Complete 3-5 strategic acquisitions</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Launch 2 new service categories</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">IPO readiness and market leadership</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Market Opportunity */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Target className="w-5 h-5 text-orange-400" />
+                $600B Market Opportunity
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Massive, fragmented market ready for AI-powered consolidation
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-orange-400">$600B</div>
+                  <div className="text-sm text-gray-400">Total Addressable Market</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">8%</div>
+                  <div className="text-sm text-gray-400">Annual Growth Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-400">90%</div>
+                  <div className="text-sm text-gray-400">Market Fragmentation</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-400">15-20%</div>
+                  <div className="text-sm text-gray-400">Target Market Share</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Operational Excellence Tab */}
+        <TabsContent value="operations" className="space-y-6">
+          {operationalMetrics.map((category, idx) => (
+            <Card key={idx} className="bg-gray-800 border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                  <Activity className="w-5 h-5 text-blue-400" />
+                  {category.category} Metrics
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  Best-in-class performance across key operational areas
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  {category.metrics.map((metric, metricIdx) => (
+                    <div key={metricIdx} className="p-4 bg-gray-700 rounded-lg">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-white font-medium">{metric.name}</span>
+                        <span className="text-2xl font-bold text-green-400">{metric.value}</span>
+                      </div>
+                      <div className="text-sm text-gray-400">{metric.benchmark}</div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+
+          {/* Proven Results Summary */}
+          <Card className="bg-gray-800 border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Star className="w-5 h-5 text-yellow-400" />
+                Proven Results Summary
+              </CardTitle>
+              <CardDescription className="text-gray-400">
+                Demonstrable competitive advantages across all key metrics
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="p-4 bg-green-900/20 border border-green-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-green-400">35%</div>
+                  <div className="text-sm text-gray-300">Travel Time Reduction</div>
+                  <div className="text-xs text-gray-400 mt-1">AI routing optimization</div>
+                </div>
+                <div className="p-4 bg-blue-900/20 border border-blue-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-blue-400">85%</div>
+                  <div className="text-sm text-gray-300">Parts Delivery Success</div>
+                  <div className="text-xs text-gray-400 mt-1">Direct-ship model</div>
+                </div>
+                <div className="p-4 bg-purple-900/20 border border-purple-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-purple-400">92%</div>
+                  <div className="text-sm text-gray-300">Customer Satisfaction</div>
+                  <div className="text-xs text-gray-400 mt-1">vs 73% industry avg</div>
+                </div>
+                <div className="p-4 bg-orange-900/20 border border-orange-700 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-orange-400">127%</div>
+                  <div className="text-sm text-gray-300">YoY Revenue Growth</div>
+                  <div className="text-xs text-gray-400 mt-1">Sustained high growth</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}

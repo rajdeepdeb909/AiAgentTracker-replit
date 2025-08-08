@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Management Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4facfe',
+                        secondary: '#667eea',
+                        dark: '#0f0f1f',
+                        'dark-card': '#1a1a2e',
+                        'dark-border': '#2a3f5f'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite'
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(79, 172, 254, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(79, 172, 254, 0.6); }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans">
+    <!-- @COMPONENT: MainLayout -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <!-- @COMPONENT: Sidebar -->
+        <aside class="w-64 bg-dark-card border-r border-dark-border p-6 hidden lg:block">
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold gradient-text">AI Agent Hub</h1>
+                <p class="text-gray-400 text-sm mt-1">Management Platform</p>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="#dashboard" class="flex items-center px-4 py-3 text-primary bg-primary/10 rounded-lg">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="#agents" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <i class="fas fa-robot mr-3"></i>
+                    Agent Roster
+                </a>
+                <a href="#performance" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <i class="fas fa-chart-bar mr-3"></i>
+                    Performance
+                </a>
+                <a href="#evaluations" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <i class="fas fa-clipboard-check mr-3"></i>
+                    Evaluations
+                </a>
+                <a href="#financials" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <i class="fas fa-dollar-sign mr-3"></i>
+                    Financial Metrics
+                </a>
+                <a href="#documentation" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <i class="fas fa-book mr-3"></i>
+                    Documentation
+                </a>
+            </nav>
+            
+            <div class="mt-8 p-4 bg-gray-800 rounded-lg">
+                <h3 class="text-sm font-medium text-gray-300 mb-2">System Status</h3>
+                <div class="flex items-center">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                    <span class="text-sm text-gray-400">All Systems Operational</span>
+                </div>
+            </div>
+        </aside>
+        <!-- @END_COMPONENT: Sidebar -->
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-x-hidden">
+            <!-- Header -->
+            <!-- @COMPONENT: Header -->
+            <header class="bg-dark-card border-b border-dark-border p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-white">AI Agent Dashboard</h1>
+                        <p class="text-gray-400 mt-1">Monitor, evaluate, and optimize your AI agent ecosystem</p>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <!-- Search Bar -->
+                        <div class="relative">
+                            <input type="text" placeholder="Search agents..." 
+                                   class="bg-gray-700 text-white pl-10 pr-4 py-2 rounded-lg border border-gray-600 focus:border-primary focus:outline-none w-64">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        
+                        <!-- Filter Dropdown -->
+                        <select class="bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:border-primary focus:outline-none">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Training</option>
+                            <option>Maintenance</option>
+                        </select>
+                        
+                        <!-- User Profile -->
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <span class="text-sm">Admin User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- @END_COMPONENT: Header -->
+
+            <div class="p-6 space-y-6">
+                <!-- KPI Overview -->
+                <!-- @COMPONENT: KPIGrid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Total Agents</p>
+                                <p class="text-3xl font-bold text-white" data-bind="totalAgents">24</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-robot text-blue-400 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm">
+                            <span class="text-green-400">+2</span>
+                            <span class="text-gray-400 ml-1">this month</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Active Agents</p>
+                                <p class="text-3xl font-bold text-white" data-bind="activeAgents">19</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm">
+                            <span class="text-green-400">79.2%</span>
+                            <span class="text-gray-400 ml-1">uptime</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Avg Performance</p>
+                                <p class="text-3xl font-bold text-white" data-bind="avgPerformance">94.8%</p>
+                            </div>
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-purple-400 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm">
+                            <span class="text-green-400">+3.2%</span>
+                            <span class="text-gray-400 ml-1">vs last week</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Monthly Cost</p>
+                                <p class="text-3xl font-bold text-white" data-bind="monthlyCost">$12,480</p>
+                            </div>
+                            <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dollar-sign text-orange-400 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm">
+                            <span class="text-red-400">+8.3%</span>
+                            <span class="text-gray-400 ml-1">vs last month</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Total Revenue</p>
+                                <p class="text-3xl font-bold text-white" data-bind="totalRevenue">$45,920</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-arrow-trend-up text-green-400 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm">
+                            <span class="text-green-400">+15.6%</span>
+                            <span class="text-gray-400 ml-1">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: KPIGrid -->
+
+                <!-- Performance Charts -->
+                <!-- @COMPONENT: PerformanceCharts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                        <h3 class="text-xl font-semibold text-white mb-4">Performance Trends</h3>
+                        <div class="chart-container">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                        <h3 class="text-xl font-semibold text-white mb-4">Cost vs Revenue</h3>
+                        <div class="chart-container">
+                            <canvas id="financialChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: PerformanceCharts -->
+
+                <!-- Agent Roster -->
+                <!-- @COMPONENT: AgentRoster -->
+                <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold text-white">AI Agent Roster</h3>
+                        <div class="flex gap-2">
+                            <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Add Agent
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                                <i class="fas fa-download mr-2"></i>Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- @MAP: agents.map(agent => ( -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Customer Support Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white" data-bind="agent.name">Customer Support Agent</h4>
+                                    <p class="text-gray-400 text-sm" data-bind="agent.description">24/7 automated customer service</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-500 text-white text-xs rounded-full" data-bind="agent.status">Active</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary" data-bind="agent.accuracy">96.2%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary" data-bind="agent.responseTime">1.3s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white" data-bind="agent.performance">96%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 96%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium" data-bind="agent.interactions">12.4K</p>
+                                    <p class="text-gray-400">Daily Interactions</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium" data-bind="agent.cost">$420</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium" data-bind="agent.revenue">$1.2K</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Analysis Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Data Analysis Agent</h4>
+                                    <p class="text-gray-400 text-sm">Automated insights and reporting</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-500 text-white text-xs rounded-full">Active</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">94.8%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">15.2s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white">94%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">2.1K</p>
+                                    <p class="text-gray-400">Daily Reports</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$680</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$2.8K</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Code Review Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Code Review Agent</h4>
+                                    <p class="text-gray-400 text-sm">Automated code quality checks</p>
+                                </div>
+                                <span class="px-3 py-1 bg-orange-500 text-white text-xs rounded-full">Training</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">91.5%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">45.0s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white">91%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 91%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">856</p>
+                                    <p class="text-gray-400">Daily Reviews</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$320</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$950</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Marketing Content Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Marketing Content Agent</h4>
+                                    <p class="text-gray-400 text-sm">AI-powered content generation</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-500 text-white text-xs rounded-full">Active</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">89.3%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">22.8s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white">89%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 89%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">1.8K</p>
+                                    <p class="text-gray-400">Daily Content</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$540</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$3.2K</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email Response Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Email Response Agent</h4>
+                                    <p class="text-gray-400 text-sm">Intelligent email automation</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-600 text-white text-xs rounded-full">Maintenance</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">93.7%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">8.5s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white">93%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 93%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">4.2K</p>
+                                    <p class="text-gray-400">Daily Emails</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$290</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$1.5K</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sales Assistant Agent -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Sales Assistant Agent</h4>
+                                    <p class="text-gray-400 text-sm">Lead qualification and follow-up</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-500 text-white text-xs rounded-full">Active</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">97.1%</p>
+                                    <p class="text-xs text-gray-400">Accuracy</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-bold text-primary">3.2s</p>
+                                    <p class="text-xs text-gray-400">Avg Response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance</span>
+                                    <span class="text-white">97%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-cyan-400 h-2 rounded-full" style="width: 97%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">1.6K</p>
+                                    <p class="text-gray-400">Daily Leads</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$720</p>
+                                    <p class="text-gray-400">Monthly Cost</p>
+                                </div>
+                                <div class="bg-gray-700 p-2 rounded text-center">
+                                    <p class="text-white font-medium">$8.9K</p>
+                                    <p class="text-gray-400">Revenue Impact</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-6">
+                        <button class="px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                            Load More Agents (18 remaining)
+                        </button>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: AgentRoster -->
+
+                <!-- Evaluation and Feedback Section -->
+                <!-- @COMPONENT: EvaluationSection -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                        <h3 class="text-xl font-semibold text-white mb-4">Recent Evaluations</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                <div>
+                                    <p class="text-white font-medium">Customer Support Agent</p>
+                                    <p class="text-gray-400 text-sm">Evaluation completed 2 hours ago</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-3">
+                                        <div class="w-14 h-2 bg-green-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-green-400 font-bold">87%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                <div>
+                                    <p class="text-white font-medium">Data Analysis Agent</p>
+                                    <p class="text-gray-400 text-sm">Evaluation completed 5 hours ago</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-3">
+                                        <div class="w-15 h-2 bg-green-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-green-400 font-bold">94%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                <div>
+                                    <p class="text-white font-medium">Marketing Content Agent</p>
+                                    <p class="text-gray-400 text-sm">Evaluation completed 1 day ago</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-3">
+                                        <div class="w-12 h-2 bg-yellow-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-yellow-400 font-bold">76%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                        <h3 class="text-xl font-semibold text-white mb-4">User Feedback</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-800 rounded-lg">
+                                <div class="flex items-start justify-between mb-2">
+                                    <p class="text-white font-medium">Customer Support Agent</p>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-600"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 text-sm">"Fast and accurate responses. Helped resolve my issue quickly."</p>
+                                <p class="text-gray-500 text-xs mt-2">- User ID: 1247, 3 hours ago</p>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-800 rounded-lg">
+                                <div class="flex items-start justify-between mb-2">
+                                    <p class="text-white font-medium">Sales Assistant Agent</p>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 text-sm">"Excellent lead qualification. Saved our team a lot of time."</p>
+                                <p class="text-gray-500 text-xs mt-2">- User ID: 892, 1 day ago</p>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-800 rounded-lg">
+                                <div class="flex items-start justify-between mb-2">
+                                    <p class="text-white font-medium">Data Analysis Agent</p>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-600"></i>
+                                        <i class="fas fa-star text-gray-600"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 text-sm">"Good insights but sometimes misses context. Could be improved."</p>
+                                <p class="text-gray-500 text-xs mt-2">- User ID: 445, 2 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: EvaluationSection -->
+
+                <!-- Documentation Browser -->
+                <!-- @COMPONENT: DocumentationBrowser -->
+                <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                    <h3 class="text-xl font-semibold text-white mb-4">Documentation Repository</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-1">
+                            <div class="bg-gray-800 p-4 rounded-lg font-mono text-sm">
+                                <div class="space-y-1">
+                                    <div class="flex items-center text-blue-400 cursor-pointer hover:text-blue-300">
+                                        <i class="fas fa-folder mr-2"></i>
+                                        <span>📁 ai-agents-platform/</span>
+                                    </div>
+                                    <div class="ml-4 space-y-1">
+                                        <div class="flex items-center text-blue-400 cursor-pointer hover:text-blue-300">
+                                            <i class="fas fa-folder mr-2"></i>
+                                            <span>📁 documentation/</span>
+                                        </div>
+                                        <div class="ml-4 space-y-1">
+                                            <div class="flex items-center text-green-400 cursor-pointer hover:text-green-300">
+                                                <i class="fas fa-file-alt mr-2"></i>
+                                                <span>📄 architecture.md</span>
+                                            </div>
+                                            <div class="flex items-center text-green-400 cursor-pointer hover:text-green-300">
+                                                <i class="fas fa-file-alt mr-2"></i>
+                                                <span>📄 development-workflow.md</span>
+                                            </div>
+                                            <div class="flex items-center text-green-400 cursor-pointer hover:text-green-300">
+                                                <i class="fas fa-file-alt mr-2"></i>
+                                                <span>📄 evaluation-framework.md</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center text-blue-400 cursor-pointer hover:text-blue-300">
+                                            <i class="fas fa-folder mr-2"></i>
+                                            <span>📁 agents/</span>
+                                        </div>
+                                        <div class="ml-4 space-y-1">
+                                            <div class="flex items-center text-purple-400 cursor-pointer hover:text-purple-300">
+                                                <i class="fas fa-folder mr-2"></i>
+                                                <span>📁 customer-support-agent/</span>
+                                            </div>
+                                            <div class="flex items-center text-purple-400 cursor-pointer hover:text-purple-300">
+                                                <i class="fas fa-folder mr-2"></i>
+                                                <span>📁 data-analysis-agent/</span>
+                                            </div>
+                                            <div class="flex items-center text-purple-400 cursor-pointer hover:text-purple-300">
+                                                <i class="fas fa-folder mr-2"></i>
+                                                <span>📁 code-review-agent/</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-2">
+                            <div class="bg-gray-800 p-4 rounded-lg">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-white font-medium">development-workflow.md</h4>
+                                    <div class="flex gap-2">
+                                        <button class="px-3 py-1 bg-primary text-white text-xs rounded hover:bg-primary/80">Edit</button>
+                                        <button class="px-3 py-1 bg-gray-600 text-white text-xs rounded hover:bg-gray-500">Download</button>
+                                    </div>
+                                </div>
+                                <div class="text-gray-300 text-sm leading-relaxed max-h-64 overflow-y-auto">
+                                    <h5 class="text-primary font-semibold mb-2"># AI Agent Development Workflow</h5>
+                                    <p class="mb-3">This document outlines the comprehensive workflow for building, evaluating, and improving AI agents in our platform.</p>
+                                    
+                                    <h6 class="text-white font-medium mb-2">## Phase 1: Planning and Design</h6>
+                                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                                        <li>Define agent purpose and scope</li>
+                                        <li>Architecture design and technology selection</li>
+                                        <li>Design interaction patterns and interfaces</li>
+                                    </ul>
+                                    
+                                    <h6 class="text-white font-medium mb-2 mt-4">## Phase 2: Development and Implementation</h6>
+                                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                                        <li>Core agent development</li>
+                                        <li>Prompt engineering and optimization</li>
+                                        <li>Safety and control mechanisms</li>
+                                    </ul>
+                                    
+                                    <p class="mt-4 text-gray-500 text-xs">Last updated: 2 days ago by Alex Chen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: DocumentationBrowser -->
+            </div>
+        </main>
+    </div>
+    <!-- @END_COMPONENT: MainLayout -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        // Initialize Performance Chart
+        (function() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Average Performance (%)',
+                        data: [89, 91, 88, 94, 96, 95],
+                        borderColor: '#4facfe',
+                        backgroundColor: 'rgba(79, 172, 254, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Active Agents',
+                        data: [18, 19, 17, 20, 22, 19],
+                        borderColor: '#00f2fe',
+                        backgroundColor: 'rgba(0, 242, 254, 0.1)',
+                        fill: false,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#8892b0'
+                            },
+                            grid: {
+                                color: '#2a3f5f'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#8892b0'
+                            },
+                            grid: {
+                                color: '#2a3f5f'
+                            }
+                        }
+                    }
+                }
+            });
+        })();
+
+        // Initialize Financial Chart
+        (function() {
+            const ctx = document.getElementById('financialChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Cost ($K)',
+                        data: [8.2, 9.1, 10.5, 11.2, 12.8, 12.4],
+                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                        borderColor: '#ef4444',
+                        borderWidth: 1
+                    }, {
+                        label: 'Revenue ($K)',
+                        data: [28.5, 32.4, 38.9, 41.2, 47.8, 45.9],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: '#10b981',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#8892b0'
+                            },
+                            grid: {
+                                color: '#2a3f5f'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#8892b0'
+                            },
+                            grid: {
+                                color: '#2a3f5f'
+                            }
+                        }
+                    }
+                }
+            });
+        })();
+
+        // Add interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // TODO: Implement smooth scrolling to sections
+                });
+            });
+
+            // Add hover effects to agent cards
+            document.querySelectorAll('.agent-card, [class*="bg-gray-800"]').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Simulate real-time updates
+            setInterval(() => {
+                // TODO: Implement real-time data updates via WebSocket or API polling
+                const elements = document.querySelectorAll('[data-bind]');
+                // Update performance metrics periodically
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>America's Home Manager - Comprehensive Board Presentation 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .slide { min-height: 100vh; }
+        .chart-container { 
+            position: relative; 
+            height: 300px; 
+            width: 100%; 
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        canvas {
+            max-height: 300px !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+        .transition-slide { transition: all 0.5s ease-in-out; }
+        .slide-animation { animation: slideIn 0.8s ease-out; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .metric-card { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Slide Navigation -->
+    <div class="fixed top-4 right-4 z-50 bg-black/80 rounded-lg p-3">
+        <div class="flex items-center space-x-2">
+            <button onclick="previousSlide()" class="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm">← Prev</button>
+            <span id="slideCounter" class="text-sm">1 / 30</span>
+            <button onclick="nextSlide()" class="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm">Next →</button>
+        </div>
+    </div>
+
+    <!-- Table of Contents Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <button onclick="showTableOfContents()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm border border-gray-600">
+            📋 Table of Contents
+        </button>
+    </div>
+
+    <!-- Presentation Container -->
+    <div id="presentation-container">
+
+        <!-- Slide 1: Title & Executive Summary -->
+        <div class="slide hero-gradient flex items-center justify-center p-8 slide-animation">
+            <div class="text-center max-w-4xl">
+                <h1 class="text-6xl font-bold mb-6">America's Home Manager</h1>
+                <h2 class="text-3xl font-light mb-8 text-blue-100">Comprehensive Board Presentation 2025</h2>
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold mb-6">Executive Summary</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="metric-card p-6 rounded-xl text-white">
+                            <div class="text-3xl font-bold">$268M</div>
+                            <div class="text-blue-100">Annual Revenue Run Rate</div>
+                        </div>
+                        <div class="metric-card p-6 rounded-xl text-white">
+                            <div class="text-3xl font-bold">28</div>
+                            <div class="text-blue-100">AI Agents Deployed</div>
+                        </div>
+                        <div class="metric-card p-6 rounded-xl text-white">
+                            <div class="text-3xl font-bold">94.8%</div>
+                            <div class="text-blue-100">Autonomous Operations</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xl text-blue-100">National infrastructure for autonomous home services operations</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Market Opportunity -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Market Opportunity</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-400">Total Addressable Market</h3>
+                            <div class="text-5xl font-bold text-green-400 mb-2">$600B</div>
+                            <p class="text-gray-300">U.S. home services market growing at 5.2% CAGR</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-400">Serviceable Market</h3>
+                            <div class="text-4xl font-bold text-blue-400 mb-2">$125B</div>
+                            <p class="text-gray-300">Addressable through AI-powered automation</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-400">Target Market Share</h3>
+                            <div class="text-4xl font-bold text-yellow-400 mb-2">2.5%</div>
+                            <p class="text-gray-300">$3.1B revenue potential by 2028</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Market Dynamics</h3>
+                        <div class="chart-container">
+                            <canvas id="marketChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: AI Agent Ecosystem -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">AI Agent Ecosystem Overview</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold">7</div>
+                        <div class="text-blue-100">Executive Agents</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-600 to-green-800 p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold">9</div>
+                        <div class="text-green-100">Operations Agents</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold">6</div>
+                        <div class="text-purple-100">Customer Agents</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-600 to-orange-800 p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold">6</div>
+                        <div class="text-orange-100">Intelligence Agents</div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Key Agent Capabilities</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-blue-400 mb-3">Autonomous Decision Making</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Real-time scheduling optimization across 430 planning areas</li>
+                                <li>• Predictive parts ordering with 85% accuracy</li>
+                                <li>• Dynamic pricing based on market conditions</li>
+                                <li>• Quality assurance with automated compliance checking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-400 mb-3">Performance Metrics</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• 2,847 decisions processed daily</li>
+                                <li>• $180K average daily value creation</li>
+                                <li>• 1.2 second average decision time</li>
+                                <li>• 99.2% uptime across all agents</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Financial Performance -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Financial Performance Overview</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-green-600 to-green-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-2">Q2 2025 Revenue</h3>
+                        <div class="text-4xl font-bold">$47.0M</div>
+                        <div class="text-green-100 text-sm">+23% vs Q1 2025</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-2">Labour Revenue</h3>
+                        <div class="text-4xl font-bold">$24.1M</div>
+                        <div class="text-blue-100 text-sm">51.3% of total</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-2">Parts Revenue</h3>
+                        <div class="text-4xl font-bold">$20.0M</div>
+                        <div class="text-purple-100 text-sm">42.6% of total</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Revenue Growth Trajectory</h3>
+                        <canvas id="revenueChart" class="chart-container"></canvas>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Profitability Metrics</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Gross Margin</span>
+                                <span class="font-bold text-green-400">67.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>EBITDA Margin</span>
+                                <span class="font-bold text-yellow-400">-7.9%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Path to Profitability</span>
+                                <span class="font-bold text-blue-400">Q4 2025</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Break-even Revenue</span>
+                                <span class="font-bold text-purple-400">$52M/quarter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Operational Excellence -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Operational Excellence Through AI</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-2">1,730</div>
+                        <div class="text-gray-300">Active Technicians</div>
+                        <div class="text-sm text-green-400 mt-1">+15% vs last quarter</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-2">30K</div>
+                        <div class="text-gray-300">Weekly Service Orders</div>
+                        <div class="text-sm text-blue-400 mt-1">95% completion rate</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-2">430</div>
+                        <div class="text-gray-300">Planning Areas</div>
+                        <div class="text-sm text-yellow-400 mt-1">100% AI coverage</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Capacity Utilization</h3>
+                        <canvas id="capacityChart" class="chart-container"></canvas>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibent mb-4">Key Performance Indicators</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span>Customer Satisfaction</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-600 rounded-full h-2 mr-3">
+                                        <div class="bg-green-400 h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                    <span class="font-bold text-green-400">92%</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>First-Time Fix Rate</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-600 rounded-full h-2 mr-3">
+                                        <div class="bg-blue-400 h-2 rounded-full" style="width: 87%"></div>
+                                    </div>
+                                    <span class="font-bold text-blue-400">87%</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Route Efficiency</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-600 rounded-full h-2 mr-3">
+                                        <div class="bg-purple-400 h-2 rounded-full" style="width: 89%"></div>
+                                    </div>
+                                    <span class="font-bold text-purple-400">89%</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Parts Availability</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-600 rounded-full h-2 mr-3">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 94%"></div>
+                                    </div>
+                                    <span class="font-bold text-yellow-400">94%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue with remaining 25 slides... -->
+        <!-- This is a condensed version showing the structure for the first 5 slides -->
+        <!-- The full presentation would continue with: -->
+        
+        <!-- Slide 6: Technology Architecture -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Technology Architecture Overview</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Core Platform Components</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>• AI Agent Management System (28 agents)</li>
+                            <li>• Real-time Analytics Engine</li>
+                            <li>• Predictive Scheduling System</li>
+                            <li>• Dynamic Route Optimization</li>
+                            <li>• Parts Procurement Automation</li>
+                            <li>• Customer Communication Hub</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Technical Stack</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>• React.js + TypeScript Frontend</li>
+                            <li>• Node.js + Express Backend</li>
+                            <li>• PostgreSQL Database</li>
+                            <li>• Machine Learning Pipeline</li>
+                            <li>• Real-time WebSocket Communication</li>
+                            <li>• Cloud-native Infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl mt-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-purple-400">Scalability & Performance</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400">99.9%</div>
+                            <div class="text-gray-300">System Uptime</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">2.3s</div>
+                            <div class="text-gray-300">Avg Response Time</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">10M+</div>
+                            <div class="text-gray-300">Daily API Calls</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: AI Agent Deep Dive -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">AI Agent Capabilities & Performance</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl text-center">
+                        <div class="text-2xl font-bold">Executive</div>
+                        <div class="text-3xl font-bold mt-2">7 agents</div>
+                        <div class="text-blue-100 text-sm mt-2">Strategic decision making</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-600 to-green-800 p-6 rounded-xl text-center">
+                        <div class="text-2xl font-bold">Operations</div>
+                        <div class="text-3xl font-bold mt-2">9 agents</div>
+                        <div class="text-green-100 text-sm mt-2">Daily operations management</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 p-6 rounded-xl text-center">
+                        <div class="text-2xl font-bold">Customer</div>
+                        <div class="text-3xl font-bold mt-2">6 agents</div>
+                        <div class="text-purple-100 text-sm mt-2">Customer experience optimization</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-yellow-600 to-yellow-800 p-6 rounded-xl text-center">
+                        <div class="text-2xl font-bold">Analytics</div>
+                        <div class="text-3xl font-bold mt-2">6 agents</div>
+                        <div class="text-yellow-100 text-sm mt-2">Performance & intelligence</div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-center">Agent Performance Metrics</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-green-400 mb-2">94.8%</div>
+                            <div class="text-gray-300">Autonomous Execution Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-blue-400 mb-2">1.2s</div>
+                            <div class="text-gray-300">Average Decision Time</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-purple-400 mb-2">2,847</div>
+                            <div class="text-gray-300">Daily Decisions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Customer Acquisition & Retention -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Customer Acquisition & Retention Strategy</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">D2C Channel Performance</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Monthly New Customers</span>
+                                <span class="font-bold text-green-400">12,500</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Customer Acquisition Cost</span>
+                                <span class="font-bold text-blue-400">$42</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Customer Lifetime Value</span>
+                                <span class="font-bold text-purple-400">$1,240</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Retention Rate (12 months)</span>
+                                <span class="font-bold text-yellow-400">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">B2B Channel Growth</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Active B2B Partners</span>
+                                <span class="font-bold text-green-400">245</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Partner Revenue Contribution</span>
+                                <span class="font-bold text-blue-400">42%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Partner Satisfaction Score</span>
+                                <span class="font-bold text-purple-400">4.6/5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Partnership Growth Rate</span>
+                                <span class="font-bold text-yellow-400">+28%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Workforce & Capacity Management -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Workforce & Capacity Management</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-2">1,730</div>
+                        <div class="text-gray-300">Total Technicians</div>
+                        <div class="text-sm text-green-400 mt-1">+15% vs Q1</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-2">78.5%</div>
+                        <div class="text-gray-300">Capacity Utilization</div>
+                        <div class="text-sm text-yellow-400 mt-1">Target: 85%</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-2">2,000</div>
+                        <div class="text-gray-300">Daily Reschedules</div>
+                        <div class="text-sm text-red-400 mt-1">Critical issue</div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Capacity Expansion Strategy</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-blue-400 mb-3">1099 Contractor Program</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Target: 500+ additional technicians</li>
+                                <li>• Current: 2 contractor companies</li>
+                                <li>• Expansion: 50+ companies by Q4</li>
+                                <li>• Quality standards maintained</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-green-400 mb-3">Direct Hiring Acceleration</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• AI-powered recruiting system</li>
+                                <li>• Reduced hiring time: 16 days</li>
+                                <li>• 87% retention prediction accuracy</li>
+                                <li>• Gamified onboarding process</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10-29 Continue with remaining slides -->
+        
+        <!-- Slide 10: Parts & Supply Chain Excellence -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Parts & Supply Chain Excellence</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Direct-Ship Model Performance</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Parts Direct-Ship Rate</span>
+                                <span class="font-bold text-green-400">85%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Average Delivery Time</span>
+                                <span class="font-bold text-blue-400">36 hours</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Estimated Arrival Date (EAD) Accuracy</span>
+                                <span class="font-bold text-purple-400">48.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Weekly Parts Orders</span>
+                                <span class="font-bold text-yellow-400">11,950</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">AI-Powered Optimization</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Parts Prediction Engine</div>
+                                <div class="text-gray-300">92% accuracy in parts forecasting</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Automated Ordering</div>
+                                <div class="text-gray-300">Real-time vendor coordination</div>
+                            </div>
+                            <div class="bg-purple-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Quality Assurance</div>
+                                <div class="text-gray-300">Automated inspection protocols</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Geographic Expansion Strategy -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Geographic Expansion Strategy</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">2025 Expansion Plan</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Q3 2025: Texas Markets</div>
+                                <div class="text-gray-300">Dallas-Fort Worth, Houston</div>
+                                <div class="text-blue-400">+150 planning areas</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Q4 2025: California Entry</div>
+                                <div class="text-gray-300">Los Angeles, San Diego</div>
+                                <div class="text-green-400">+200 planning areas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Market Penetration Targets</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Total Planning Areas by 2026</span>
+                                <span class="font-bold text-green-400">1,200</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Population Coverage</span>
+                                <span class="font-bold text-blue-400">45M people</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Revenue Target</span>
+                                <span class="font-bold text-purple-400">$485M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Competitive Landscape Analysis -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Competitive Landscape Analysis</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-red-900/30 border border-red-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-red-400">Traditional Players</h3>
+                        <div class="text-2xl font-bold text-red-400 mb-2">15-25%</div>
+                        <div class="text-red-200 text-sm mb-4">Market efficiency</div>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Legacy dispatch systems</li>
+                            <li>• Manual scheduling</li>
+                            <li>• High operational costs</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-900/30 border border-yellow-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-yellow-400">Digital Disruptors</h3>
+                        <div class="text-2xl font-bold text-yellow-400 mb-2">35-45%</div>
+                        <div class="text-yellow-200 text-sm mb-4">Market efficiency</div>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• App-based platforms</li>
+                            <li>• Limited AI integration</li>
+                            <li>• High acquisition costs</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-900/30 border border-green-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">America's Home Manager</h3>
+                        <div class="text-2xl font-bold text-green-400 mb-2">85-95%</div>
+                        <div class="text-green-200 text-sm mb-4">Market efficiency</div>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Full AI automation</li>
+                            <li>• 94.8% autonomous ops</li>
+                            <li>• Superior experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Revenue Model & Unit Economics -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Revenue Model & Unit Economics</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Revenue Streams</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-3 bg-blue-900/30 rounded">
+                                <span>Labour Services</span>
+                                <span class="font-bold text-blue-400">51.3%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-purple-900/30 rounded">
+                                <span>Parts Revenue</span>
+                                <span class="font-bold text-purple-400">42.6%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-green-900/30 rounded">
+                                <span>Home Warranty Commission</span>
+                                <span class="font-bold text-green-400">4.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Unit Economics</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Average Order Value</span>
+                                <span class="font-bold text-green-400">$285</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Gross Margin</span>
+                                <span class="font-bold text-blue-400">67.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>LTV:CAC Ratio</span>
+                                <span class="font-bold text-green-400">29.5:1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Market Position & Differentiation -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Market Position & Differentiation</h1>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Competitive Advantages</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-blue-400 mb-3">Technology Moat</h4>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li>• Proprietary AI agent network</li>
+                                <li>• Real-time predictive analytics</li>
+                                <li>• Integrated parts procurement</li>
+                                <li>• Dynamic route optimization</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-green-400 mb-3">Operational Excellence</h4>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li>• 35% cost reduction vs competitors</li>
+                                <li>• 92% customer satisfaction rate</li>
+                                <li>• 87% first-time fix rate</li>
+                                <li>• 2.3s average response time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Financial Projections -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">3-Year Financial Projections</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">2025 Targets</h3>
+                        <div class="text-3xl font-bold text-green-400 mb-2">$268M</div>
+                        <div class="text-gray-300 mb-2">Revenue</div>
+                        <div class="text-xl font-bold text-red-400">-$21M</div>
+                        <div class="text-gray-300">EBITDA</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">2026 Projections</h3>
+                        <div class="text-3xl font-bold text-green-400 mb-2">$485M</div>
+                        <div class="text-gray-300 mb-2">Revenue</div>
+                        <div class="text-xl font-bold text-green-400">+$18M</div>
+                        <div class="text-gray-300">EBITDA</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">2027 Goals</h3>
+                        <div class="text-3xl font-bold text-green-400 mb-2">$850M</div>
+                        <div class="text-gray-300 mb-2">Revenue</div>
+                        <div class="text-xl font-bold text-green-400">+$127M</div>
+                        <div class="text-gray-300">EBITDA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Growth Strategy -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Growth Strategy & Market Expansion</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Organic Growth Initiatives</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>• Geographic expansion to 25 major metros</li>
+                            <li>• Service line extensions (HVAC, electrical)</li>
+                            <li>• AI agent capability enhancement</li>
+                            <li>• Customer lifetime value optimization</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Strategic Partnerships</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>• Home warranty company integrations</li>
+                            <li>• Property management partnerships</li>
+                            <li>• Insurance carrier relationships</li>
+                            <li>• Technology vendor alliances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Innovation Roadmap -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Innovation Roadmap & Technology Evolution</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">2025 Innovations</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Predictive failure analytics</li>
+                            <li>• AR-assisted diagnostics</li>
+                            <li>• Voice-powered customer interface</li>
+                            <li>• IoT home monitoring integration</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">2026 Developments</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Autonomous scheduling optimization</li>
+                            <li>• Smart parts inventory management</li>
+                            <li>• Customer behavior prediction</li>
+                            <li>• Multi-modal AI interactions</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">2027+ Vision</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Fully autonomous operations</li>
+                            <li>• Predictive home maintenance</li>
+                            <li>• AI-powered home optimization</li>
+                            <li>• Platform ecosystem expansion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Team & Leadership -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Leadership Team & Organizational Structure</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Executive Leadership</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">CEO & Founder</div>
+                                <div class="text-gray-300">Strategic vision & market leadership</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">CTO & Co-Founder</div>
+                                <div class="text-gray-300">AI platform & technology development</div>
+                            </div>
+                            <div class="bg-purple-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">COO</div>
+                                <div class="text-gray-300">Operations & scaling leadership</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Key Metrics</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Total Employees</span>
+                                <span class="font-bold text-green-400">125</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Engineering Team</span>
+                                <span class="font-bold text-blue-400">45</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Field Operations</span>
+                                <span class="font-bold text-purple-400">1,730</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Customer Success</span>
+                                <span class="font-bold text-yellow-400">25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: ESG & Sustainability -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">ESG & Sustainability Framework</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-green-900/30 border border-green-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Environmental</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Route optimization reduces emissions</li>
+                            <li>• Digital-first operations</li>
+                            <li>• Energy-efficient appliance focus</li>
+                            <li>• Waste reduction in parts management</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-green-400">35%</div>
+                            <div class="text-green-200 text-sm">Carbon footprint reduction</div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-900/30 border border-blue-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Social</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Accessible home management</li>
+                            <li>• Technician empowerment program</li>
+                            <li>• Community job creation</li>
+                            <li>• Affordable service delivery</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-blue-400">1,730</div>
+                            <div class="text-blue-200 text-sm">Jobs created</div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900/30 border border-purple-500 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">Governance</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Transparent AI decision making</li>
+                            <li>• Data privacy & security</li>
+                            <li>• Ethical AI development</li>
+                            <li>• Stakeholder accountability</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-purple-400">A+</div>
+                            <div class="text-purple-200 text-sm">Security rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Risk Management -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Risk Management & Mitigation</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-400">Key Risk Factors</h3>
+                        <div class="space-y-4">
+                            <div class="bg-red-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Capacity Constraints</div>
+                                <div class="text-gray-300">Current 2,000 daily reschedules</div>
+                                <div class="text-red-400">High Impact, High Probability</div>
+                            </div>
+                            <div class="bg-yellow-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">AI System Reliability</div>
+                                <div class="text-gray-300">Dependency on 28 AI agents</div>
+                                <div class="text-yellow-400">High Impact, Low Probability</div>
+                            </div>
+                            <div class="bg-orange-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Market Competition</div>
+                                <div class="text-gray-300">Large players entering market</div>
+                                <div class="text-orange-400">Medium Impact, Medium Probability</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Mitigation Strategies</h3>
+                        <div class="space-y-4">
+                            <div class="bg-green-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Rapid Capacity Expansion</div>
+                                <div class="text-gray-300">1099 contractor program + AI recruiting</div>
+                            </div>
+                            <div class="bg-blue-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Redundant AI Systems</div>
+                                <div class="text-gray-300">Failover protocols & human oversight</div>
+                            </div>
+                            <div class="bg-purple-900/30 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Technology Moat</div>
+                                <div class="text-gray-300">Proprietary agent network & data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21: Governance Framework -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Corporate Governance Framework</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Board Composition</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Independent Directors</span>
+                                <span class="font-bold text-green-400">60%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Industry Expertise</span>
+                                <span class="font-bold text-blue-400">80%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Gender Diversity</span>
+                                <span class="font-bold text-purple-400">40%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Risk Oversight</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Audit Committee oversight</li>
+                            <li>• Technology risk management</li>
+                            <li>• Compliance monitoring</li>
+                            <li>• Strategic risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 22: Regulatory Compliance -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Regulatory Compliance & Legal Framework</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Data Protection</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• GDPR compliance</li>
+                            <li>• CCPA adherence</li>
+                            <li>• SOC 2 Type II certification</li>
+                            <li>• End-to-end encryption</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Industry Standards</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Home services licensing</li>
+                            <li>• Insurance compliance</li>
+                            <li>• Worker classification adherence</li>
+                            <li>• Safety protocol compliance</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">AI Ethics</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Algorithmic transparency</li>
+                            <li>• Bias prevention protocols</li>
+                            <li>• Human oversight requirements</li>
+                            <li>• Ethical AI development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23: Valuation Analysis -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Valuation Analysis & Benchmarking</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Valuation Multiples</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Revenue Multiple (2025)</span>
+                                <span class="font-bold text-green-400">3.7x</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>ARR Multiple</span>
+                                <span class="font-bold text-blue-400">4.2x</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>EV/EBITDA (2026)</span>
+                                <span class="font-bold text-purple-400">55x</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Comparable Companies</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>ServiceTitan</span>
+                                <span class="font-bold text-green-400">8.2x Revenue</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Angi (HomeAdvisor)</span>
+                                <span class="font-bold text-blue-400">1.8x Revenue</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Handy</span>
+                                <span class="font-bold text-purple-400">2.4x Revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 24: Exit Strategy -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Exit Strategy & Value Creation</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">IPO Pathway</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Target Timeline</div>
+                                <div class="text-gray-300">Q4 2026 - Q2 2027</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Revenue Requirement</div>
+                                <div class="text-gray-300">$100M+ ARR</div>
+                            </div>
+                            <div class="bg-purple-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Market Conditions</div>
+                                <div class="text-gray-300">Favorable AI/Tech markets</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Strategic Acquisition</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Tech Giants</div>
+                                <div class="text-gray-300">Google, Amazon, Microsoft</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Industry Players</div>
+                                <div class="text-gray-300">Home Depot, Lowe's</div>
+                            </div>
+                            <div class="bg-purple-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Private Equity</div>
+                                <div class="text-gray-300">KKR, Apollo, Blackstone</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Investment & Funding Strategy -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Series A Funding Strategy</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Funding Requirements</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Total Raise Target</span>
+                                <span class="font-bold text-green-400">$200M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Target Valuation</span>
+                                <span class="font-bold text-blue-400">$1.0B</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Primary Use: Expansion</span>
+                                <span class="font-bold text-purple-400">$120M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Technology & AI</span>
+                                <span class="font-bold text-yellow-400">$50M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Working Capital</span>
+                                <span class="font-bold text-green-400">$30M</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Path to IPO</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">18-Month Timeline</div>
+                                <div class="text-gray-300">Target: Q4 2026 IPO readiness</div>
+                            </div>
+                            <div class="bg-green-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Revenue Milestone</div>
+                                <div class="text-gray-300">$100M ARR by Q2 2026</div>
+                            </div>
+                            <div class="bg-purple-900/50 p-4 rounded-lg">
+                                <div class="text-lg font-semibold">Market Position</div>
+                                <div class="text-gray-300">Clear category leadership</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 26: Market Outlook -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Market Outlook & Future Trends</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Market Growth Drivers</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>• Aging housing stock requiring more repairs</li>
+                            <li>• Increased home ownership post-pandemic</li>
+                            <li>• Rising labor costs driving automation adoption</li>
+                            <li>• Consumer preference for on-demand services</li>
+                            <li>• Technology adoption accelerating</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Market Projections</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Home Services Market 2025</span>
+                                <span class="font-bold text-green-400">$650B</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>AI/Automation Penetration</span>
+                                <span class="font-bold text-blue-400">25%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Projected CAGR 2025-2030</span>
+                                <span class="font-bold text-purple-400">8.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 27: Technology Leadership -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Technology Leadership & Innovation</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">AI Capabilities</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• 28 specialized AI agents</li>
+                            <li>• Real-time decision making</li>
+                            <li>• Predictive analytics</li>
+                            <li>• Natural language processing</li>
+                            <li>• Computer vision integration</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-blue-400">94.8%</div>
+                            <div class="text-blue-200 text-sm">Automation rate</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Platform Scalability</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Cloud-native architecture</li>
+                            <li>• Microservices design</li>
+                            <li>• Auto-scaling infrastructure</li>
+                            <li>• API-first development</li>
+                            <li>• Multi-tenant platform</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-green-400">10M+</div>
+                            <div class="text-green-200 text-sm">Daily API calls</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">Data Intelligence</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Real-time analytics</li>
+                            <li>• Predictive modeling</li>
+                            <li>• Customer behavior analysis</li>
+                            <li>• Performance optimization</li>
+                            <li>• Business intelligence</li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-purple-400">2.4M</div>
+                            <div class="text-purple-200 text-sm">Data points/day</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 28: Financial Summary -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">Financial Summary & Key Metrics</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Current Performance</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>2025 Revenue Run Rate</span>
+                                <span class="font-bold text-green-400">$268M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Gross Margin</span>
+                                <span class="font-bold text-blue-400">67.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Customer LTV:CAC</span>
+                                <span class="font-bold text-purple-400">29.5:1</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Monthly Burn Rate</span>
+                                <span class="font-bold text-yellow-400">$1.8M</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-400">Growth Projections</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>2026 Revenue Target</span>
+                                <span class="font-bold text-green-400">$485M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>2027 Revenue Goal</span>
+                                <span class="font-bold text-blue-400">$850M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Path to Profitability</span>
+                                <span class="font-bold text-purple-400">Q3 2026</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>IPO Readiness</span>
+                                <span class="font-bold text-yellow-400">Q4 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-900/50 to-green-900/50 p-6 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Investment Highlights</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-blue-400">$1B</div>
+                            <div class="text-gray-300">Target Valuation</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-green-400">$200M</div>
+                            <div class="text-gray-300">Series A Raise</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-400">18mo</div>
+                            <div class="text-gray-300">IPO Timeline</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-yellow-400">600B</div>
+                            <div class="text-gray-300">TAM ($B)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 29: Implementation Roadmap -->
+        <div class="slide bg-gray-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8 text-center">90-Day Implementation Roadmap</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Days 1-30: Foundation</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Board approval for Series A</li>
+                            <li>• Launch 1099 contractor program</li>
+                            <li>• Deploy 5 new AI agents</li>
+                            <li>• Expand to 50 new planning areas</li>
+                            <li>• Implement capacity monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Days 31-60: Scaling</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Add 500+ contractor technicians</li>
+                            <li>• Achieve 85% capacity utilization</li>
+                            <li>• Launch Texas market expansion</li>
+                            <li>• Deploy predictive scheduling AI</li>
+                            <li>• Implement quality assurance protocols</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-purple-400">Days 61-90: Excellence</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Achieve $52M quarterly revenue</li>
+                            <li>• Reach EBITDA positivity</li>
+                            <li>• Complete California market entry</li>
+                            <li>• Deploy advanced analytics platform</li>
+                            <li>• Prepare for Series A closing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-6 rounded-xl mt-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Success Metrics</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-400">Zero</div>
+                            <div class="text-gray-300">Daily Reschedules</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-400">$52M</div>
+                            <div class="text-gray-300">Quarterly Revenue</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-400">95%</div>
+                            <div class="text-gray-300">Customer Satisfaction</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-yellow-400">$200M</div>
+                            <div class="text-gray-300">Series A Funding</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 30: Conclusion & Next Steps -->
+        <div class="slide bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 p-8 slide-animation hidden">
+            <div class="max-w-6xl mx-auto text-center">
+                <h1 class="text-5xl font-bold mb-8">Next Steps & Board Recommendations</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-300">Immediate Actions</h3>
+                        <ul class="text-left space-y-2 text-gray-200">
+                            <li>• Approve Series A funding strategy</li>
+                            <li>• Accelerate AI agent deployment</li>
+                            <li>• Expand to 100 new planning areas</li>
+                            <li>• Launch contractor recruitment program</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-300">90-Day Goals</h3>
+                        <ul class="text-left space-y-2 text-gray-200">
+                            <li>• Achieve $52M quarterly revenue</li>
+                            <li>• Reach EBITDA positivity</li>
+                            <li>• Deploy 5 new AI agent types</li>
+                            <li>• Complete technology platform upgrade</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibent mb-4 text-purple-300">2025 Vision</h3>
+                        <ul class="text-left space-y-2 text-gray-200">
+                            <li>• $1B company valuation</li>
+                            <li>• National market leadership</li>
+                            <li>• 50+ AI agents operational</li>
+                            <li>• IPO readiness assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold mb-4">Board Vote Required</h3>
+                    <p class="text-xl text-gray-200 mb-6">Approve $200M Series A funding round to accelerate growth and market expansion</p>
+                    <div class="flex justify-center space-x-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-green-400">$1B</div>
+                            <div class="text-green-200">Target Valuation</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-blue-400">18 months</div>
+                            <div class="text-blue-200">Path to IPO</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-purple-400">10x</div>
+                            <div class="text-purple-200">Market Opportunity</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Table of Contents Modal -->
+    <div id="tocModal" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center p-8">
+        <div class="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Table of Contents</h2>
+                <button onclick="hideTableOfContents()" class="text-gray-400 hover:text-white">✕</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <h3 class="font-semibold text-blue-400 mb-3">Executive Overview (1-10)</h3>
+                    <ul class="space-y-1 text-xs text-gray-300">
+                        <li><button onclick="goToSlide(1)" class="hover:text-blue-400">1. Title & Executive Summary</button></li>
+                        <li><button onclick="goToSlide(2)" class="hover:text-blue-400">2. Market Opportunity</button></li>
+                        <li><button onclick="goToSlide(3)" class="hover:text-blue-400">3. AI Agent Ecosystem</button></li>
+                        <li><button onclick="goToSlide(4)" class="hover:text-blue-400">4. Financial Performance</button></li>
+                        <li><button onclick="goToSlide(5)" class="hover:text-blue-400">5. Operational Excellence</button></li>
+                        <li><button onclick="goToSlide(6)" class="hover:text-blue-400">6. Technology Architecture</button></li>
+                        <li><button onclick="goToSlide(7)" class="hover:text-blue-400">7. AI Agent Deep Dive</button></li>
+                        <li><button onclick="goToSlide(8)" class="hover:text-blue-400">8. Customer Acquisition</button></li>
+                        <li><button onclick="goToSlide(9)" class="hover:text-blue-400">9. Workforce Management</button></li>
+                        <li><button onclick="goToSlide(10)" class="hover:text-blue-400">10. Parts & Supply Chain</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-green-400 mb-3">Strategy & Growth (11-20)</h3>
+                    <ul class="space-y-1 text-xs text-gray-300">
+                        <li><button onclick="goToSlide(11)" class="hover:text-green-400">11. Revenue Model</button></li>
+                        <li><button onclick="goToSlide(12)" class="hover:text-green-400">12. Geographic Expansion</button></li>
+                        <li><button onclick="goToSlide(13)" class="hover:text-green-400">13. Competitive Analysis</button></li>
+                        <li><button onclick="goToSlide(14)" class="hover:text-green-400">14. Market Position</button></li>
+                        <li><button onclick="goToSlide(15)" class="hover:text-green-400">15. Financial Projections</button></li>
+                        <li><button onclick="goToSlide(16)" class="hover:text-green-400">16. Growth Strategy</button></li>
+                        <li><button onclick="goToSlide(17)" class="hover:text-green-400">17. Partnership Strategy</button></li>
+                        <li><button onclick="goToSlide(18)" class="hover:text-green-400">18. Innovation Roadmap</button></li>
+                        <li><button onclick="goToSlide(19)" class="hover:text-green-400">19. Technology Evolution</button></li>
+                        <li><button onclick="goToSlide(20)" class="hover:text-green-400">20. Risk Management</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-purple-400 mb-3">Investment & Future (21-30)</h3>
+                    <ul class="space-y-1 text-xs text-gray-300">
+                        <li><button onclick="goToSlide(21)" class="hover:text-purple-400">21. Governance Framework</button></li>
+                        <li><button onclick="goToSlide(22)" class="hover:text-purple-400">22. ESG & Sustainability</button></li>
+                        <li><button onclick="goToSlide(23)" class="hover:text-purple-400">23. Regulatory Compliance</button></li>
+                        <li><button onclick="goToSlide(24)" class="hover:text-purple-400">24. Team & Leadership</button></li>
+                        <li><button onclick="goToSlide(25)" class="hover:text-purple-400">25. Investment Strategy</button></li>
+                        <li><button onclick="goToSlide(26)" class="hover:text-purple-400">26. Valuation Analysis</button></li>
+                        <li><button onclick="goToSlide(27)" class="hover:text-purple-400">27. Exit Strategy</button></li>
+                        <li><button onclick="goToSlide(28)" class="hover:text-purple-400">28. Market Outlook</button></li>
+                        <li><button onclick="goToSlide(29)" class="hover:text-purple-400">29. Implementation Roadmap</button></li>
+                        <li><button onclick="goToSlide(30)" class="hover:text-purple-400">30. Board Recommendations</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 30;
+
+        function showSlide(slideNumber) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.add('hidden');
+                slide.classList.remove('slide-animation');
+            });
+            
+            // Show current slide
+            const slides = document.querySelectorAll('.slide');
+            if (slides[slideNumber - 1]) {
+                slides[slideNumber - 1].classList.remove('hidden');
+                slides[slideNumber - 1].classList.add('slide-animation');
+            }
+            
+            // Update counter
+            document.getElementById('slideCounter').textContent = `${slideNumber} / ${totalSlides}`;
+            currentSlide = slideNumber;
+            
+            // Initialize charts if needed
+            setTimeout(() => {
+                initializeChartsForCurrentSlide(slideNumber);
+            }, 100);
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        function goToSlide(slideNumber) {
+            showSlide(slideNumber);
+            hideTableOfContents();
+        }
+
+        function showTableOfContents() {
+            document.getElementById('tocModal').classList.remove('hidden');
+        }
+
+        function hideTableOfContents() {
+            document.getElementById('tocModal').classList.add('hidden');
+        }
+
+        function initializeChartsForCurrentSlide(slideNumber) {
+            // Destroy existing charts to prevent conflicts
+            Chart.helpers.each(Chart.instances, function(instance){
+                instance.destroy();
+            });
+            
+            if (slideNumber === 2) {
+                setTimeout(() => initializeMarketChart(), 200);
+            } else if (slideNumber === 4) {
+                setTimeout(() => initializeRevenueChart(), 200);
+            } else if (slideNumber === 5) {
+                setTimeout(() => initializeCapacityChart(), 200);
+            }
+        }
+
+        function initializeMarketChart() {
+            const ctx = document.getElementById('marketChart');
+            if (!ctx) return;
+            
+            // Clear any existing chart
+            ctx.getContext('2d').clearRect(0, 0, ctx.width, ctx.height);
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['HVAC Services', 'Plumbing', 'Electrical', 'Appliance Repair', 'Other'],
+                    datasets: [{
+                        data: [35, 25, 20, 15, 5],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#fff' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initializeRevenueChart() {
+            const ctx = document.getElementById('revenueChart');
+            if (!ctx) return;
+            
+            // Clear any existing chart
+            ctx.getContext('2d').clearRect(0, 0, ctx.width, ctx.height);
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025'],
+                    datasets: [{
+                        label: 'Revenue ($M)',
+                        data: [28, 32, 35, 39, 38, 47],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#fff' }
+                        },
+                        x: {
+                            ticks: { color: '#fff' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#fff' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initializeCapacityChart() {
+            const ctx = document.getElementById('capacityChart');
+            if (!ctx) return;
+            
+            // Clear any existing chart
+            ctx.getContext('2d').clearRect(0, 0, ctx.width, ctx.height);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Capacity Utilization %',
+                        data: [78, 82, 85, 87, 89, 92, 76],
+                        backgroundColor: 'rgba(34, 197, 94, 0.8)',
+                        borderColor: '#22c55e',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: '#fff' }
+                        },
+                        x: {
+                            ticks: { color: '#fff' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#fff' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (e.key === 'Escape') {
+                hideTableOfContents();
+            }
+        });
+
+        // Initialize first slide
+        showSlide(1);
+    </script>
+</body>
+</html>

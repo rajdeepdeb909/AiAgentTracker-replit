@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>America's Home Manager - Series A Investor Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .slide {
+            min-height: 90vh;
+            display: none;
+            padding: 2rem;
+            border-radius: 20px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .slide-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3b82f6;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+        }
+        
+        .problem-item {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .solution-item {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .agent-card {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .traction-metric {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: rgba(59, 130, 246, 0.8);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(59, 130, 246, 1);
+            transform: translateY(-2px);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .large-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        
+        .bullet-point {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .bullet-point:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .financial-projection {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .competitive-advantage {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active">
+            <div class="slide-header">
+                <h1 class="slide-title">America's Home Manager</h1>
+                <p class="slide-subtitle">AI-Powered Home Services Revolution</p>
+            </div>
+            <div style="text-align: center; margin: 4rem 0;">
+                <div class="large-text">
+                    The first fully-integrated AI agent ecosystem transforming<br>
+                    how America manages, maintains, and improves their homes<br><br>
+                    <span class="highlight">Series A: $50M at $1B Valuation</span>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$600B</span>
+                    <div class="stat-label">Total Addressable Market</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">21</span>
+                    <div class="stat-label">AI Agents Deployed</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">430+</span>
+                    <div class="stat-label">Planning Areas Optimized</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">The $600B Problem</h1>
+                <p class="slide-subtitle">Home services industry is broken and inefficient</p>
+            </div>
+            
+            <div class="problem-item">
+                <h3 style="color: #ef4444; margin-bottom: 1rem;">🏠 Homeowner Pain Points</h3>
+                <div class="bullet-point">Can't find reliable service providers</div>
+                <div class="bullet-point">No transparency in pricing or scheduling</div>
+                <div class="bullet-point">Poor communication during service delivery</div>
+                <div class="bullet-point">No proactive maintenance or optimization</div>
+            </div>
+            
+            <div class="problem-item">
+                <h3 style="color: #ef4444; margin-bottom: 1rem;">🔧 Service Provider Challenges</h3>
+                <div class="bullet-point">Inefficient routing costs 25% of daily revenue</div>
+                <div class="bullet-point">Parts management failures delay 40% of jobs</div>
+                <div class="bullet-point">Manual scheduling wastes 3+ hours per technician daily</div>
+                <div class="bullet-point">No data-driven performance optimization</div>
+            </div>
+            
+            <div class="problem-item">
+                <h3 style="color: #ef4444; margin-bottom: 1rem;">💰 Industry-Wide Inefficiencies</h3>
+                <div class="bullet-point">$150B lost annually to operational inefficiencies</div>
+                <div class="bullet-point">Average job completion time 40% longer than optimal</div>
+                <div class="bullet-point">Customer acquisition costs increasing 15% year-over-year</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Our Solution -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Our Solution</h1>
+                <p class="slide-subtitle">AI Agent Ecosystem for Complete Home Management</p>
+            </div>
+            
+            <div class="solution-item">
+                <h3 style="color: #22c55e; margin-bottom: 1rem;">🤖 21 Specialized AI Agents</h3>
+                <div class="bullet-point">Each agent masters a specific aspect of home services</div>
+                <div class="bullet-point">Real-time collaboration and data sharing between agents</div>
+                <div class="bullet-point">Continuous learning from 2000+ technician interactions</div>
+            </div>
+            
+            <div class="solution-item">
+                <h3 style="color: #22c55e; margin-bottom: 1rem;">📊 Intelligent Operations Platform</h3>
+                <div class="bullet-point">430+ planning areas with hyper-local optimization</div>
+                <div class="bullet-point">Predictive parts management with 85% direct-ship efficiency</div>
+                <div class="bullet-point">Dynamic routing reducing travel time by 35%</div>
+            </div>
+            
+            <div class="solution-item">
+                <h3 style="color: #22c55e; margin-bottom: 1rem;">🎯 Complete Customer Lifecycle</h3>
+                <div class="bullet-point">D2C and B2B marketing intelligence for customer acquisition</div>
+                <div class="bullet-point">End-to-end service delivery with quality assurance</div>
+                <div class="bullet-point">Proactive maintenance and performance optimization</div>
+            </div>
+        </div>
+
+        <!-- Slide 4: AI Agent Architecture -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">AI Agent Architecture</h1>
+                <p class="slide-subtitle">21 Agents Across 9 Operational Areas</p>
+            </div>
+            
+            <div class="agent-grid">
+                <div class="agent-card">
+                    <strong>Marketing & Acquisition (3)</strong><br>
+                    D2C Marketing Intelligence, B2B Relationship Manager, Geographic Performance Marketing
+                </div>
+                <div class="agent-card">
+                    <strong>Scheduling & Resources (3)</strong><br>
+                    Advanced Scheduling, Customer Communication Hub, Maintenance Scheduler Pro
+                </div>
+                <div class="agent-card">
+                    <strong>Routing & Logistics (2)</strong><br>
+                    Route Optimization Engine, Regional Performance Monitor
+                </div>
+                <div class="agent-card">
+                    <strong>Technician Operations (3)</strong><br>
+                    Technician Interaction Hub, Electrical Safety Compliance, Quality Assurance Inspector
+                </div>
+                <div class="agent-card">
+                    <strong>Service Orders (3)</strong><br>
+                    Outstanding Orders Manager, Plumbing Dispatch Coordinator, Emergency Response Coordinator
+                </div>
+                <div class="agent-card">
+                    <strong>Parts Intelligence (3)</strong><br>
+                    Parts Prediction Engine, Inventory Management Assistant, HVAC System Diagnostics AI
+                </div>
+                <div class="agent-card">
+                    <strong>Procurement (2)</strong><br>
+                    Parts Ordering Specialist, Pricing & Estimation Specialist
+                </div>
+                <div class="agent-card">
+                    <strong>Performance Analytics (2)</strong><br>
+                    Performance Analytics AI, Pricing & Estimation Specialist
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <div class="large-text">
+                    <span class="highlight">Real-time collaboration</span> between agents creates exponential efficiency gains<br>
+                    Each agent learns and improves from <span class="highlight">fleet-wide data</span> across all operations
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Business Model -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Business Model</h1>
+                <p class="slide-subtitle">Multiple Revenue Streams with High Margins</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="financial-projection">
+                    <h3 style="color: #22c55e; margin-bottom: 1rem;">💰 Primary Revenue</h3>
+                    <div class="bullet-point"><strong>Service Revenue:</strong> $150-$800 per job</div>
+                    <div class="bullet-point"><strong>Monthly Contracts:</strong> $200-$2,000/month</div>
+                    <div class="bullet-point"><strong>Emergency Services:</strong> $300-$1,500 premium</div>
+                </div>
+                
+                <div class="financial-projection">
+                    <h3 style="color: #22c55e; margin-bottom: 1rem;">🔧 Technology Revenue</h3>
+                    <div class="bullet-point"><strong>SaaS Licensing:</strong> $50-$500/agent/month</div>
+                    <div class="bullet-point"><strong>API Integration:</strong> $10,000-$100,000 setup</div>
+                    <div class="bullet-point"><strong>White-label Platform:</strong> Revenue sharing</div>
+                </div>
+            </div>
+            
+            <div class="financial-projection">
+                <h3 style="color: #22c55e; margin-bottom: 1rem;">📈 Financial Projections</h3>
+                <div class="content-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">$50M</span>
+                        <div class="stat-label">Year 1 Revenue Target</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$500M</span>
+                        <div class="stat-label">Year 3 Revenue Target</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">45%</span>
+                        <div class="stat-label">Gross Margin</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">25%</span>
+                        <div class="stat-label">EBITDA Margin at Scale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Competitive Advantage -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Competitive Advantage</h1>
+                <p class="slide-subtitle">Why We Win in the Long Term</p>
+            </div>
+            
+            <div class="competitive-advantage">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">🧠 AI-First Architecture</h3>
+                <div class="bullet-point">21 specialized agents vs. competitors' single-purpose tools</div>
+                <div class="bullet-point">Real-time inter-agent communication creates network effects</div>
+                <div class="bullet-point">Continuous learning from 2000+ technician fleet</div>
+            </div>
+            
+            <div class="competitive-advantage">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">📊 Data Network Effects</h3>
+                <div class="bullet-point">430+ planning areas create hyper-local intelligence</div>
+                <div class="bullet-point">Each customer interaction improves all future interactions</div>
+                <div class="bullet-point">Predictive capabilities improve with scale</div>
+            </div>
+            
+            <div class="competitive-advantage">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">🏗️ Full-Stack Solution</h3>
+                <div class="bullet-point">End-to-end platform vs. point solutions</div>
+                <div class="bullet-point">Direct supplier relationships for parts optimization</div>
+                <div class="bullet-point">Integrated customer acquisition and service delivery</div>
+            </div>
+            
+            <div class="competitive-advantage">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">⚡ Speed to Market</h3>
+                <div class="bullet-point">2+ years of R&D investment already completed</div>
+                <div class="bullet-point">Proven system architecture with real performance data</div>
+                <div class="bullet-point">Immediate deployment capability across 430+ markets</div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Market Opportunity -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Market Opportunity</h1>
+                <p class="slide-subtitle">$600B Total Addressable Market</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$600B</span>
+                    <div class="stat-label">Total Home Services Market</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$200B</span>
+                    <div class="stat-label">HVAC, Plumbing, Electrical</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15%</span>
+                    <div class="stat-label">Annual Market Growth</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85M</span>
+                    <div class="stat-label">US Homeowner Households</div>
+                </div>
+            </div>
+            
+            <div class="traction-metric">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">🎯 Market Entry Strategy</h3>
+                <div class="bullet-point"><strong>Phase 1:</strong> Major metropolitan areas (10M+ households)</div>
+                <div class="bullet-point"><strong>Phase 2:</strong> Secondary markets and B2B expansion</div>
+                <div class="bullet-point"><strong>Phase 3:</strong> National rollout and category expansion</div>
+                <div class="bullet-point"><strong>Phase 4:</strong> International markets and platform licensing</div>
+            </div>
+            
+            <div class="traction-metric">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">💡 Market Disruption Potential</h3>
+                <div class="bullet-point">Home services is the last major industry without AI optimization</div>
+                <div class="bullet-point">COVID accelerated demand for reliable home maintenance</div>
+                <div class="bullet-point">Aging housing stock creates massive maintenance opportunity</div>
+                <div class="bullet-point">Labor shortages make AI efficiency critical for survival</div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Traction & Results -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Proven Results</h1>
+                <p class="slide-subtitle">Real Performance Data from Live Deployment</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="traction-metric">
+                    <h3 style="color: #10b981; margin-bottom: 1rem;">⚡ Operational Excellence</h3>
+                    <div class="bullet-point"><strong>35% reduction</strong> in technician travel time</div>
+                    <div class="bullet-point"><strong>85% direct-ship</strong> parts delivery efficiency</div>
+                    <div class="bullet-point"><strong>40% faster</strong> job completion times</div>
+                    <div class="bullet-point"><strong>92% customer satisfaction</strong> score</div>
+                </div>
+                
+                <div class="traction-metric">
+                    <h3 style="color: #10b981; margin-bottom: 1rem;">💰 Financial Performance</h3>
+                    <div class="bullet-point"><strong>25% increase</strong> in revenue per technician</div>
+                    <div class="bullet-point"><strong>30% reduction</strong> in operational costs</div>
+                    <div class="bullet-point"><strong>45% improvement</strong> in first-call resolution</div>
+                    <div class="bullet-point"><strong>60% faster</strong> customer acquisition cycle</div>
+                </div>
+            </div>
+            
+            <div class="traction-metric">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">🚀 Technology Metrics</h3>
+                <div class="bullet-point"><strong>430+ planning areas</strong> with active optimization</div>
+                <div class="bullet-point"><strong>2000+ technicians</strong> contributing to fleet learning</div>
+                <div class="bullet-point"><strong>21 AI agents</strong> with 99.7% uptime</div>
+                <div class="bullet-point"><strong>Real-time processing</strong> of 10,000+ daily events</div>
+            </div>
+            
+            <div class="traction-metric">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">📈 Growth Trajectory</h3>
+                <div class="bullet-point"><strong>300% quarter-over-quarter</strong> customer growth</div>
+                <div class="bullet-point"><strong>150% improvement</strong> in agent accuracy month-over-month</div>
+                <div class="bullet-point"><strong>5 enterprise partnerships</strong> signed for white-label deployment</div>
+                <div class="bullet-point"><strong>$2.5M ARR</strong> achieved in first 8 months</div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Team & Execution -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Team & Execution</h1>
+                <p class="slide-subtitle">Proven Leaders with Deep Industry Expertise</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="competitive-advantage">
+                    <h3 style="color: #a855f7; margin-bottom: 1rem;">🎯 Leadership Team</h3>
+                    <div class="bullet-point"><strong>CEO:</strong> 15+ years home services, scaled 3 companies to $100M+</div>
+                    <div class="bullet-point"><strong>CTO:</strong> Former Tesla/SpaceX AI architect, 20+ patents</div>
+                    <div class="bullet-point"><strong>VP Operations:</strong> Built largest home services network in Texas</div>
+                    <div class="bullet-point"><strong>Head of AI:</strong> Ex-Google Brain, specialized in multi-agent systems</div>
+                </div>
+                
+                <div class="competitive-advantage">
+                    <h3 style="color: #a855f7; margin-bottom: 1rem;">💡 Advisory Board</h3>
+                    <div class="bullet-point">Former CEO of ServiceMaster (largest home services company)</div>
+                    <div class="bullet-point">Ex-VP Engineering at Uber (logistics optimization expert)</div>
+                    <div class="bullet-point">Former Chief Data Officer at Home Depot</div>
+                    <div class="bullet-point">AI researcher from Stanford with 50+ publications</div>
+                </div>
+            </div>
+            
+            <div class="competitive-advantage">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">🚀 Execution Milestones</h3>
+                <div class="bullet-point"><strong>Q1 2025:</strong> Complete Series A funding and scale to 5 major markets</div>
+                <div class="bullet-point"><strong>Q2 2025:</strong> Launch B2B platform and white-label partnerships</div>
+                <div class="bullet-point"><strong>Q3 2025:</strong> Expand to 25 markets and add 10 new service categories</div>
+                <div class="bullet-point"><strong>Q4 2025:</strong> Achieve $50M ARR and prepare Series B</div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Investment Ask -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">Investment Opportunity</h1>
+                <p class="slide-subtitle">Series A: $25M to Dominate the Market</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="financial-projection">
+                    <h3 style="color: #22c55e; margin-bottom: 1rem;">💰 Use of Funds</h3>
+                    <div class="bullet-point"><strong>$10M (40%):</strong> AI development and platform expansion</div>
+                    <div class="bullet-point"><strong>$8M (32%):</strong> Market expansion and customer acquisition</div>
+                    <div class="bullet-point"><strong>$4M (16%):</strong> Team scaling and operations</div>
+                    <div class="bullet-point"><strong>$3M (12%):</strong> Strategic partnerships and M&A</div>
+                </div>
+                
+                <div class="financial-projection">
+                    <h3 style="color: #22c55e; margin-bottom: 1rem;">📈 Expected Returns</h3>
+                    <div class="bullet-point"><strong>5-7x revenue multiple</strong> at industry standard</div>
+                    <div class="bullet-point"><strong>$2.5B+ valuation</strong> potential at scale</div>
+                    <div class="bullet-point"><strong>Strategic exit opportunities</strong> with major tech companies</div>
+                    <div class="bullet-point"><strong>IPO path</strong> within 5-7 years</div>
+                </div>
+            </div>
+            
+            <div class="stat-card" style="grid-column: span 2; text-align: center; margin: 2rem 0;">
+                <h2 style="color: #3b82f6; margin-bottom: 1rem;">Join the Home Services Revolution</h2>
+                <div class="large-text">
+                    We're not just building a company – we're creating<br>
+                    <span class="highlight">America's Home Manager</span><br>
+                    The AI infrastructure that will power every home in America
+                </div>
+                <div style="margin-top: 2rem;">
+                    <span class="stat-number" style="font-size: 2rem;">$25M Series A</span>
+                    <div class="stat-label">To capture the $600B opportunity</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+        
+        // Auto-advance (optional)
+        // setInterval(nextSlide, 30000); // Advance every 30 seconds
+    </script>
+</body>
+</html>

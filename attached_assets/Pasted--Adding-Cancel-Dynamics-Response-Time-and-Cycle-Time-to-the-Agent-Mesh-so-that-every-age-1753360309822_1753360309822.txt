@@ -1,0 +1,105 @@
+### Adding **Cancel‑Dynamics, Response‑Time, and Cycle‑Time** to the Agent Mesh
+
+*(so that every agent’s decisions reflect the wildly different behaviors of D2C vs B2B customers and the knock‑on dependence on parts availability)*
+
+---
+
+## 1 New canonical metrics & data fields (central schema)
+
+| Field                   | Definition                                                | Captured By          | Granularity |
+| ----------------------- | --------------------------------------------------------- | -------------------- | ----------- |
+| `call_type`             | `D2C`, `B2B`, `Warranty`                                  | CX Agent             | Job record  |
+| `response_time_minutes` | *ETA\_at\_confirmation − call\_received\_ts*              | Dispatch Agent       | Job         |
+| `cycle_time_minutes`    | *job\_closed\_ts − call\_received\_ts*                    | QA Agent             | Job         |
+| `cancel_flag`           | 1 if job cancelled before technician on site              | CX Agent             | Job         |
+| `cancel_stage`          | `pre‑dispatch`, `post‑dispatch`, `parts_wait`, `on‑site`  | CX & Dispatch Agents | Job         |
+| `cancel_reason`         | NLP cluster id (e.g., *product working*, *found cheaper*) | CX Agent             | Job         |
+
+The **Data/ML Platform Agent** updates *rolling quantiles* and *channel‑split histograms* nightly, so every other agent can query cancellation risk, response‑time bands, etc.
+
+---
+
+## 2 Cancellation‑Risk Model (owned by Performance‑Analytics Sub‑agent)
+
+| Inputs (examples)                                                                                                                        | Output                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Channel (D2C vs B2B), product type, make/model age, offered ETA, price estimate, past cancels at zip+channel, customer sentiment on call | `P(cancel)` (probability) + SHAP drivers |
+
+The model is **queried in real‑time** by the CX Agent during booking and by Dispatch every time a slot is assigned.
+
+---
+
+## 3 Agent‑level policy changes
+
+| Agent                       | New Logic to Reduce Cancels & Cycle Time                                                                                                                                                                                                                                                                                                         | Example Rule                                                                                              |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| **CX Agent**                | • Show 2 ETA choices: *fast* (higher price) vs *standard*; collects stated urgency.<br>• For D2C jobs with `P(cancel) > 0.3`, asks: “Did the unit just start working again?” and tags answer.<br>• Sends auto‑reconfirm SMS 24 hrs before fast slots, 48 hrs for standard.<br>• Offers *“repair vs replace”* price comparison to pre‑empt churn. | If customer picks *standard* but sentiment = high urgency, upsell to *fast* reduces `P(cancel)` by 12 pp. |
+| **Dynamic Dispatch Agent**  | • Uses `P(cancel)` as *overbooking factor* (only on D2C).<br>• Reserves a buffer of tech‑hours for B2B (low cancel) until 12 hrs before slot.<br>• Writes *“parts‑needed probability”* into parts pre‑stage request so PPA can expedite.                                                                                                         | Overbook D2C by `Σ P(cancel)` within each zip/time bucket, capped at +20 %.                               |
+| **Parts Procurement Agent** | • Adds *channel‑SLA weight* into solver: D2C fast‑slot parts carry higher delay penalty.<br>• For B2B, cost weight higher than speed (if SLA allows 48 h).<br>• If `cycle_time` risk > target, chooses 1‑day courier even if \$↑.                                                                                                                | `Delay Penalty = (Channel α) × expected_hours_late`, where α\_D2C > α\_B2B.                               |
+| **Planning‑Area CEO Agent** | • Monitors **channel‑split P90 response & cycle times**, **cancel distributions**.<br>• Tail interventions: if D2C cancel P90 > 45 %, triggers CX script tweak; if B2B response P90 > 36 h, triggers Recruiting surge.                                                                                                                           | OKR: *Bring D2C P50 cycle‑time < 48 h, cancel % < 25 %*                                                   |
+| **Strategy & Growth Agent** | • Media bidding uses `π = expected profit × (1 − P(cancel))`.<br>• Warranty upsell offered to customers with high P(cancel) due to *repair‑vs‑replace* worry.                                                                                                                                                                                    | Cut Google bid 40 % in zips where adjusted CPA exceeds margin.                                            |
+
+---
+
+## 4 “Overbooking & Wait‑list” micro‑flow (D2C only)
+
+```mermaid
+flowchart LR
+  Call-->CXBooking
+  CXBooking-->|ETAs & P(cancel)|Dispatch
+  Dispatch-->|slot reserved|TechCalendar
+  subgraph CancellationWindow
+      direction LR
+      WaitList{{Wait‑list}}
+      Dispatch -. checks slots hourly .-> WaitList
+  end
+  CXReconSMS-->|"Confirm Y/N"|Customer
+  Customer-->|N|Cancel[Cancel Event]
+  Cancel-->Dispatch
+  Dispatch-->|fill slot|WaitList
+```
+
+If the **reconfirm SMS** gets no reply, `P(cancel)` auto‑rises; Dispatch taps the wait‑list 4 hrs beforehand.
+
+---
+
+## 5 Gamified tech & customer incentives
+
+| Audience          | Incentive                                                                                               | Trigger                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Technicians**   | *“Cycle‑Time Hero”* badge + \$20 when they close a D2C job inside P25 cycle time                        | Encourages efficient in‑home diagnosis; high‑conf parts ordering |
+| **D2C Customers** | \$15 discount if they upload pre‑visit photos; drops `P(cancel)` by giving CX Agent more info to triage | Self‑service data improves parts prediction & response time      |
+
+---
+
+## 6 Dashboard section for Planning‑Area CEO
+
+| KPI Tile                | D2C      | B2B     | Alert Threshold          |
+| ----------------------- | -------- | ------- | ------------------------ |
+| P50 Response Time       | 22 h     | 36 h    | D2C > 30 h               |
+| P90 Cycle Time          | 70 h     | 110 h   | D2C > 96 h               |
+| Cancel % (rolling 14 d) | **29 %** | **8 %** | D2C > 32 % or B2B > 12 % |
+| Parts Delay Incidents   | 4 /wk    | 7 /wk   | Any trend ↑ > 2/wk       |
+
+Tiles drill into **distribution plots** so the agent can see tails, not just means.
+
+---
+
+## 7 Expected outcomes after implementation (first 90 days)
+
+| Metric             | Baseline | Target   | Driver                                   |
+| ------------------ | -------- | -------- | ---------------------------------------- |
+| D2C Cancel %       | 30 %     | **25 %** | ETA choice UX + reconfirm SMS + overbook |
+| D2C P50 Cycle Time | 54 h     | **45 h** | Overbooking + faster parts tier          |
+| B2B Response P50   | 40 h     | **32 h** | Reserved capacity + recruiting surge     |
+| First‑Time‑Fix     | 87 %     | **89 %** | Parts pre‑stage accuracy ↑               |
+| NPS (D2C)          | 70       | **75**   | Cancels & cycle cuts                     |
+
+**Margin impact**: fewer cancels → 10 % more jobs completed per booked call → +\$XX M annual revenue *without* extra marketing spend; cycle‑time improvements raise warranty renewals.
+
+---
+
+### Bottom line
+
+By **threading `P(cancel)`, response‑time, cycle‑time, and cost trade‑offs into every agent’s decision function**—from booking to parts sourcing—the platform attacks the root causes of churn and low CSAT.
+*Agents no longer work in silos; they share a common risk‑aware objective function that treats a tech’s parts click as a *probabilistic recommendation*, optimises it for speed‑cost, and continuously tightens the loop when real outcomes differ from prediction.*

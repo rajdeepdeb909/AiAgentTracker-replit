@@ -1,0 +1,111 @@
+## Demand-Growth Update: **“Every Repair Becomes a Gateway”**
+
+We convert each of the **≈ 30 000 weekly repairs** into a permanent, direct channel—so the next job never starts with a Google search or LSA bid.
+The fly-wheel:
+
+```
+Repair  →  Asset On-Boarded  →  Always-On Monitoring / Easy-Scan  →  Direct Re-booking
+```
+
+---
+
+### 1. Asset-on-boarding at job close
+
+| Step (TechHub workflow)                                 | Agent             | SLA       | Notes / incentive                                               |
+| ------------------------------------------------------- | ----------------- | --------- | --------------------------------------------------------------- |
+| Scan appliance model + serial (OCR in camera)           | QA Agent          | < 15 s    | Creates **digital twin** row in Asset DB.                       |
+| Affix QR+NFC “Service Tag” sticker (pre-printed per PA) | Parts Procurement | Immediate | Tech earns **+\$5** for each homeowner who activates free tier. |
+| Offer **Free Sears Home Advantage** sign-up on tablet   | Corey CX          | 1 tap     | Acceptance rates tracked; >60 % earns tech bonus.               |
+| Upsell to **Sears Protect** (warranty)                  | Finance / CX      | Optional  | Tech gets **\$25 spiff** per paid conversion.                   |
+
+**Goal:** Tag & onboard **≥ 70 %** of repaired assets by Q4.
+
+---
+
+### 2. Two-tier homeowner programs
+
+| Tier                            | Price                                                | Benefits                                                                                                                        | How it drives direct demand                                                |
+| ------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Sears Home Advantage (Free)** | \$0                                                  | • QR / NFC one-tap scheduling<br>• Service history in app<br>• 24 h booking guarantee<br>• 10 % parts discount                  | Locks brand preference; captures email & model data for predictive alerts. |
+| **Sears Protect Warranty**      | \$800/yr, \$100 trip fee<br>(6-mo no-trip guarantee) | • Unlimited covered repairs<br>• Same-day / next-day SLA<br>• Annual maintenance tune-up<br>• Loyalty credit toward replacement | High-margin recurring revenue; auto-dispatch without paid ads.             |
+
+**Upgrade nudges**: when Cancel\_Risk model > 0.3, CX Agent offers *“avoid the trip-fee next time—upgrade today, effective immediately.”*
+
+---
+
+### 3. “Appliance calls us” pathways
+
+| Connectivity layer                            | Coverage today             | Roll-out plan                                                               | Agent / stack                                                                                       |
+| --------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **QR + NFC Tag**                              | 100 % (low-tech)           | Sticker kit shipped to all techs next week.                                 | QR resolves to `/asset/{id}` deep-link; CX Agent handles booking.                                   |
+| **OEM IoT API**                               | \~12 % of new models       | Sign API agreements with 3 OEMs (dishwasher, laundry, refrigeration) by Q3. | Parts/KD Agent ingests error-codes; Dispatch auto-creates order & offers time slots via push-notif. |
+| **Smart-home hub (Matter/Google Home skill)** | 0 % → 20 % of smart owners | Launch voice skill: “Hey Google, talk to Sears Home Manager.”               | Strategy Agent owns certification; CX flows map to same deep-link endpoint.                         |
+
+---
+
+### 4. Marketing spend re-allocation
+
+| Bucket                     | Old budget  | New budget              | Rationale                              |
+| -------------------------- | ----------- | ----------------------- | -------------------------------------- |
+| Google LSA                 | \$600 k / Q | **\$420 k / Q (-30 %)** | Lower CAC from direct re-book channel. |
+| Home Advantage QR kits     | —           | **\$90 k / Q**          | Printing + bonus pool.                 |
+| Warranty renewal email/SMS | \$45 k / Q  | **\$75 k / Q**          | Larger subscriber base.                |
+| OEM co-op marketing        | —           | **\$60 k / Q**          | OEM pays 50 %.                         |
+
+Expected net spend change **–\$0.1 M** with **+\$4 M incremental gross profit** from warranty upgrades.
+
+---
+
+### 5. Balancing demand with tech supply
+
+**Connection-rate metric**
+`CR = # tagged assets activated ÷ # completes`   (target ≥ 70 %)
+
+If CR rises but Slot\_Density falls below **0.9** (capacity tight):
+
+* Dispatch opens **Sunday / evening windows** first.
+* If still Red for 48 h → OT shift offers.
+* Recruit if OT acceptance < 60 %.
+
+---
+
+### 6. KPI additions to dashboard
+
+| KPI                             | Baseline | 90-day target | Owner          |
+| ------------------------------- | -------- | ------------- | -------------- |
+| Asset On-Board Rate             | 0 %      | **70 %**      | QA Agent       |
+| Home Advantage activations / wk | 0        | **18 k**      | CX Agent       |
+| Warranty upgrades / wk          | 200      | **1 000**     | Finance        |
+| Repeat bookings via QR / IoT    | 0        | **3 k / wk**  | Strategy Agent |
+| Google LSA spend per booking    | \$22     | **\$15**      | Growth Agent   |
+
+---
+
+### 7. Roll-out timeline
+
+| Week | Milestone                                                        |
+| ---- | ---------------------------------------------------------------- |
+| 0    | Print & ship 200 k QR/NFC tags; add scan-flow to TechHub.        |
+| 2    | Tech incentive live; dashboard CR visible to Planning-Area CEOs. |
+| 4    | Launch Home Advantage welcome email + app deep-link.             |
+| 6    | OEM #1 (Dishwasher) error-code feed integrated; pilot in 15 PAs. |
+| 8    | Reduce LSA bids 15 % in PAs with CR ≥ 60 %.                      |
+| 12   | Review: expect +12 k direct bookings / wk, warranty base +25 k.  |
+
+---
+
+### 8. Profit impact (12-month view)
+
+| Stream                       | Incremental units   | GM%        | GP (\$M)     |
+| ---------------------------- | ------------------- | ---------- | ------------ |
+| Direct re-books (no LSA CAC) | +400 k jobs         | 34 %       | **\$30**     |
+| Warranty upgrades            | +80 k subs          | 60 %       | **\$38**     |
+| Parts upsell via QR          | +\$5 parts / repair | 1.5 M jobs | **\$7.5**    |
+| **Total GP uplift**          | —                   | —          | **\$75.5 M** |
+
+---
+
+### Take-away
+
+**Tag every repaired appliance → capture the homeowner → route future faults directly to us.**
+This shifts spend from Google to owned channels, boosts warranty penetration, and fills tech calendars with high-margin, low-CAC jobs—while live Slot\_Density logic keeps payroll/revenue ratios on target.

@@ -1,0 +1,87 @@
+### The “Planning‑Area CEO/COO” Agent
+
+*(a lightweight executive agent that runs one copy per planning area—400 total)*
+
+---
+
+## 1 — Daily Operating Cycle ( ≈60 s logic, repeated hourly)
+
+| Step                    | What the Agent Does                                                                                                                                                                                                                       | Inputs                              | Typical Action                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------- |
+| **01 Ingest**           | Pulls the *latest deltas* from the event bus into an in‑memory vector: <br>• jobs completed / in‑flight<br>• tech availability & health<br>• CX signals (NPS, chat tone)<br>• parts locker stock<br>• ETA adherence                       | Stream from Dispatch, QA, CX, Parts | —                                                  |
+| **02 Scorecard Update** | Re‑computes **5 key percentile metrics**:<br>• Customer: P10 & P90 NPS, P90 lateness<br>• Technician: P10 & P90 earnings, P90 recall%                                                                                                     | Quantile service                    | Stores in Redis “pulse” table                      |
+| **03 Tail Detection**   | Flags red tails:<br>• Any P10 tech earnings < \$600/wk<br>• Any P90 customer lateness > 30 min                                                                                                                                            | Rule set (yaml)                     | Produce a *“micro‑intervention job”* for each tail |
+| **04 Micro‑Intervene**  | Dispatches the job to the right downstream agent:<br>• Low‑earning tech → Corey: suggest surge shift tonight<br>• High lateness zip → Roster & Routing: boost traffic weight 15 %<br>• Low NPS cluster → CX Agent: trigger apology credit | REST calls                          | All logged to ledger                               |
+| **05 Self‑Learn**       | Stores intervention + outcome key/value for future reinforcement scoring (policy evaluation).                                                                                                                                             | —                                   | Feeds nightly RL loop                              |
+
+Every hour the agent has spent pennies of compute but **prunes the tails before they hurt averages**.
+
+---
+
+## 2 — Weekly Strategic Cycle (run Sunday night, ±10 min)
+
+| Phase                         | What the Agent Produces                                                                                                                                                       | How It Drives Performance                                 |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **A. Diagnostic Pack**        | • Distribution plots + drift deltas for 12 KPIs<br>• “Top tail gains” (e.g., best 5 techs added +\$6.2k GP)<br>• “Bottom tail drag” (e.g., worst 5 zip codes cost –\$3.9k GP) | Sets agenda for local playbook                            |
+| **B. Cross‑Market Benchmark** | Pulls *wisdom‑of‑crowds* table from **Crowd‑Exchange Service** (see §3). <br>Ranks itself vs P50, P75, P90 PAs on each KPI.                                                   | Humble check—where to copy from, where to teach.          |
+| **C. Playbook Generator**     | • Selects 3 improvement levers from internal library (JSON recipes)<br>• Simulates revenue + GP lift and resource cost<br>• Produces 1‑page “OKR sprint” for next week        | Focus: one customer lever, one tech lever, one ops lever. |
+| **D. Commitment Broadcast**   | Writes OKRs to **central ledger** so the CXO‑Agent & neighboring PA CEOs can read.                                                                                            | Creates peer visibility & friendly competition.           |
+
+---
+
+## 3 — Wisdom‑of‑Crowds: How PA CEOs Learn From Each Other
+
+| Mechanism                  | How It Works (Agents Only)                                                                                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Crowd‑Exchange Service** | Nightly, each PA CEO publishes anonymised **feature → outcome pairs** (e.g., “Added 24 hr parts locker → P80 FTF + 3 pp”). A central service clusters similar tactics & surfaces top‑3 with best causal lift. |
+| **Bandit Allocation**      | When a PA sees a tactic with > 95 % confidence uplift elsewhere, the Playbook Generator auto‑tags it for A/B test locally (traffic 20 % B‑cell).                                                              |
+| **Reputation Score**       | Each PA accrues *“Innovation Delta”* points for tactics that replicated well elsewhere. The score is public; high scorers gain first access to new pilot features.                                            |
+| **Human SWAT Coaches**     | Have a dashboard that lists which PAs are exporting vs. importing wisdom. Coaches nudge laggards to adopt proven recipes.                                                                                     |
+
+---
+
+## 4 — Empowering Technicians Through Gamification & Data
+
+| Gamification Layer       | Data Signal Used                                                            | What the Tech Experiences                                                                                               | Performance Impact                                                                 |
+| ------------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Leaderboard** (opt‑in) | Composite “TechPower” score = revenue, FTF%, CSAT (normalized per job code) | See weekly rank vs. peers in same PA and vs. national P50 & P90.                                                        | Healthy competition lifts mid‑pack; outliers get noticed.                          |
+| **Sprint Missions**      | Real‑time tail detection from CEO agent                                     | E.g., “Cut recall < 8 % in 5 fridge jobs to earn 500 XP”                                                                | Micro‑focuses on weakest metric per tech.                                          |
+| **Peer Replay Library**  | AR session recordings auto‑posted by P90 techs (after opt‑in)               | Like a gaming “killcam”—techs watch best‑practice overlay.                                                              | Knowledge transfer with almost zero instructor time.                               |
+| **Co‑op Achievements**   | Cross‑tech event correlation (e.g., “team FTF > 90 % this week”)            | Unlock group badge + \$ bonus, fostering collaboration, not just solo score chasing.                                    | Reduces “lone‑wolf” behavior, builds mentoring habit.                              |
+| **Loot‑Box Parts Kit**   | Parts SKU prediction accuracy                                               | When a tech hits 10‑job streak where pre‑stage parts = 100 % usage, they get a mystery bonus kit (premium tools, swag). | Techs start scanning parts & closing out jobs accurately → better data for models. |
+
+All gamified events are **parameterised** so the PA CEO agent can A/B the reward size or requirement based on local culture & budget.
+
+---
+
+## 5 — Illustrative “Day in Life” Timeline
+
+| Time  | CEO Agent Tick (examples)                                                        | Technician Touch                                              | Customer Effect                                                                       |
+| ----- | -------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 06:10 | Spots surge in dishwasher bookings for zip 32837, P90 lateness forecast +45 min. | —                                                             | CEO agent auto‑unlocks \$10 surge pay windows; Recruiting SMSes dormant techs in zip. |
+| 07:32 | Detects P10 earnings tech “Jordan” trending down.                                | Corey push: “2 fridge jobs just opened nearby +\$34; accept?” | Better coverage for customer #44.                                                     |
+| 11:05 | Parts lead‑time CDF shows P95 spike for SKU R‑9923.                              | Parts Agent creates urgent locker buffer.                     | Reduces second‑visit risk.                                                            |
+| 18:00 | Hourly pulse shows NPS detractor cluster around one rookie tech.                 | Master Tech scheduled for on‑site shadow next morning.        | Prevents 1‑star social blast.                                                         |
+
+---
+
+## 6 — Metrics the PA CEO/COO Agent Owns
+
+| Objective                       | Distribution KPI It Controls       | Target Guard‑Band         |
+| ------------------------------- | ---------------------------------- | ------------------------- |
+| Customer Success                | P90 Customer Lateness, P10 NPS     | < 20 min, > 7             |
+| Technician Earnings & Retention | P10 Weekly Earnings, 90‑day churn  | > \$700, < 8 %            |
+| Quality & Cost                  | P90 Recall %, P90 Parts Cost Delta | < 10 %, < +15 % vs median |
+| Growth                          | Jobs / wk, GP %                    | +12 % YoY, > 15 %         |
+
+The agent doesn’t chase the mean; it **squeezes the tails inward and lifts the head**—because tails move the mean for free.
+
+---
+
+### Result
+
+* Each **Planning‑Area CEO/COO Agent** runs an hourly micro‑mgt loop plus a weekly OKR loop.
+* Distributed **crowd‑exchange learning** lets successes propagate laterally in hours, not quarters.
+* **Gamified data loops** turn technicians into engaged co‑optimisers, creating a virtuous cycle where better data → smarter agents → higher pay & CSAT → better data.
+
+Run this playbook in every planning area and you get *simultaneous local autonomy and global intelligence*—the hallmark of a modern, AI‑first service network.
